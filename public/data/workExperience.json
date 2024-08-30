@@ -1,0 +1,30 @@
+[
+{
+    "id": 1,
+    "name": "Optihorse",
+    "position": "IT Assistant",
+    "time": ["2013-07-01", "2018-03-01"],
+    "image": "optihorse.jpg"
+},
+{
+    "id": 2,
+    "name": "Heptagon ApS",
+    "position": "IT Assistant",
+    "time": ["2018-05-01", "present"],
+    "image": "heptagon.webp"
+},
+{
+    "id": 3,
+    "name": "DTU - Technical University of Denmark",
+    "position": "Teachers Assistant",
+    "time": ["2020-09-01", "present"],
+    "image": "dtu.png"
+},
+{
+    "id": 4,
+    "name": "Novo Nordisk A/S",
+    "position": "Student Data Engineer",
+    "time": ["2024-04-01", "present"],
+    "image": "novo.jpg"
+}
+]
