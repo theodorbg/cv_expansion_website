@@ -1,30 +1,64 @@
 [
-{
-    "id": 1,
-    "name": "Optihorse",
-    "position": "IT Assistant",
-    "time": ["2013-07-01", "2018-03-01"],
-    "image": "optihorse.jpg"
-},
-{
-    "id": 2,
-    "name": "Heptagon ApS",
-    "position": "IT Assistant",
-    "time": ["2018-05-01", "present"],
-    "image": "heptagon.webp"
-},
-{
-    "id": 3,
-    "name": "DTU - Technical University of Denmark",
-    "position": "Teachers Assistant",
-    "time": ["2020-09-01", "present"],
-    "image": "dtu.png"
-},
-{
-    "id": 4,
-    "name": "Novo Nordisk A/S",
-    "position": "Student Data Engineer",
-    "time": ["2024-04-01", "present"],
-    "image": "novo.jpg"
-}
+    {
+        "id": 1,
+        "name": "Optihorse",
+        "position": "IT Assistant",
+        "location": "Osted, Denmark",
+        "time": [
+            "2013-07-01",
+            "2018-03-01"
+        ],
+        "image": "optihorse.jpg",
+        "description": [
+            "Installed more than 50 computers for pop-up events.",
+            "Assisted in cataloging an inventory exceeding 2000 products."
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Heptagon ApS",
+        "position": "IT Assistant",
+        "location": "Osted, Denmark",
+        "time": [
+            "2018-05-01",
+            "present"
+        ],
+        "image": "heptagon.webp",
+        "description": [
+            "Participated in 3-day industrial SCADA course.",
+            "Resolved over 60 technical issues on company phones and computers.",
+            "Provided consultation on two distinct projects involving mechatronics and IoT integration."
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Technical University of Denmark",
+        "position": "Teachers Assistant",
+        "location": "Osted, Denmark",
+        "time": [
+            "2020-09-01",
+            "present"
+        ],
+        "image": "dtu.png",
+        "description": [
+            "Assisted in over 100 group work sessions for math and physics courses.",
+            "Privately tutored over 10 students, successfully elevating their grades from 00 to 7+ after initial exam failures."
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Novo Nordisk A/S",
+        "position": "Student Data Engineer",
+        "location": "Osted, Denmark",
+        "time": [
+            "2024-04-01",
+            "present"
+        ],
+        "image": "novo.jpg",
+        "description": [
+            "Built 10+ data pipelines and 4 dashboards through Palantir Foundry.",
+            "Maintained a PostgreSQL database by updating decrepitated views.",
+            "Built Databricks pipeline using Apache Spark."
+        ]
+    }
 ]

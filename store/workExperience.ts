@@ -6,8 +6,10 @@ interface WorkExperience {
   id: number,
   name: string,
   position: string,
+  location: string,
   time: string[],
   image: string,
+  description: string[]
 }
 
 export const useWorkExperience = create<{
