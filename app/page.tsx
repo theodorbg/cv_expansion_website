@@ -33,11 +33,15 @@ export default function Home() {
   const smallHeadLineClassName = "text-slate-100/50 text-lg font-bold -mt-6"
 
   return (
-    <main className="flex flex-col items-center" style={{ background: 'rgb(0, 0, 0)' }}>
+    <main className="flex flex-col items-center" style={{ background: 'rgb(20, 20, 20)' }}>
 
 
-      <div className="w-screen h-screen overflow-y-scroll scroll-smooth snap-y snap-proximity">
-
+<div className="w-screen h-screen overflow-y-scroll" style={{
+  scrollBehavior: "smooth",
+  scrollSnapType: "y mandatory",
+  scrollSnapStop: "always",
+  transition: "scroll 5s ease-in-out"
+}}>
         <Navbar />
 
         {/* --------------------- Landing page -------------------- */}
@@ -67,7 +71,7 @@ export default function Home() {
         <div id="experience"></div>
 
         <motion.div
-          className="snap-start flex flex-col items-center w-full h-full "
+          className="snap-start flex flex-col items-center w-full h-full"
         >
           <AnimatedHeadline title="Work Experience" />
 

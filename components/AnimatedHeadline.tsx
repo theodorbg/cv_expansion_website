@@ -13,9 +13,9 @@ const AnimatedHeadline = ({ title }) => {
       whileInView="whileInView"
     >
       <div className="flex w-full h-20 md:h-[120px] md:justify-center mt-24">
-        <h1 className="text-5xl md:text-7xl font-bold  text-white">{title}</h1>
+        <h1 className="text-5xl 2k:text-7xl font-bold  text-white">{title}</h1>
       </div>
-      <div className="flex md:justify-center w-full mt">
+      <div className="flex 2xl:justify-center w-full mt">
       </div>
     </motion.div>
   );
