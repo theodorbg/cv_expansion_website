@@ -24,9 +24,13 @@ export default function ContactMe() {
             <div className='w-2/3 h-full space-y-4'>
                 {iconItems.map((item, index) => (
                     <div key={index} className='flex flex-row items-center space-x-8'>
-                        <div className='bg-zinc-700 flex justify-center items-center rounded-xl' style={{ height: iconContainerSize, width: iconContainerSize }}>
-                            {item.icon}
-                        </div>
+                        <a href={item.href} target="_blank" rel="noopener noreferrer">
+                            <div className='bg-zinc-700 flex justify-center items-center rounded-xl transition duration-200 hover:bg-teal-600 cursor-pointer'
+                                style={{ height: iconContainerSize, width: iconContainerSize }}
+                            >
+                                {item.icon}
+                            </div>
+                        </a>
                         {item.href ? (
                             <a href={item.href} className="text-black text-2xl font-bold transition duration-200 hover:text-teal-600 hover:underline" target="_blank" rel="noopener noreferrer">
                                 {item.text}

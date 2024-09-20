@@ -25,7 +25,7 @@ export default function Home() {
   const smallHeadLineClassName = "text-black opacity-80 text-lg font-bold -mt-6"
 
   return (
-    <main className="flex flex-col items-center overflow-hidden" style={{ background: '#FBFBFB' }}>
+    <main className="flex flex-col items-center overflow-hidden scroll-smooth" style={{ background: '#FBFBFB', scrollBehavior:"smooth" }}>
 
       {/* --------------------- Landing page -------------------- */}
 

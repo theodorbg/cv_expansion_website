@@ -13,6 +13,8 @@ import {
     useSpring,
 } from "framer-motion";
 
+import { v4 as uuidv4 } from 'uuid';
+
 const now = DateTime.now();
 const present = now.toFormat('yyyy-MM-dd');
 
@@ -96,14 +98,14 @@ export default function WorkExperience() {
     return (
         <div className='w-full h-full flex flex-row overflow-visible'>
             <div className="relative w-full h-auto overflow-visible">
-            {verticalYearLines.map((line) => (
-                    <div key={line.year} className="absolute bottom-0 top-0 w-[5px] flex justify-center" style={{ left: `${line.position}%` }}>
+                {verticalYearLines.map((line) => (
+                    <div key={uuidv4()} className="absolute bottom-0 top-0 w-[5px] flex justify-center" style={{ left: `${line.position}%` }}>
                         <h1 className="text-4xl text-black">{line.year}</h1>
                         <div className="absolute bottom-0 top-14 w-full bg-black flex justify-center"></div>
                     </div>
                 ))}
-                {verticalMonthLines.map((line) => (
-                    <div key={line} className="absolute bottom-0 top-14 w-[1px] bg-black opacity-40" style={{ left: `${line}%` }}></div>
+                {verticalMonthLines.map((line, index) => (
+                    <div key={uuidv4()} className="absolute bottom-0 top-14 w-[1px] bg-black opacity-40" style={{ left: `${line}%` }}></div>
                 ))}
 
                 <div className="absolute top-14 w-full h-auto flex flex-col space-y-6 mt-3 overflow-visible"
@@ -113,10 +115,12 @@ export default function WorkExperience() {
                 //    transition: { duration: totalDuration,  ease: "linear" }
                 //}}
                 >
-                    {experienceData.map((exp) => (
+                    {experienceData.map((exp, index) => (
 
-                        <div className='relative' style={{ left: `${dateToPosition(exp.time[0])}%`, width: `${dateToPosition(exp.time[1]) - dateToPosition(exp.time[0])}%` }}>
+                        <div className='relative' style={{ left: `${dateToPosition(exp.time[0])}%`, width: `${dateToPosition(exp.time[1]) - dateToPosition(exp.time[0])}%` }}
+                        key={uuidv4()}>
                             <div
+                                key={uuidv4()}
                                 onMouseEnter={() => {
                                     setHoveredIndex(exp.id);
                                 }}
@@ -124,9 +128,7 @@ export default function WorkExperience() {
                                     setHoveredIndex(null);
                                 }}
 
-                                className="relative h-12 rounded-full flex flex-row items-center ps-1 bg-gradient-to-r from-emerald-400 to-cyan-400 border-2 border-zinc-400 overflow-hidden"
-                                key={exp.id}
-                                
+                                className="relative h-12 rounded-full flex flex-row items-center ps-1 bg-gradient-to-r from-teal-400 to-cyan-400 border-2 border-zinc-400 overflow-hidden"
                             >
 
                                 <div className='bg-white w-16 rounded-full overflow-hidden flex-shrink-0 flex justify-center items-center'>
@@ -137,7 +139,7 @@ export default function WorkExperience() {
                                     <h1 className="text-zinc-100 font-bold ps-2">{exp.name}</h1>
                                 </div>
                             </div>
-                            <AnimatePresence mode="popLayout">
+                            <AnimatePresence mode="popLayout" key={uuidv4()}>
                                 {hoveredIndex === exp.id && (
                                     <motion.div
                                         className='w-[650px] h-[300px] z-[9999] absolute flex justify-between p-4 rounded-2xl border-2 border-zinc-500 bg-zinc-100'
@@ -149,17 +151,17 @@ export default function WorkExperience() {
                                     >
                                         <div className='w-2/3 pe-8'>
                                             <h1 className="text-black font-bold text-xl">{exp.name}</h1>
-                                            <h2 className="text-m bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 font-bold">{exp.position}</h2>
+                                            <h2 className="text-m bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-400 font-bold">{exp.position}</h2>
                                             <ul className="list-disc pl-6 mt-4">
-                                                {exp.description.map((desc) => (
-                                                    <li key={desc} className='text-sm text-black'>{desc}</li>
+                                                {exp.description.map((desc, index) => (
+                                                    <li key={uuidv4()} className='text-sm text-black'>{desc}</li>
                                                 ))}
                                             </ul>
                                         </div>
 
                                         <div className='flex flex-col items-end w-1/3'>
-                                            <h1 className="text-black font-bold text-[15px] opacity-50">{exp.time[0]}  {"->"}  {exp.time[1]}</h1>
-                                            <h1 className="text-black text-m opacity-50">{exp.location}</h1>
+                                            <h1 className="text-teal-800 font-bold text-[15px] opacity-80">{exp.time[0]}  {"->"}  {exp.time[1]}</h1>
+                                            <h1 className="text-teal-800 text-m opacity-80">{exp.location}</h1>
                                             <div className='flex justify-end h-[75%] w-full my-4 bg-white p-8 rounded-lg border-2 border-zinc-200'>
                                                 <img src={`/experienceLogos/${exp.image}`} className="w-full h-full object-contain" />
                                             </div>

@@ -4,14 +4,16 @@ import {
   IconBriefcase,
   IconHammer,
   IconTerminal2,
-  IconChess
+  IconChess,
+  IconMail
 } from "@tabler/icons-react";
 
+const iconClassname = "h-full w-full text-neutral-500 dark:text-neutral-300";
 const links = [
     {
       title: "Home",
       icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconHome className={iconClassname} />
       ),
       href: "#home",
     },
@@ -19,21 +21,21 @@ const links = [
     {
       title: "Work Experience",
       icon: (
-        <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBriefcase className={iconClassname} />
       ),
       href: "#experience",
     },
     {
       title: "Projects",
       icon: (
-        <IconHammer className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconHammer className={iconClassname} />
       ),
       href: "#projects",
     },
     {
       title: "Skills",
       icon: (
-        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconTerminal2 className={iconClassname} />
       ),
       href: "#skills",
     },
@@ -41,9 +43,16 @@ const links = [
     {
       title: "Hobies",
       icon: (
-        <IconChess className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconChess className={iconClassname} />
       ),
       href: "#hobies",
+    },
+    {
+      title: "Contact me",
+      icon: (
+        <IconMail className={iconClassname} />
+      ),
+      href: "#contact",
     },
 
     
