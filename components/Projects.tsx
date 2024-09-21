@@ -15,11 +15,6 @@ interface project {
   fullImagePath: string[],
 }
 
-const fadeInAnimation = {
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1, transition: { duration: 1, delay: 0.3 } },
-};
-
 
 export default function Projects() {
   const [isClient, setisClient] = useState(false);
@@ -57,6 +52,7 @@ export default function Projects() {
               <h1 className="text-zinc-200 text-md font-bold">{project.title}</h1>
             </div>
           </div>
+          
 
           {chosenProject !== null && (
             <motion.div
@@ -113,7 +109,7 @@ export default function Projects() {
 
 
       ))}
-
+      
       {chosenProject !== null && (
         <div
           className="opacity-0 w-screen h-screen bg-purple-500 absolute z-[59]"

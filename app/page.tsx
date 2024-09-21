@@ -11,6 +11,8 @@ import HobbyTiles from "@/components/Hobbies";
 import Projects from "@/components/Projects";
 import ContactMe from "@/components/ContactMe";
 
+import AnimatedProjects from "@/components/animatedProjects";
+
 
 import { delay, motion } from 'framer-motion';
 
@@ -86,8 +88,8 @@ export default function Home() {
             <h4 className={smallHeadLineClassName}> I do personal projects all the time, here is a few notable ones as long with some from my studies</h4>
           </motion.div>
 
-          <div className="w-full h-[800px] mt-12 mb-12">
-            <Projects />
+          <div className="w-full h-full mt-12 mb-12">
+            <AnimatedProjects />
           </div>
 
         </div>
@@ -137,7 +139,7 @@ export default function Home() {
 
         <div id="contact"></div>
         <AnimatedHeadline title="Contact me" />
-        <div className="w-full h-[600px] mb-36 flex flex-col">
+        <div className="w-full h-[600px] mb-40 flex flex-col">
            <ContactMe />
         </div>
         

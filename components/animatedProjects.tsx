@@ -1,0 +1,166 @@
+"use client";
+
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+
+import { useProjects } from "@/store/projects";
+import { ArrowLeft, ArrowRight } from 'tabler-icons-react';
+import { v4 as uuidv4 } from 'uuid';
+
+interface project {
+    key: number,
+    title: string,
+    monthYear: string,
+    imagePath: string,
+    image: { path: string, args: string }[],
+    description: string[],
+    fullImagePath: string[],
+}
+
+const renderProjects = (projects: project[], direction: 'left' | 'right' = 'left', setChosenProject: (project: project) => void) => {
+    const projectWidth = 400;
+    const margin = 32;
+    const width = projects.length * (projectWidth + margin);
+    const totalWidth = (width + margin) * 2;
+    const duration = width / 20;
+
+    const animateX = direction === 'left' ? [-width, -2 * width] : [-width, 0];
+
+    return (
+        <motion.div
+            className="overflow-hidden h-full"
+            initial={{ x: width }}
+            animate={{ x: animateX }}
+            transition={{
+                duration: duration,
+                ease: 'linear',
+                repeat: Infinity,
+            }}
+        >
+            <div
+                className="flex flex-row items-center h-full space-x-8"
+                style={{ width: `${totalWidth}px` }}
+            >
+                {Array.from({ length: 3 }).map((_, i) =>
+                    projects.map((project) => (
+                        <motion.div
+                            key={uuidv4()}
+                            className="flex-shrink-0  bg-white rounded-2xl relative overflow-hidden"
+                            style={{ width: `${projectWidth}px`, height: '300px' }}
+                        >
+                            <img
+                                src={project.fullImagePath[0]}
+                                alt={`Skill ${project.key}`}
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity rounded-lg cursor-pointer"
+                                onClick={() => {
+                                    setChosenProject(project);
+                                }}>
+                                <span className="text-white text-md font-bold">{project.title}</span>
+                            </div>
+                        </motion.div>
+                    ))
+                )}
+            </div>
+        </motion.div>
+    );
+};
+
+
+export default function AnimatedProjects() {
+    const projects = useProjects((state) => state.projects);
+    const midIndex = Math.ceil(projects.length / 2);
+    const firstHalf = projects.slice(0, midIndex);
+    const secondHalf = projects.slice(midIndex);
+
+    const [chosenProject, setChosenProject] = useState<project | null>(null);
+    const [currentPictureIndex, setCurrentPictureIndex] = useState(0);
+    const [numberOfPicturesInProject, setNumberOfPicturesInProject] = useState(0);
+
+    useEffect(() => {
+        if (chosenProject) {
+            setNumberOfPicturesInProject(chosenProject.fullImagePath.length);
+        }
+    }, [chosenProject]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            console.log('Current chosen project:', chosenProject);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [chosenProject]);
+
+    return (
+        <div className='w-full h-[632px] relative '>
+            <div className='w-full h-full justify-center overflow-hidden'>
+                <div className='w-[8000px] flex flex-col space-y-8'>
+                    {renderProjects(firstHalf, "right", setChosenProject)}
+                    {renderProjects(secondHalf, "left", setChosenProject)}
+                </div>
+
+            </div>
+            {chosenProject !== null && (
+                <motion.div
+                    className="w-[1200px] min-h-[200px] max-h-[900px] bg-zinc-100 rounded-2xl border-zinc-500 border-4 z-[60] absolute"
+                    style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}
+
+                >
+                    <div className="flex flex-row w-full h-full relative">
+                        <div className="w-1/2 h-full flex flex-col justify-start">
+                            <h1 className="text-slate-800 text-4xl font-bold ps-8 pt-8">{chosenProject.title}</h1>
+                            <h1 className="text-teal-600 text-2xl font-bold ps-8">{chosenProject.monthYear}</h1>
+                            <div className="w-full h-full p-8 flex flex-col justify-between relative">
+                                <div className="w-1 bg-teal-400 absolute" style={{ top: "50px", left: "40px", bottom: "50px", transform: "translateX(-50%)" }} />
+                                {chosenProject.description.map((desc, i) => (
+                                    <div className="flex flex-row items-center h-12" key={i}>
+                                        <div className="w-4 h-4 rounded-full bg-teal-400 me-6 flex-shrink-0" />
+                                        <div className="text-slate-800 text-md font-bold">{desc}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="w-1/2 h-full right-0 p-4 absolute">
+                            <div className='w-full h-full bg-zinc-800 rounded-2xl'>
+                                <img
+                                    src={chosenProject.fullImagePath[currentPictureIndex]}
+                                    alt="project"
+                                    className="rounded-2xl h-full w-full object-contain"
+                                    style={{ userSelect: 'none' }}
+                                />
+                                <div className='absolute bottom-8 right-8 h-10 w-10 bg-zinc-400 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 cursor-pointer' style={{ userSelect: 'none' }} onClick={
+                                    () => {
+                                        console.log('clicked');
+                                        setCurrentPictureIndex(currentPictureIndex < (numberOfPicturesInProject - 1) ? (currentPictureIndex + 1) : 0);
+                                    }
+                                }>
+                                    <ArrowRight size={24} />
+                                </div>
+                                <div className='absolute bottom-8 left-8 h-10 w-10 bg-zinc-400 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 cursor-pointer' style={{ userSelect: 'none' }} onClick={
+                                    () => {
+                                        console.log('clicked');
+                                        setCurrentPictureIndex(currentPictureIndex > 0 ? (currentPictureIndex - 1) : (numberOfPicturesInProject - 1));
+                                    }
+                                }>
+                                    <ArrowLeft size={24} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
+            )}
+
+            {chosenProject !== null && (
+                <div
+                    className="opacity-0 w-screen h-screen bg-purple-500 absolute z-[59]"
+                    style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+                    onClick={() => {
+                        console.log('cleared selection');
+                        setChosenProject(null);
+                    }}
+                />
+            )}
+        </div>
+    );
+}

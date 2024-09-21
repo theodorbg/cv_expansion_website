@@ -104,18 +104,18 @@ export default function WorkExperience() {
                         <div className="absolute bottom-0 top-14 w-full bg-black flex justify-center"></div>
                     </div>
                 ))}
-                {verticalMonthLines.map((line, index) => (
+                {verticalMonthLines.map((line) => (
                     <div key={uuidv4()} className="absolute bottom-0 top-14 w-[1px] bg-black opacity-40" style={{ left: `${line}%` }}></div>
                 ))}
 
-                <div className="absolute top-14 w-full h-auto flex flex-col space-y-6 mt-3 overflow-visible"
-                //initial={{ clipPath: 'inset(0 100% 0 0)' }}
-                //whileInView={{
-                //    clipPath: 'inset(0 0 0 0)',
-                //    transition: { duration: totalDuration,  ease: "linear" }
-                //}}
+                <motion.div className="absolute top-14 w-full h-auto flex flex-col space-y-6 mt-3 overflow-visible"
+                initial={{ clipPath: 'inset(0 100% 0 0)' }}
+                whileInView={{
+                    clipPath: 'inset(0 0 0 0)',
+                    transition: { duration: totalDuration,  ease: "linear" }
+                }}
                 >
-                    {experienceData.map((exp, index) => (
+                    {experienceData.map((exp) => (
 
                         <div className='relative' style={{ left: `${dateToPosition(exp.time[0])}%`, width: `${dateToPosition(exp.time[1]) - dateToPosition(exp.time[0])}%` }}
                         key={uuidv4()}>
@@ -177,7 +177,7 @@ export default function WorkExperience() {
                         </div>
 
                     ))}
-                </div>
+                </motion.div>
             </div>
         </div>
     );
