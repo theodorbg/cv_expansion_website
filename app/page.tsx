@@ -4,7 +4,7 @@ import React, { use, useState, useEffect } from "react";
 /* ------------ Import aceternity components ------------- */
 
 import AnimatedHeadline from "@/components/AnimatedHeadline";
-import SkillCategory from "@/components/SkillCategory";
+//import SkillCategory from "@/components/SkillCategory";
 import WorkExperience from "@/components/workExperience";
 import Navbar from "@/components/navbar";
 import HobbyTiles from "@/components/Hobbies";
@@ -12,6 +12,7 @@ import Projects from "@/components/Projects";
 import ContactMe from "@/components/ContactMe";
 
 import AnimatedProjects from "@/components/animatedProjects";
+import SkillCategory from "@/components/SkillCategory2";
 
 
 import { delay, motion } from 'framer-motion';
@@ -58,7 +59,7 @@ export default function Home() {
         <div id="experience"></div>
 
         <motion.div
-          className="snap-start flex flex-col items-center w-full h-full overflow-visible"
+          className="snap-start flex flex-col items-center w-full h-full overflow-visible mt-16"
         >
           <AnimatedHeadline title="Work Experience" />
 
@@ -108,7 +109,7 @@ export default function Home() {
           </motion.div>
 
           <div className="w-full h-full mt-8 mb-12">
-          <SkillCategory />
+          <SkillCategory/>
           </div>
           
 

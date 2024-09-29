@@ -130,43 +130,5 @@
         "Configure virtual machines",
         "Setup Cloudflare tunnel for secure access through custom domain"
       ]
-    },
-    {
-      "key": 7,
-      "title": "Amera",
-      "monthYear": "December 2021",
-      "imagePath": "./projectPictures/dart/",
-      "image": [
-        { "path": "onWall.jpg", "args": "col-span-1 row-span-1" }
-      ],
-      "description": [
-        "Cut woods into strips and glue in an alternating pattern.",
-        "Cut and glued border.",
-        "Created a case for the pieces.",
-        "Acquired dark and light wood for black and white pieces respectively.",
-        "Cut again and flipped half the strips.",
-        "Milled both sites to achieve smooth finish.",
-        "Cut remaining wood into lathe-able pieces.",
-        "Turned the pieces."
-      ]
-    },
-    {
-      "key": 8,
-      "title": "Discy",
-      "monthYear": "December 2021",
-      "imagePath": "./projectPictures/dart/",
-      "image": [
-        { "path": "onWall.jpg", "args": "col-span-1 row-span-1" }
-      ],
-      "description": [
-        "Cut woods into strips and glue in an alternating pattern.",
-        "Cut and glued border.",
-        "Created a case for the pieces.",
-        "Acquired dark and light wood for black and white pieces respectively.",
-        "Cut again and flipped half the strips.",
-        "Milled both sites to achieve smooth finish.",
-        "Cut remaining wood into lathe-able pieces.",
-        "Turned the pieces."
-      ]
     }
   ]

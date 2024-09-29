@@ -41,7 +41,7 @@ const renderProjects = (projects: project[], direction: 'left' | 'right' = 'left
                 className="flex flex-row items-center h-full space-x-8"
                 style={{ width: `${totalWidth}px` }}
             >
-                {Array.from({ length: 3 }).map((_, i) =>
+                {Array.from({ length: 6 }).map((_, i) =>
                     projects.map((project) => (
                         <motion.div
                             key={uuidv4()}
