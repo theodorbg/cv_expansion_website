@@ -4,24 +4,14 @@ import React, { use, useState, useEffect } from "react";
 /* ------------ Import aceternity components ------------- */
 
 import AnimatedHeadline from "@/components/AnimatedHeadline";
-//import SkillCategory from "@/components/SkillCategory";
+import SkillCategory from "@/components/SkillCategory";
 import WorkExperience from "@/components/workExperience";
 import Navbar from "@/components/navbar";
 import HobbyTiles from "@/components/Hobbies";
-import Projects from "@/components/Projects";
+import AnimatedProjects from "@/components/animatedProjects";
 import ContactMe from "@/components/ContactMe";
 
-import AnimatedProjects from "@/components/animatedProjects";
-import SkillCategory from "@/components/SkillCategory2";
-
-
-import { delay, motion } from 'framer-motion';
-
-const fadeInAnimation = {
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1, transition: { duration: 1, delay: 0.3 } },
-};
-
+import { motion } from 'framer-motion';
 
 export default function Home() {
 

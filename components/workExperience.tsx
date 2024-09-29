@@ -4,7 +4,7 @@ import React from 'react';
 import { DateTime } from 'luxon';
 
 import { useWorkExperience } from '@/store/workExperience';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -17,6 +17,8 @@ const monthSpacing = 2;
 const totalDuration = 4;
 
 export default function WorkExperience() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [hoveredPosition, setHoveredPosition] = useState<DOMRect | null>(null);
@@ -119,10 +121,9 @@ export default function WorkExperience() {
 
                 <motion.div className="absolute top-14 w-full h-auto flex flex-col space-y-6 mt-3 overflow-visible"
                     initial={{ clipPath: 'inset(0 100% 0 0)' }}
-                    whileInView={{
-                        clipPath: 'inset(0 0 0 0)',
-                        transition: { duration: totalDuration, ease: "linear" }
-                    }}
+                    animate={isInView ? { clipPath: 'inset(0 0 0 0)' } : {}}
+                    transition={{ duration: totalDuration, ease: "linear" }}
+                    ref={ref}
                 >
                     {experienceData.map((exp, index) => (
 
