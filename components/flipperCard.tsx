@@ -20,9 +20,12 @@ export default function FlippingCard() {
         transition={{ duration: 1 }}
         style={{ perspective: 1000 }}
       >
+
         <motion.div
           className="absolute h-2/3 w-2/3 flex justify-center items-center"
-          style={{ backfaceVisibility: 'hidden' }}
+          animate={{ rotateY: isFlipped ? 180 : 0 }}
+          transition={{ duration: 1 }}
+          style={{ perspective: 1000 }}
         >
           <img
             src="experienceLogos/dtu.png"
@@ -30,16 +33,7 @@ export default function FlippingCard() {
             className="h-full w-full object-contain"
           />
         </motion.div>
-        <motion.div
-          className="absolute h-2/3 w-2/3 flex justify-center items-center"
-          style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}
-        >
-          <img
-            src="experienceLogos/dtu.png"
-            alt="DTU logo"
-            className="h-full w-full object-contain"
-          />
-        </motion.div>
+
       </motion.div>
     </div>
   );

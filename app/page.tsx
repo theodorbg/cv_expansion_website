@@ -78,12 +78,6 @@ export default function Home() {
             <h4 className={smallHeadLineClassName}> I have been working since my early teens, here is a quick overview of the companies i have contribuated to</h4>
           </motion.div>
 
-          <div className="w-full h-[500px] mt-8 grid grid-cols-3 gap-8 overflow-hidden">
-            <div className="flex justify-center items-center h-full rounded-2xl shadow-md border-[6px] border-zinc-300">
-              <img src="experienceLogos/dtu.png" alt="DTU logo" className="h-2/3 w-2/3 object-contain" />
-            </div>
-          </div>
-
           <FlippingCard />
 
         </motion.div>
