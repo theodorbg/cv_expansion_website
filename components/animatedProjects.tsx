@@ -112,9 +112,9 @@ export default function AnimatedProjects() {
                             <h1 className="text-slate-800 text-4xl font-bold ps-8 pt-8">{chosenProject.title}</h1>
                             <h1 className="text-teal-600 text-2xl font-bold ps-8">{chosenProject.monthYear}</h1>
                             <div className="w-full h-full p-8 flex flex-col justify-between relative">
-                                <div className="w-1 bg-teal-400 absolute" style={{ top: "50px", left: "40px", bottom: "50px", transform: "translateX(-50%)" }} />
+                                <div className="w-1 bg-teal-400 absolute" style={{ top: "52px", left: "40px", bottom: "52px", transform: "translateX(-50%)" }} />
                                 {chosenProject.description.map((desc, i) => (
-                                    <div className="flex flex-row items-center h-12" key={i}>
+                                    <div className="flex flex-row items-center h-14" key={i}>
                                         <div className="w-4 h-4 rounded-full bg-teal-400 me-6 flex-shrink-0" />
                                         <div className="text-slate-800 text-md font-bold">{desc}</div>
                                     </div>
@@ -158,6 +158,7 @@ export default function AnimatedProjects() {
                     onClick={() => {
                         console.log('cleared selection');
                         setChosenProject(null);
+                        setCurrentPictureIndex(0);
                     }}
                 />
             )}

@@ -56,7 +56,7 @@ export default function Projects() {
 
           {chosenProject !== null && (
             <motion.div
-            className="w-[1200px] min-h-[200px] max-h-[900px] bg-zinc-100 rounded-2xl border-zinc-500 border-4 absolute z-[60]"
+            className="w-[1200px] min-h-[200px] max-h-[1000px] bg-zinc-100 rounded-2xl border-zinc-500 border-4 absolute z-[60]"
             style={{ top: "50%", left: "50%" }}
             initial={{ opacity: 0, scale: 0, x: '-50%', y: "-50%" }}
             animate={{ opacity: 1, scale: 1, x: '-50%', y: "-50%", transition: { duration: 0.2 } }}
