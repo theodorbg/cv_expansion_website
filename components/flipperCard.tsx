@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface CardProps {
   imgSrc: string;
   delay: number;
-  onClick: () => void;
+  onClick: (position: { x: number; y: number; width: number; height: number }) => void;
 }
 
 interface Education {
@@ -19,6 +19,7 @@ interface Education {
 
 const Card: React.FC<CardProps> = ({ imgSrc, delay, onClick }) => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,8 +29,23 @@ const Card: React.FC<CardProps> = ({ imgSrc, delay, onClick }) => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleClick = () => {
+    if (cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      const parentRect = cardRef.current.parentElement?.getBoundingClientRect();
+      if (parentRect) {
+        onClick({
+          x: rect.left - parentRect.left,
+          y: rect.top - parentRect.top,
+          width: rect.width,
+          height: rect.height,
+        });
+      }
+    }
+  };
+
   return (
-    <div className="w-full h-[400px] overflow-hidden" onClick={onClick}>
+    <div className="w-full h-[400px] overflow-hidden" ref={cardRef} onClick={handleClick}>
       <motion.div
         className="relative flex justify-center items-center h-full rounded-2xl shadow-md border-[6px] border-zinc-300 cursor-pointer"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
@@ -56,6 +72,7 @@ const Card: React.FC<CardProps> = ({ imgSrc, delay, onClick }) => {
 export default function FlippingCard() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [chosenEducation, setChosenEducation] = useState<Education | null>(null);
+  const [popupPosition, setPopupPosition] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,45 +84,65 @@ export default function FlippingCard() {
 
   const delay_time = 0.4;
 
+  const handleCardClick = (education: Education, position: { x: number; y: number; width: number; height: number }) => {
+    setChosenEducation(education);
+    setPopupPosition(position);
+  };
+
   return (
     <div className='w-full h-full grid grid-cols-3 gap-8 relative'>
-      <Card imgSrc="experienceLogos/htxlogo.png" delay={isFlipped ? delay_time : delay_time * 3} onClick={() => { setChosenEducation(education_data[0]) }} />
-      <Card imgSrc="experienceLogos/dtu.png" delay={isFlipped ? delay_time * 2 : delay_time * 2} onClick={() => { setChosenEducation(education_data[1]) }} />
-      <Card imgSrc="experienceLogos/dtu.png" delay={isFlipped ? delay_time * 3 : delay_time} onClick={() => { setChosenEducation(education_data[2]) }} />
+      <Card 
+        imgSrc="experienceLogos/htxlogo.png" 
+        delay={isFlipped ? delay_time : delay_time * 3} 
+        onClick={(position) => handleCardClick(education_data[0], position)} 
+      />
+      <Card 
+        imgSrc="experienceLogos/dtu.png" 
+        delay={isFlipped ? delay_time * 2 : delay_time * 2} 
+        onClick={(position) => handleCardClick(education_data[1], position)} 
+      />
+      <Card 
+        imgSrc="experienceLogos/dtu.png" 
+        delay={isFlipped ? delay_time * 3 : delay_time} 
+        onClick={(position) => handleCardClick(education_data[2], position)} 
+      />
 
-      {chosenEducation && (
-        <motion.div
-          className="w-4/5 h-[400px] bg-zinc-100 rounded-2xl border-zinc-500 border-4 absolute z-[60] cursor-pointer flex flex-row justify-between"
-          style={{ top: "50%", left: "50%" }}
-          initial={{ opacity: 0, scale: 0, x: '-50%', y: "-50%" }}
-          animate={{ opacity: 1, scale: 1, x: '-50%', y: "-50%", transition: { duration: 0.2 } }}
-          exit={{ opacity: 0, scale: 0 }}
-          onClick={() => setChosenEducation(null)}
-        >
-          <div className="p-8 flex flex-row justify-between w-full">
-            <div className='flex flex-col items-start'>
-              <h1 className='text-black font-bold text-4xl'>{chosenEducation.title}</h1>
-              <h2 className='text-red-600 font-bold text-2xl opacity-80 mt-2'>{chosenEducation.subtitle}</h2>
+      <AnimatePresence>
+        {chosenEducation && popupPosition && (
+          <motion.div
+            className="bg-zinc-50 rounded-2xl border-zinc-500 border-4 absolute z-[60] cursor-pointer flex flex-row justify-between"
+            initial={{ x: popupPosition.x, y: popupPosition.y, width: popupPosition.width, height: popupPosition.height, opacity: 0 }}
+            animate={{ width: '900px', height: '500px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', opacity: 1 }}
+            exit={{ x: popupPosition.x, y: popupPosition.y, width: popupPosition.width, height: popupPosition.height, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setChosenEducation(null)}
+          >
+            <div className="p-8 flex flex-row w-full">
+              <div className='flex flex-col items-start w-2/3'>
+                <h1 className='text-black font-bold text-3xl'>{chosenEducation.title}</h1>
+                <h2 className='text-red-600 font-bold text-xl opacity-80 mt-2'>{chosenEducation.subtitle}</h2>
+              </div>
+              <div className='flex flex-col w-1/3 items-end'>
+                <h1 className='text-black font-bold text-2xl opacity-80'>{chosenEducation.year}</h1>
+                <h2 className='text-black font-bold text-xl opacity-60 mt-2'>{chosenEducation.location}</h2>
+              </div>
             </div>
-            <div className='flex flex-col items-end'>
-              <h1 className='text-black font-bold text-4xl opacity-80'>{chosenEducation.year}</h1>
-              <h2 className='text-black font-bold text-2xl opacity-60 mt-2'>{chosenEducation.location}</h2>
+            <div className="w-[350px] h-full py-8 pe-8 flex justify-center items-center">
+              <div className='w-full h-full bg-white rounded-xl flex justify-center items-center p-4'>
+              <img src={chosenEducation.img} alt="education" className="w-full h-full object-contain" />
+              </div>
             </div>
-          </div>
-          <div className="w-1/3 h-full p-8">
-            <img src={chosenEducation.img} alt="education" className="w-full h-full object-contain" />
-          </div>
 
-          <div className='w-screen h-screen z-[70] opacity-0 absolute cursor-default' 
-           style={{ top: "50%", left: "50%", transform:"translate(-50%,-50%)" }}
-           onClick={() => setChosenEducation(null)}>
-          </div>
-        </motion.div>
-      )}
+            <div className='w-screen h-screen z-[70] opacity-0 absolute cursor-default'
+              style={{ top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}
+              onClick={() => setChosenEducation(null)}>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
-
 
 const education_data = [
   {
@@ -135,4 +172,4 @@ const education_data = [
     location: "Kongens Lyngby",
     description: "After high school, i started studying mechanical engineering at the Technical University of Denmark. Here i learned the basics of mechanical engineering, and got a good foundation for my further studies in mechanical engineering",
   },
-]
+];

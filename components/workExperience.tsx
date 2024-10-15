@@ -81,45 +81,41 @@ export default function WorkExperience() {
                     <div key={uuidv4()} className="absolute bottom-0 top-14 w-[1px] bg-black opacity-40" style={{ left: `${line}%` }}></div>
                 ))}
 
-                <AnimatePresence mode="popLayout" key={uuidv4()}>
-                    {hoveredIndex && (
-                        <div className='w-full h-full relative'>
-                            <motion.div
-                                className='w-[650px] h-[300px] z-[9999] fixed flex justify-between p-4 rounded-2xl border-2 border-zinc-500 bg-zinc-100'
-                                style={{
-                                    left: `${hoveredPosition ? hoveredPosition.left + hoveredPosition.width / 2 : 0}px`,
-                                    top: `${hoveredPosition ? hoveredPosition.top - 332 : 0}px`
-                                }}
-                                initial={{ opacity: 0, scale: 0, x: '-50%', y: "160px" }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0, x: '-50%', y: "160px" }}
-                                transition={{ duration: 0.3, ease: 'easeOut' }}
-                            >
-                                <div className='w-2/3 pe-8'>
-                                    <h1 className="text-black font-bold text-xl">{experienceData[hoveredIndex - 1].name}</h1>
-                                    <h2 className="text-m bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-400 font-bold">{experienceData[hoveredIndex - 1].position}</h2>
-                                    <ul className="list-disc pl-6 mt-4">
-                                        {experienceData[hoveredIndex - 1].description.map((desc, index) => (
-                                            <li key={uuidv4()} className='text-sm text-black'>{desc}</li>
-                                        ))}
-                                    </ul>
-                                </div>
+<AnimatePresence mode="popLayout">
+  {hoveredIndex !== null && hoveredIndex !== undefined && (
+    <div className='w-full h-full relative' key={hoveredIndex}>
+      <motion.div
+        className='w-[650px] h-[300px] z-[9999] fixed flex justify-between p-4 rounded-2xl border-2 border-zinc-500 bg-zinc-100'
+        style={{
+          left: `${hoveredPosition ? hoveredPosition.left + hoveredPosition.width / 2 : 0}px`,
+          top: `${hoveredPosition ? hoveredPosition.top - 332 : 0}px`
+        }}
+        initial={{ opacity: 0, scale: 0, x: '-50%', y: "160px" }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0, x: '-50%', y: "160px" }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className='w-2/3 pe-8'>
+          <h1 className="text-black font-bold text-xl">{experienceData[hoveredIndex - 1].name}</h1>
+          <h2 className="text-m bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-400 font-bold">{experienceData[hoveredIndex - 1].position}</h2>
+          <ul className="list-disc pl-6 mt-4">
+            {experienceData[hoveredIndex - 1].description.map((desc, index) => (
+              <li key={uuidv4()} className='text-sm text-black'>{desc}</li>
+            ))}
+          </ul>
+        </div>
 
-                                <div className='flex flex-col items-end w-1/3'>
-                                    <h1 className="text-teal-800 font-bold text-[15px] opacity-80">{experienceData[hoveredIndex - 1].time[0]}  {"->"}  {experienceData[hoveredIndex - 1].time[1]}</h1>
-                                    <h1 className="text-teal-800 text-m opacity-80">{experienceData[hoveredIndex - 1].location}</h1>
-                                    <div className='flex justify-end h-[75%] w-full my-4 bg-white p-8 rounded-lg border-2 border-zinc-200'>
-                                        <img src={`/experienceLogos/${experienceData[hoveredIndex - 1].image}`} className="w-full h-full object-contain" />
-                                    </div>
-
-                                </div>
-
-
-                            </motion.div>
-                        </div>
-                    )}
-
-                </AnimatePresence>
+        <div className='flex flex-col items-end w-1/3'>
+          <h1 className="text-teal-800 font-bold text-[15px] opacity-80">{experienceData[hoveredIndex - 1].time[0]}  {"->"}  {experienceData[hoveredIndex - 1].time[1]}</h1>
+          <h1 className="text-teal-800 text-m opacity-80">{experienceData[hoveredIndex - 1].location}</h1>
+          <div className='flex justify-end h-[75%] w-full my-4 bg-white p-8 rounded-lg border-2 border-zinc-200'>
+            <img src={`/experienceLogos/${experienceData[hoveredIndex - 1].image}`} className="w-full h-full object-contain" />
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  )}
+</AnimatePresence>
 
                 <motion.div className="absolute top-14 w-full h-auto flex flex-col space-y-6 mt-3 overflow-visible"
                     initial={{ clipPath: 'inset(0 100% 0 0)' }}

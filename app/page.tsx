@@ -9,7 +9,6 @@ import SkillCategory from "@/components/SkillCategory";
 import WorkExperience from "@/components/workExperience";
 import Navbar from "@/components/navbar";
 import HobbyFrames from "@/components/hobbyFrames";
-import HobbyTiles from "@/components/Hobbies";
 import AnimatedProjects from "@/components/animatedProjects";
 import FlippingCard from "@/components/flipperCard";
 
@@ -19,7 +18,7 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
 
-  const smallHeadLineClassName = "text-black opacity-80 text-lg font-bold -mt-6"
+  const smallHeadLineClassName = "text-black opacity-80 text-lg font-bold -mt-6 w-[80%] text-center";
 
   const elementRef = useRef<HTMLDivElement>(null);
   const [mainPageHeight, setMainPageHeight] = useState(0);
@@ -73,7 +72,6 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center overflow-hidden scroll-smooth bg-white" style={{ background: '#FBFBFB' }}>
-
       {/* --------------------- Landing page -------------------- */}
       <div id="home"></div>
       <FrontPage />
@@ -106,7 +104,7 @@ export default function Home() {
         >
           <AnimatedHeadline title="Work Experience" />
 
-          <motion.div className="mb-12">
+          <motion.div className="mb-12 flex justify-center">
             <h4 className={smallHeadLineClassName}> I have been working since my early teens, here is a quick overview of the companies i have contribuated to</h4>
           </motion.div>
 
@@ -126,8 +124,8 @@ export default function Home() {
         >
           <AnimatedHeadline title="Education" />
 
-          <motion.div className="mb-12">
-            <h4 className={smallHeadLineClassName}> I have been working since my early teens, here is a quick overview of the companies i have contribuated to</h4>
+          <motion.div className="mb-12 flex justify-center">
+            <h4 className={smallHeadLineClassName}> I have a masters degree in mechanical engineering, here is an overview of my education earning that title</h4>
           </motion.div>
 
           <FlippingCard />
@@ -146,8 +144,8 @@ export default function Home() {
           className="snap-start flex flex-col items-center w-full h-full mt-24"
         >
           <AnimatedHeadline title="Projects" />
-          <motion.div >
-            <h4 className={smallHeadLineClassName}> I do personal projects all the time, here is a few notable ones as long with some from my studies</h4>
+          <motion.div className=" flex justify-center">
+            <h4 className={smallHeadLineClassName}> I do personal projects all the time, here is a few notable ones, as long with some from my studies</h4>
           </motion.div>
 
           <div className="w-full h-full mt-12">
@@ -165,8 +163,8 @@ export default function Home() {
         >
           <AnimatedHeadline title="Skills" />
 
-          <motion.div >
-            <h4 className={smallHeadLineClassName}> Through Work, School and spare time projects, i gained experience in a veriety of programs and languages. Here is a quick categorized overview</h4>
+          <motion.div className="flex justify-center">
+            <h4 className={smallHeadLineClassName}> Through Work, School and spare time projects, i have gained experience in a veriety of applications and programming languages. Here is a quick categorized overview of my skilllevel</h4>
           </motion.div>
 
           <div className="w-full h-full mt-12">
@@ -187,11 +185,11 @@ export default function Home() {
         >
           <AnimatedHeadline title="Hobbies" />
 
-          <motion.div >
-            <h4 className={smallHeadLineClassName}> Here is a quick overview of how i spend my spare time, click the images for more information!</h4>
+          <motion.div className=" flex justify-center">
+            <h4 className={smallHeadLineClassName}> Here is a quick overview of what I like to do in my spare time</h4>
           </motion.div>
 
-          <motion.div className="w-full h-[800px] mt-16 mb-48">
+          <motion.div className="w-full h-[500px] 2k:h-[700px] mt-16 mb-48">
             <HobbyFrames />
           </motion.div>
 

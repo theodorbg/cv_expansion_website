@@ -69,7 +69,7 @@ export default function SkillCategory() {
     }
 
     return (
-        <div className='h-full' style={{ columns: "400px" }} ref={ref}>
+        <div className='h-full columns-2xs 2k:columns-sm'  ref={ref}>
             {skillArray.map((skills, index) => (
                 <div className="border-[6px] border-zinc-300 rounded-2xl mb-4" key={uuidv4()} style={{ breakInside: "avoid" }}>
                     <h1 className="text-3xl font-bold text-black text-center my-6">{skillNames[index]}</h1>

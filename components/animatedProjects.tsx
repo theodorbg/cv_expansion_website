@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
 
 import { useProjects } from "@/store/projects";
 import { ArrowLeft, ArrowRight } from 'tabler-icons-react';
@@ -26,6 +26,8 @@ const renderProjects = (projects: project[], direction: 'left' | 'right' = 'left
 
     const animateX = direction === 'left' ? [-width, -2 * width] : [-width, 0];
 
+    const projectRef = useRef<HTMLDivElement>(null);
+
     return (
         <motion.div
             className="overflow-hidden h-full"
@@ -47,6 +49,7 @@ const renderProjects = (projects: project[], direction: 'left' | 'right' = 'left
                             key={uuidv4()}
                             className="flex-shrink-0  bg-white rounded-2xl relative overflow-hidden"
                             style={{ width: `${projectWidth}px`, height: '300px' }}
+                            ref={projectRef}
                         >
                             <img
                                 src={project.fullImagePath[0]}
@@ -101,55 +104,59 @@ export default function AnimatedProjects() {
                 </div>
 
             </div>
-            {chosenProject !== null && (
-                <motion.div
-                    className="w-[1200px] min-h-[200px] max-h-[900px] bg-zinc-100 rounded-2xl border-zinc-500 border-4 z-[60] absolute"
-                    style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}
-
-                >
-                    <div className="flex flex-row w-full h-full relative">
-                        <div className="w-1/2 h-full flex flex-col justify-start">
-                            <h1 className="text-slate-800 text-4xl font-bold ps-8 pt-8">{chosenProject.title}</h1>
-                            <h1 className="text-teal-600 text-2xl font-bold ps-8">{chosenProject.monthYear}</h1>
-                            <div className="w-full h-full p-8 flex flex-col justify-between relative">
-                                <div className="w-1 bg-teal-400 absolute" style={{ top: "52px", left: "40px", bottom: "52px", transform: "translateX(-50%)" }} />
-                                {chosenProject.description.map((desc, i) => (
-                                    <div className="flex flex-row items-center h-14" key={i}>
-                                        <div className="w-4 h-4 rounded-full bg-teal-400 me-6 flex-shrink-0" />
-                                        <div className="text-slate-800 text-md font-bold">{desc}</div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="w-1/2 h-full right-0 p-4 absolute">
-                            <div className='w-full h-full bg-zinc-800 rounded-2xl'>
-                                <img
-                                    src={chosenProject.fullImagePath[currentPictureIndex]}
-                                    alt="project"
-                                    className="rounded-2xl h-full w-full object-contain"
-                                    style={{ userSelect: 'none' }}
-                                />
-                                <div className='absolute bottom-8 right-8 h-10 w-10 bg-zinc-400 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 cursor-pointer' style={{ userSelect: 'none' }} onClick={
-                                    () => {
-                                        console.log('clicked');
-                                        setCurrentPictureIndex(currentPictureIndex < (numberOfPicturesInProject - 1) ? (currentPictureIndex + 1) : 0);
-                                    }
-                                }>
-                                    <ArrowRight size={24} />
-                                </div>
-                                <div className='absolute bottom-8 left-8 h-10 w-10 bg-zinc-400 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 cursor-pointer' style={{ userSelect: 'none' }} onClick={
-                                    () => {
-                                        console.log('clicked');
-                                        setCurrentPictureIndex(currentPictureIndex > 0 ? (currentPictureIndex - 1) : (numberOfPicturesInProject - 1));
-                                    }
-                                }>
-                                    <ArrowLeft size={24} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-            )}
+            <AnimatePresence>
+  {chosenProject !== null && (
+    <motion.div
+    className="w-[900px] 2k:w-[1200px] min-h-[200px] max-h-[900px] bg-zinc-100 rounded-2xl border-zinc-500 border-4 z-[60] absolute"
+      initial={{ left: "50%", top: "50%", transform: "translate(-50%, -50%) scale(0)" }}
+      animate={{ left: "50%", top: "50%", transform: "translate(-50%, -50%) scale(1)" }}
+      exit={{ left: "50%", top: "50%", transform: "translate(-50%, -50%) scale(0)" }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="flex flex-row w-full h-full relative">
+        <div className="w-1/2 h-full flex flex-col justify-start">
+          <h1 className="text-slate-800 text-4xl font-bold ps-8 pt-8">{chosenProject.title}</h1>
+          <h1 className="text-teal-600 text-2xl font-bold ps-8">{chosenProject.monthYear}</h1>
+          <div className="w-full h-full p-8 flex flex-col justify-between relative">
+            <div className="w-1 bg-teal-400 absolute" style={{ top: "52px", left: "40px", bottom: "52px", transform: "translateX(-50%)" }} />
+            {chosenProject.description.map((desc, i) => (
+              <div className="flex flex-row items-center h-14" key={i}>
+                <div className="w-4 h-4 rounded-full bg-teal-400 me-6 flex-shrink-0" />
+                <div className="text-slate-800 text-sm 2k:text-md font-bold">{desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="w-1/2 h-full right-0 p-4 absolute">
+          <div className='w-full h-full bg-zinc-800 rounded-2xl'>
+            <img
+              src={chosenProject.fullImagePath[currentPictureIndex]}
+              alt="project"
+              className="rounded-2xl h-full w-full object-contain"
+              style={{ userSelect: 'none' }}
+            />
+            <div className='absolute bottom-8 right-8 h-10 w-10 bg-zinc-400 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 cursor-pointer' style={{ userSelect: 'none' }} onClick={
+              () => {
+                console.log('clicked');
+                setCurrentPictureIndex(currentPictureIndex < (numberOfPicturesInProject - 1) ? (currentPictureIndex + 1) : 0);
+              }
+            }>
+              <ArrowRight size={24} />
+            </div>
+            <div className='absolute bottom-8 left-8 h-10 w-10 bg-zinc-400 rounded-full flex items-center justify-center hover:scale-105 transition duration-200 cursor-pointer' style={{ userSelect: 'none' }} onClick={
+              () => {
+                console.log('clicked');
+                setCurrentPictureIndex(currentPictureIndex > 0 ? (currentPictureIndex - 1) : (numberOfPicturesInProject - 1));
+              }
+            }>
+              <ArrowLeft size={24} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
             {chosenProject !== null && (
                 <div

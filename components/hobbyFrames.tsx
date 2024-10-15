@@ -159,12 +159,12 @@ export default function HobbyFrames() {
     const [selectedHobbyPosition, setSelectedHobbyPosition] = React.useState<{ x: number; y: number, width: number, height: number } | null>(null);
 
     return (
-        <div className="w-full h-[700px] relative">
+        <div className="w-full h-full relative">
             <AnimatePresence>
                 {hobbyInformation.map((hobby, index) => (
                     <motion.div
                         key={index}
-                        className="absolute border-4 border-zinc-300 rounded-xl overflow-hidden cursor-pointer transform transition-transform duration-300 hover:scale-110 flex justify-center items-center group"
+                        className="absolute border-4 border-zinc-300 rounded-xl overflow-hidden cursor-pointer transform transition-transform duration-300  flex justify-center items-center group"
                         style={FramePositions[index]}
                         onClick={() => {
                             setSelectedHobby(hobby)
@@ -211,8 +211,8 @@ export default function HobbyFrames() {
                             animate={{
                                 top: "50%",
                                 left: "50%",
-                                width: "850px",
-                                height: "450px",
+                                width: window.innerWidth > 2400 ? "850px" : "600px",
+                                height: window.innerHeight > 1300 ? "450px" : "300px",
                                 transform: "translate(-50%, -50%)",
                             }}
                             exit={{
