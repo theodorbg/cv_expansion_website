@@ -28,7 +28,7 @@ export default function Home() {
   const [fixedPosition, setFixedPosition] = useState("0px");
   const [totalHeight, setTotalHeight] = useState(0);
 
-  const lag = 500;
+  const lag = 200;
 
   useEffect(() => {
     // Set the initial values for frontPagelag and mainPageHeight

@@ -62,8 +62,7 @@ const Card: React.FC<CardProps> = ({ imgSrc, delay, onClick }) => {
           <Image
             src={imgSrc}
             alt="DTU logo"
-            layout='fill'
-            objectFit='contain'
+            fill style={{ objectFit: 'contain' }}
           />
         </motion.div>
       </motion.div>
