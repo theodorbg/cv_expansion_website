@@ -20,21 +20,25 @@ export default function Home() {
 
   const smallHeadLineClassName = "text-black opacity-80 text-lg font-bold -mt-6 w-[80%] text-center";
 
+  const lag = 800;
+  const lastPageHeight = 250;
+
   const elementRef = useRef<HTMLDivElement>(null);
   const [mainPageHeight, setMainPageHeight] = useState(0);
-  const [frontPagelag, setFrontPagelag] = useState(0);
+  const [frontPagelag, setFrontPagelag] = useState(lag);
   const frontPagelagRef = useRef(frontPagelag);
   const [isSticky, setIsSticky] = useState(false);
   const [fixedPosition, setFixedPosition] = useState("0px");
   const [totalHeight, setTotalHeight] = useState(0);
   const [animateWorkExperience, setAnimateWorkExperience] = useState(false);
 
-  const lag = 200;
+ 
 
   useEffect(() => {
     // Set the initial values for frontPagelag and mainPageHeight
     setFrontPagelag(window.innerHeight + lag);
     setMainPageHeight(elementRef.current ? elementRef.current.getBoundingClientRect().height : 0);
+    console.log("frontPagelag", frontPagelag);
 
     // Reset scroll position to top on page refresh
     window.scrollTo(0, 0);
@@ -43,7 +47,7 @@ export default function Home() {
   useEffect(() => {
     const updateHeights = () => {
       frontPagelagRef.current = frontPagelag;
-      setTotalHeight(mainPageHeight + frontPagelag + window.innerHeight + lag);
+      setTotalHeight(frontPagelag + mainPageHeight + lag + lastPageHeight );
     };
 
     // Initial update
@@ -90,7 +94,7 @@ export default function Home() {
       {/* --------------------- Landing page -------------------- */}
       <div id="home"></div>
       <FrontPage />
-      <BackPage elementHeight={mainPageHeight + frontPagelag + 200} />
+      <BackPage elementHeight={mainPageHeight + frontPagelag + lag} />
 
       {/* --------------------- Contact me -------------------- */}
 
@@ -202,7 +206,7 @@ export default function Home() {
             <h4 className={smallHeadLineClassName}> Here is a quick overview of what I like to do in my spare time</h4>
           </motion.div>
 
-          <motion.div className="w-full h-[500px] 2k:h-[700px] mt-16 mb-48">
+          <motion.div className="w-full h-[500px] 2k:h-[650px] mt-16 mb-[350px]">
             <HobbyFrames />
           </motion.div>
 
