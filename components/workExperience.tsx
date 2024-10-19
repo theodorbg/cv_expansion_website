@@ -5,13 +5,13 @@ import { DateTime } from 'luxon';
 
 import { useWorkExperience } from '@/store/workExperience';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { useEffect, useState, useRef } from 'react';
+import {  useState, useRef } from 'react';
 import Image from 'next/image';
+import { cubicBezier } from "framer-motion"
 
 import { v4 as uuidv4 } from 'uuid';
 
 const now = DateTime.now();
-const present = now.toFormat('yyyy-MM-dd');
 
 const yearSpacing = 2;
 const monthSpacing = 2;
@@ -114,7 +114,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                     </div>
 
                                     <div className='flex flex-col items-end w-1/3'>
-                                        <h1 className="text-teal-800 font-bold text-[15px] opacity-80">{experienceData[hoveredIndex - 1].time[0]}  {"->"}  {experienceData[hoveredIndex - 1].time[1]}</h1>
+                                        <h1 className="text-teal-800 font-bold text-[15px] opacity-80">{DateTime.fromISO(experienceData[hoveredIndex - 1].time[0]).toFormat('dd/MM/yyyy')}  {"->"}  {experienceData[hoveredIndex - 1].time[1] === "present" ? "Present" : DateTime.fromISO(experienceData[hoveredIndex - 1].time[1]).toFormat('dd/MM/yyyy')}</h1>
                                         <h1 className="text-teal-800 text-m opacity-80">{experienceData[hoveredIndex - 1].location}</h1>
                                         <div className='flex justify-end h-[75%] w-full my-4 bg-white p-4 rounded-lg border-2 border-zinc-200'>
                                             <div className='relative w-full h-full'>
@@ -168,6 +168,16 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                 </div>
                             </div>
                         ))}
+                        
+                    </motion.div>
+                    <motion.div className="absolute bottom-0 top-14 w-1" 
+                    initial={{left:"0px", transform: "translateX(-50%)"}}
+                    animate={(isInView && animate) ? { left:"100%" } : {}}
+                    transition={{ duration: totalDuration, ease: "linear" }}>
+                        <motion.div className="w-full h-full bg-black" 
+                        initial={{opacity:100}}
+                        animate={{opacity:0}}
+                        transition={{ duration: 1, delay:totalDuration, ease: "linear" }}/>
                     </motion.div>
 
 

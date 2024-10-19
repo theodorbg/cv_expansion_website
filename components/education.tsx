@@ -10,6 +10,7 @@ interface Education {
   year: string;
   location?: string;
   description: string;
+  GPA: string;
 }
 
 interface CardProps {
@@ -61,14 +62,14 @@ const Card: React.FC<CardProps> = ({ education, delay, onClick }) => {
           style={{ perspective: 1000 }}
         >
           <div className='h-[60%] w-[80%] relative mb-8'>
-          <Image
-            src={`/experienceLogos/${education.img}`}
-            alt="DTU logo"
-            fill style={{ objectFit: 'contain' }}
-          />
+            <Image
+              src={`/experienceLogos/${education.img}`}
+              alt="DTU logo"
+              fill style={{ objectFit: 'contain' }}
+            />
           </div>
 
-          <h1 className='absolute bottom-8 text-black font-bold text-xl text-center'>{education.subtitle}</h1>
+          <h1 className='absolute bottom-8 text-zinc-700 font-bold text-xl text-center'>{education.subtitle}</h1>
 
         </motion.div>
       </motion.div>
@@ -117,12 +118,11 @@ export default function FlippingCard() {
       <AnimatePresence>
         {chosenEducation && popupPosition && (
           <motion.div
-            className="bg-zinc-50 rounded-2xl border-zinc-500 border-4 absolute z-[60] cursor-pointer flex flex-col"
+            className="bg-zinc-50 rounded-2xl border-zinc-500 border-4 absolute z-50 flex flex-col"
             initial={{ x: popupPosition.x, y: popupPosition.y, width: popupPosition.width, height: popupPosition.height, opacity: 0 }}
             animate={{ width: '900px', height: '500px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', opacity: 1 }}
             exit={{ x: popupPosition.x, y: popupPosition.y, width: popupPosition.width, height: popupPosition.height, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            onClick={() => setChosenEducation(null)}
           >
 
             <div className="p-8 flex flex-row w-full">
@@ -136,27 +136,41 @@ export default function FlippingCard() {
               </div>
             </div>
 
-            <div className='w-full h-full flex flex-row p-4'>
+            <div className='w-full h-full flex flex-row px-8 pb-8'>
 
-              <div className='w-full h-full'>
+              <div className='w-full h-full relative'>
+                <p className='text-zinc-800 font-bold text-lg'>{chosenEducation.description}</p>
 
+                <div className='absolute bottom-0 left-0 flex flex-row space-x-4'>
+                  <button className='w-36 h-12 bg-red-600 flex justify-center items-center rounded-lg shadow-md hover:bg-red-700 active:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-150 ease-in-out'>
+                    <p className='text-white font-bold text-lg'>Diploma</p>
+                  </button>
+                    {/* <button className='w-36 h-12 bg-red-600 flex justify-center items-center rounded-lg shadow-md hover:bg-red-700 active:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-150 ease-in-out'>
+                    <p className='text-white font-bold text-lg'>Grades</p>
+                    </button> */}
+                </div>
+
+                <p className='text-zinc-800 font-bold text-lg absolute bottom-0 right-0'>GPA: {chosenEducation.GPA}</p>
               </div>
 
-              <div className='w-[350px] h-full rounded-xl flex justify-center items-center p-6 ms-4 bg-white border-4 border-zinc-300'>
+              <div className='w-[350px] h-full rounded-xl flex justify-center items-center p-6 ms-8 bg-white border-4 border-zinc-300'>
                 <div className='relative w-full h-full'>
                   <Image src={`/experienceLogos/${chosenEducation.img}`} alt="education" fill style={{ objectFit: "contain" }} />
                 </div>
               </div>
 
-            </div>
+            </div>            
 
-
-
-            <div className='w-screen h-screen z-[70] opacity-0 absolute cursor-default'
+            
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {chosenEducation && popupPosition && (
+          <div className='w-screen h-screen z-40 opacity-0 bg-purple-200 absolute cursor-default'
               style={{ top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}
               onClick={() => setChosenEducation(null)}>
             </div>
-          </motion.div>
         )}
       </AnimatePresence>
     </div>
@@ -170,8 +184,9 @@ const education_data = [
     title: "HTX Roskilde",
     subtitle: "HTX - Math/Physics",
     year: "2016-2019",
-    location: "Roskilde",
+    location: "Roskilde, Denmark",
     description: "After primary school, i attended Roskilde Tekniske Gymnasium, on the math/physics line. Here i learned the basics of physics and math, and got a good foundation for my further studies in mechanical engineering",
+    GPA: "11.0",
   },
   {
     key: 1,
@@ -179,8 +194,9 @@ const education_data = [
     title: "Technical University of Denmark",
     subtitle: "B.Sc. Mechanical Engineering",
     year: "2019-2022",
-    location: "Kongens Lyngby",
-    description: "After high school, i started studying mechanical engineering at the Technical University of Denmark. Here i learned the basics of mechanical engineering, and got a good foundation for my further studies in mechanical engineering",
+    location: "Kongens Lyngby, Denmark",
+    description: "For my bachelors degree i studied mechanical engineering at the Technical University of Denmark. Here i mostly took introductory courses to get a good foundations for my further studies. This included Math, Physics, Chemistry, Programming, Material science, Thermodynamics, Fluid dynamics, Strength of materials, and many more. For my thesis i investigated the posibility of using neural networks to analyze and optimize turbine wakes in large wind farms.",
+    GPA: "10.1",
   },
   {
     key: 2,
@@ -188,7 +204,8 @@ const education_data = [
     title: "Technical University of Denmark",
     subtitle: "M.Sc. Mechanical Engineering",
     year: "2022-2025",
-    location: "Kongens Lyngby",
-    description: "After high school, i started studying mechanical engineering at the Technical University of Denmark. Here i learned the basics of mechanical engineering, and got a good foundation for my further studies in mechanical engineering",
+    location: "Kongens Lyngby, Denmark",
+    description: "For my masters degree I continued my studies at the Technical University of Denmark. Here i began to specialize in programming, computational fluid dynamics and robotics. I also decided to prolong my studies by half a year, as this allowed me to get experience in the industy.",
+    GPA: "10.0",
   },
 ];

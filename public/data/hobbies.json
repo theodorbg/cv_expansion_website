@@ -1,0 +1,62 @@
+[
+    {
+      "id": 1,
+      "headline": "Disc golf",
+      "content": "Some friends recently introduced me to disc golf, and although I still find the sport a bit unconventional, I’ve been playing it more and more. I’ve started building a small collection of discs and usually make it out to the course at least once a week.",
+      "thumbnail": "discgolf.jpg"
+    },
+    {
+      "id": 2,
+      "headline": "3D-Printing",
+      "content": "I was introduced to 3D modeling and printing in high school and have been creating everything from small trinkets to large-scale projects ever since. I currently use a Bambu Lab P1S printer and primarily design my own models in SolidWorks.",
+      "thumbnail": "3dprint.webp"
+    },
+    {
+      "id": 3,
+      "headline": "Board games",
+      "content": "With people spending so much time on their phones these days, I find it refreshing to occasionally put them aside and sit down with friends to play a board game. I only have a small collection so far, but I'm always looking to add more to it. Some of my favorites include Settlers of Catan, Risk, Hint and Wingspan.",
+      "thumbnail": "explodingkittens.jpg"
+    },
+    {
+      "id": 4,
+      "headline": "Video games",
+      "content": "I've been playing video games as long as i remember, spanning every platform from the original Game Boy to the high-end PC I built myself. Though I don't have as much time for gaming as I used to, I still try to play whenever I can. Some of my all-time favorite titles include Sly Cooper, Minecraft, Team Fortress 2, The Witcher 3, and CSGO.",
+      "thumbnail": "witcher.jpg"
+    },
+    {
+      "id": 5,
+      "headline": "Music",
+      "content": "I started playing guitar in my last years of primary school and have been playing ever since. Over time, I also picked up the piano and ukulele. While I wouldn't call myself highly skilled, I enjoy playing and singing just for my own entertainment",
+      "thumbnail": "guitar.jpeg"
+    },
+    {
+      "id": 6,
+      "headline": "Food",
+      "content": "I've always had a passion for food and love exploring local cuisines when I travel. Though I rarely find the time to cook properly, I like to think that when I do put in the effort, I can make decent meal.",
+      "thumbnail": "tacos.jpg"
+    },
+    {
+      "id": 7,
+      "headline": "Exercise",
+      "content": "While I don't love working out, I know it's important for my health. I usually try to hit the gym at least once a week, and I also like to go on daily walks or runs to stay active.",
+      "thumbnail": "deadlift.jpg"
+    },
+    {
+      "id": 8,
+      "headline": "Chess",
+      "content": "My grandpa taught me the basics of chess, but I didn't really pick it up until high school when my friends got me hooked. I still love chess, but mostly do puzzles nowdays, where i reached a respectable puzzle rating on chess.com of around 3000.",
+      "thumbnail": "chess.jpg"
+    },
+    {
+      "id": 9,
+      "headline": "Poker",
+      "content": "As a kid, I was obsessed with magic, especially card tricks. I spent hours practicing sleight of hand and became quite skilled at various techniques. I don't do magic anymore, but I still love anything to do with cards, with Texas Hold'em Poker being one of my favorite games.",
+      "thumbnail": "casino.webp"
+    },
+    {
+      "id": 10,
+      "headline": "Reading",
+      "content": "I've always been a fan of fantasy, but traditional reading has never quite clicked for me. I do, however, greatly enjoy audiobooks as they allow me to listen while doing tasks or going on walks. Though there are many good books, The Mistborn and Stormlight Archive series by Brandon Sanderson are my favorites.",
+      "thumbnail": "dragon.jpg"
+    }
+  ]

@@ -62,7 +62,7 @@ const RenderProjects = (projects: project[], direction: 'left' | 'right' = 'left
                 onClick={() => {
                   setChosenProject(project);
                 }}>
-                <span className="text-white text-md font-bold">{project.title}</span>
+                <span className="text-white text-lg font-bold">{project.title}</span>
               </div>
             </motion.div>
           ))

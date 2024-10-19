@@ -78,7 +78,7 @@ export default function SkillCategory() {
                         <div key={skill.id} className="h-12 m-4 rounded-lg flex flex-row">
                             <div className='flex justify-center items-center w-14 h-12 rounded-lg overflow-hidden border-2 border-zinc-200 bg-white'>
                                 <div className='relative w-full h-full'>
-                                    <Image src={`/SkillLogos/${skill.image}`} alt={skill.name} fill style={{ objectFit: 'cover' }} />
+                                    <Image src={`/SkillLogos/${skill.image}`} alt={skill.name} fill style={{ objectFit: 'contain' }} />
                                 </div>
                             </div>
                             <div className='w-full h-full flex flex-col justify-between ps-2'>
@@ -109,14 +109,14 @@ const programming = [
     {
         id: 2,
         name: "Java",
-        level: 6,
+        level: 5,
         image: "java.png",
     },
     {
         id: 3,
         name: "C++",
         level: 3,
-        image: "cpp.png",
+        image: "cpp.svg",
     },
     {
         id: 4,
@@ -128,7 +128,7 @@ const programming = [
         id: 5,
         name: "TypeScript",
         level: 5,
-        image: "typescipt.webp",
+        image: "Typescript.svg.png",
     },
     {
         id: 6,
@@ -168,49 +168,49 @@ const development = [
         id: 1,
         name: "HTML",
         level: 6,
-        image: "../SkillLogos/html.jpg",
+        image: "html.svg",
     },
     {
         id: 2,
         name: "CSS",
         level: 6,
-        image: "../SkillLogos/css.jpg",
+        image: "css.svg",
     },
     {
         id: 3,
         name: "Tailwind",
         level: 7,
-        image: "../SkillLogos/tailwind.png",
+        image: "tailwind.png",
     },
     {
         id: 4,
         name: "Next.js",
         level: 4,
-        image: "../SkillLogos/nextjs.webp",
+        image: "nextjs.webp",
     },
     {
         id: 5,
         name: "React.js",
         level: 7,
-        image: "../SkillLogos/react.png",
+        image: "react.png",
     },
     {
         id: 6,
         name: "Power BI",
         level: 3,
-        image: "../SkillLogos/powerbi.jpg",
+        image: "powerbi.jpg",
     },
     {
         id: 7,
         name: "Databricks",
         level: 3,
-        image: "../SkillLogos/databricks.png",
+        image: "databricks.png",
     },
     {
         id: 8,
         name: "Palantir",
         level: 7,
-        image: "../SkillLogos/palantir.png",
+        image: "palantir.png",
     },
 ];
 
@@ -219,31 +219,31 @@ const general = [
         id: 1,
         name: "Word",
         level: 8,
-        image: "../SkillLogos/word.png",
+        image: "word.svg",
     },
     {
         id: 2,
         name: "Excel",
         level: 8,
-        image: "../SkillLogos/excel.png",
+        image: "excel.svg",
     },
     {
         id: 3,
         name: "PowerPoint",
         level: 6,
-        image: "../SkillLogos/powerpoint.jpg",
+        image: "powerpoint.svg",
     },
     {
         id: 4,
         name: "Photoshop",
         level: 6,
-        image: "../SkillLogos/photoshop.png",
+        image: "photoshop.png",
     },
     {
         id: 5,
         name: "Premiere Pro",
         level: 2,
-        image: "../SkillLogos/premier.png",
+        image: "premier.png",
     },
 ];
 
@@ -252,67 +252,67 @@ const CAD = [
         id: 1,
         name: "Solidworks",
         level: 9,
-        image: "../SkillLogos/solidworks.png",
+        image: "solidworks.png",
     },
     {
         id: 2,
         name: "Autodesk Inventor",
         level: 5,
-        image: "../SkillLogos/inventor.png",
+        image: "inventor.png",
     },
     {
         id: 3,
         name: "Creo",
         level: 2,
-        image: "../SkillLogos/creo.svg",
+        image: "creo.svg",
     },
     {
         id: 4,
         name: "OpenSCAD",
         level: 5,
-        image: "../SkillLogos/openscad.png",
+        image: "openscad.png",
     },
     {
         id: 5,
         name: "StarCCM+",
         level: 7,
-        image: "../SkillLogos/starccm.png",
+        image: "starccm.png",
     },
     {
         id: 6,
         name: "Ansys",
         level: 5,
-        image: "../SkillLogos/ansys.png",
+        image: "ansys.png",
     },
     {
         id: 7,
         name: "Cura",
         level: 8,
-        image: "../SkillLogos/cura.png",
+        image: "cura.png",
     },
     {
         id: 8,
         name: "Bambu lab",
         level: 8,
-        image: "../SkillLogos/bambulab.webp",
+        image: "bambulab.webp",
     },
     {
         id: 9,
         name: "Prusa slicer",
         level: 5,
-        image: "../SkillLogos/prusa.png",
+        image: "prusa.png",
     },
     {
         id: 10,
         name: "Orca slicer",
         level: 4,
-        image: "../SkillLogos/orca.png",
+        image: "orca.png",
     },
     {
         id: 11,
         name: "Autodesk Netfabb",
         level: 7,
-        image: "../SkillLogos/netfabb.jpg",
+        image: "netfabb.jpg",
     },
 ];
 

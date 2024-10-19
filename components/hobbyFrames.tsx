@@ -1,6 +1,8 @@
 import React from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useHobbies } from "@/store/hobbies";
+import { stat } from "fs";
 
 const FramePositions = [
     {
@@ -65,99 +67,16 @@ const FramePositions = [
     }
 ];
 
-const hobbyInformation = [
-    {
-        id: 4,
-        headline: "Disc golf",
-        content: "Some friends recently introduced me to disc golf, and though I still find the sport a bit odd, I find myself playing more and more. I have a small collection of discs, and usually go to the course at least once per week.",
-        className: "md:col-span-3",
-        thumbnail:
-            "discgolf.jpg",
-    },
-    {
-        id: 1,
-        headline: "3D-Printing",
-        content: "I have been 3D printing for over 5 years now, making everything from small trinkets to large scale projects. I currently own a Bambu lab P1S, and primarily design my own models in SolidWorks.",
-        className: "md:col-span-2",
-        thumbnail:
-            "3dprint.webp",
-    },
-    {
-        id: 3,
-        headline: "Board games",
-        content: "As electronics are becomming more and more prevalent in our lives, I find that it is nice from time to tome to sit down with friends and play a board game. I only have a small collection of games, but am looking to add more.",
-        className: "col-span-2",
-        thumbnail:
-            "explodingkittens.jpg",
-    },
-    {
-        id: 2,
-        headline: "Video games",
-        content: "I have played vairous video games for over 18 years now, and have played all genres across all platforms. I dont have as much time for games as i used to, but play a little FPS when on my PC when i can.",
-        className: "col-span-2",
-        thumbnail:
-            "witcher.jpg",
-    },
-    {
-        id: 5,
-        headline: "Music",
-        content: "I first picked up the guitar in the last years of primary school, and have been playing ever since. I have since then also picked up piano and ukulele, and though i am not super skilled, I enjoy playing and singing for myself.",
-        className: "md:col-span-3",
-        thumbnail:
-            "guitar.jpeg",
-    },
-    {
-        id: 6,
-        headline: "Food",
-        content: "Unfortunatly for my health, I have been a foodie all my life. I find great joy in a good meal, and like to put in the effort when i have the time. I am by no means a michelin chef, but I like to think that I can make a decent meal.",
-        className: "col-span-2",
-        thumbnail:
-            "tacos.jpg",
-    },
-    {
-        id: 7,
-        headline: "Exercise",
-        content: "Being honest, i am not a huge fan of exercise, but find it important for my health to be in a reasonable shape. I usually go to the gym at least once a week, complimented by daily walks or runs.",
-        className: "col-span-2",
-        thumbnail:
-            "deadlift.jpg",
-    },
-    {
-        id: 8,
-        headline: "Chess",
-        content: "I am have always enjoyed fantasy as a genre in both games, books and movies. I do, however, think that the absolute best way to emerge yourself in these magical worlds is through a good book. Some of my favorites are the Mistborn and Stormlight Archive series by Brandon Sanderson.",
-        className: "md:col-span-2",
-        thumbnail:
-            "chess.jpg",
-    },
-    {
-        id: 9,
-        headline: "Poker",
-        content: "I am have always enjoyed fantasy as a genre in both games, books and movies. I do, however, think that the absolute best way to emerge yourself in these magical worlds is through a good book. Some of my favorites are the Mistborn and Stormlight Archive series by Brandon Sanderson.",
-        className: "md:col-span-2",
-        thumbnail:
-            "casino.webp",
-    },
-    {
-        id: 10,
-        headline: "Reading",
-        content: "I am have always enjoyed fantasy as a genre in both games, books and movies. I do, however, think that the absolute best way to emerge yourself in these magical worlds is through a good book. Some of my favorites are the Mistborn and Stormlight Archive series by Brandon Sanderson.",
-        className: "md:col-span-2",
-        thumbnail:
-            "dragon.jpg",
-    }
-];
-
-
 export default function HobbyFrames() {
     const [selectedHobby, setSelectedHobby] = React.useState<{
         id: number;
         headline: string;
         content: string;
-        className: string;
         thumbnail: string;
     } | null>(null);
     const [selectedHobbyPosition, setSelectedHobbyPosition] = React.useState<{ x: number; y: number, width: number, height: number } | null>(null);
+
+    const hobbyInformation = useHobbies((state) => state.hobbies);
 
     return (
         <div className="w-full h-full relative">
