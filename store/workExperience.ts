@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { DateTime } from 'luxon';
+import workData from '@/public/data/workExperience.json';
 
 // Define the state interface
 interface WorkExperience {
@@ -38,16 +39,7 @@ export const useWorkExperience = create<{
   },
 }));
 
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-const dataUrl = new URL('/data/workExperience.json', baseUrl).toString();
-
-fetch(dataUrl)
-  .then(res => res.json())
-  .then((data: WorkExperience[]) => {
-    useWorkExperience.getState().setExperience(data);
-  });
-
+useWorkExperience.getState().setExperience(workData);
 
 function findOldestDate(dates: string[]): string | undefined {
   const dateTimeObjects = dates.map(dateString => DateTime.fromISO(dateString));

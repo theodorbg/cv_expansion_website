@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { DateTime } from 'luxon';
+import projectsData from '@/public/data/projects.json';
 
 // Define the state interface
 interface project {
@@ -28,14 +28,13 @@ export const useProjects = create<{
   },
 }));
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-const dataUrl = new URL('/data/projects.json', baseUrl).toString();
+const transformedProjectsData = projectsData.map(proj => ({
+  ...proj,
+  fullImagePath: proj.image.map(img => `${proj.imagePath}${img.path}`),
+}));
 
-fetch(dataUrl)
-  .then(res => res.json())
-  .then((data: project[]) => {
-    useProjects.getState().setProjects(data);
-  });
+useProjects.getState().setProjects(transformedProjectsData);
+
 
 
   

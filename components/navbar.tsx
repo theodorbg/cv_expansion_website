@@ -4,7 +4,8 @@ import {
   IconHammer,
   IconTerminal2,
   IconChess,
-  IconSchool
+  IconSchool,
+  IconMail
 } from "@tabler/icons-react";
 
 const iconClassname = "h-full w-full text-neutral-500 dark:text-neutral-300";
@@ -40,12 +41,19 @@ const links = [
     },
 
     {
-      title: "Hobies",
+      title: "Hobbies",
       icon: (
         <IconChess className={iconClassname} />
       ),
-      href: "#hobies",
-    }
+      href: "#hobbies",
+    },
+    {
+      title: "Contact me",
+      icon: (
+        <IconMail className={iconClassname} />
+      ),
+      href: "#contact",
+    },
     
   ];
 

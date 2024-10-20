@@ -43,23 +43,23 @@ export default function Home() {
 
     // Reset scroll position to top on page refresh
     window.scrollTo(0, 0);
-  }, []);
+  }, [frontPagelag]);
 
   useEffect(() => {
     const updateHeights = () => {
       frontPagelagRef.current = frontPagelag;
-      setTotalHeight(frontPagelag + mainPageHeight /*+ lag + lastPageHeight*/);
+      setTotalHeight(frontPagelag + mainPageHeight);
     };
-
+  
     // Initial update
     updateHeights();
-
+  
     // Add event listener for resize
     window.addEventListener('resize', updateHeights);
-
+  
     // Clean up event listener on component unmount
     return () => window.removeEventListener('resize', updateHeights);
-  }, [frontPagelag, mainPageHeight, lag]);
+  }, [frontPagelag, mainPageHeight, lag, lastPageHeight]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -212,7 +212,7 @@ export default function Home() {
         
         {/* --------------------- Hobbies -------------------- */}
 
-        <div id="hobies"></div>
+        <div id="hobbies"></div>
         <div
           className="snap-start flex flex-col items-center w-full h-full mt-24"
         >
@@ -229,14 +229,14 @@ export default function Home() {
         </div>
 
         {/* --------------------- Globe -------------------- */}
-        <div id="globe"></div>
+        <div id="contact"></div>
         <div
           className="snap-start flex flex-col items-center w-full h-full mt-24"
         >
           <Headline title="Contact me" />
 
           <motion.div className=" flex justify-center">
-            <h4 className={smallHeadLineClassName}> Don't hesitate to reach out if you find my profile interesting!</h4>
+            <h4 className={smallHeadLineClassName}> Don&apos;t hesitate to reach out if you find my profile interesting!</h4>
           </motion.div>
 
           <GlobeDemo />

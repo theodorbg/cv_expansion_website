@@ -1,4 +1,6 @@
 "use client";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/no-unescaped-entities */
 import { useEffect, useRef, useState } from "react";
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
@@ -162,7 +164,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         });
       startAnimation();
     }
-  }, [globeData]);
+  }, [globeData, defaultProps.atmosphereAltitude, defaultProps.atmosphereColor, defaultProps.polygonColor, defaultProps.showAtmosphere]);
 
   const startAnimation = () => {
     if (!globeRef.current || !globeData) return;
