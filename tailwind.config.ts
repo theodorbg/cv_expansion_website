@@ -9,8 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        'full-hd': '1920px',
+        'full-hd': '1720px',
         '2k': '2048px',
+        'ultrawide': '2800px',
+        '4k': '3840px',
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -11,6 +11,7 @@ import Navbar from "@/components/navbar";
 import HobbyFrames from "@/components/hobbies";
 import AnimatedProjects from "@/components/projects";
 import FlippingCard from "@/components/education";
+import GlobeDemo from "@/components/globe";
 
 import BackPage from "@/components/backPage";
 
@@ -32,7 +33,7 @@ export default function Home() {
   const [totalHeight, setTotalHeight] = useState(0);
   const [animateWorkExperience, setAnimateWorkExperience] = useState(false);
 
- 
+
 
   useEffect(() => {
     // Set the initial values for frontPagelag and mainPageHeight
@@ -47,7 +48,7 @@ export default function Home() {
   useEffect(() => {
     const updateHeights = () => {
       frontPagelagRef.current = frontPagelag;
-      setTotalHeight(frontPagelag + mainPageHeight + lag + lastPageHeight );
+      setTotalHeight(frontPagelag + mainPageHeight /*+ lag + lastPageHeight*/);
     };
 
     // Initial update
@@ -72,10 +73,10 @@ export default function Home() {
         setIsSticky(false);
         setFixedPosition(`${frontPagelagRef.current}px`);
       }
-      else if (window.scrollY > mainPageHeight + lag) {
+      /*else if (window.scrollY > mainPageHeight + lag) {
         setIsSticky(true);
         setFixedPosition(`${-mainPageHeight + window.innerHeight}px`);
-      }
+      }*/
     };
 
 
@@ -111,7 +112,7 @@ export default function Home() {
       {/* --------------------- Landing page -------------------- */}
       <div id="home"></div>
       <FrontPage />
-      <BackPage elementHeight={mainPageHeight + frontPagelag + lag} />
+      {/* <BackPage elementHeight={mainPageHeight + frontPagelag + lag} /> */}
 
       {/* --------------------- Contact me -------------------- */}
 
@@ -144,7 +145,7 @@ export default function Home() {
             <h4 className={smallHeadLineClassName}> I have been working since my early teens, here is a quick overview of the companies i have contribuated to</h4>
           </motion.div>
 
-          <WorkExperience animate={animateWorkExperience}/>
+          <WorkExperience animate={animateWorkExperience} />
 
         </motion.div>
 
@@ -208,9 +209,7 @@ export default function Home() {
 
         </div>
 
-
-
-
+        
         {/* --------------------- Hobbies -------------------- */}
 
         <div id="hobies"></div>
@@ -223,11 +222,29 @@ export default function Home() {
             <h4 className={smallHeadLineClassName}> Here is a quick overview of what I like to do in my spare time</h4>
           </motion.div>
 
-          <motion.div className="w-full h-[500px] 2k:h-[650px] mt-16 mb-[350px]">
+          <motion.div className="w-full h-[500px] 2k:h-[650px] mt-16">
             <HobbyFrames />
           </motion.div>
 
         </div>
+
+        {/* --------------------- Globe -------------------- */}
+        <div id="globe"></div>
+        <div
+          className="snap-start flex flex-col items-center w-full h-full mt-24"
+        >
+          <Headline title="Contact me" />
+
+          <motion.div className=" flex justify-center">
+            <h4 className={smallHeadLineClassName}> Don't hesitate to reach out if you find my profile interesting!</h4>
+          </motion.div>
+
+          <GlobeDemo />
+
+          <div className=" mb-[200px]"/>
+        </div>
+
+
 
 
       </div>
