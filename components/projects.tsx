@@ -25,28 +25,28 @@ const RenderProjects = (projects: project[], direction: 'left' | 'right' = 'left
 
   const [projectWidth, setProjectWidth] = useState(400);
 
-useEffect(() => {
-  // Function to update width based on window size
-  const updateWidth = () => {
-    // You can add your own logic here, for example:
-    if (window.innerWidth < 1400) {
-      setProjectWidth(250);
-    } else if (window.innerWidth < 1800) {
-      setProjectWidth(325);
-    } else {
-      setProjectWidth(400);
-    }
-  };
+  useEffect(() => {
+    // Function to update width based on window size
+    const updateWidth = () => {
+      // You can add your own logic here, for example:
+      if (window.innerWidth < 1400) {
+        setProjectWidth(250);
+      } else if (window.innerWidth < 1800) {
+        setProjectWidth(325);
+      } else {
+        setProjectWidth(400);
+      }
+    };
 
-  // Set initial width
-  updateWidth();
+    // Set initial width
+    updateWidth();
 
-  // Add event listener
-  window.addEventListener('resize', updateWidth);
+    // Add event listener
+    window.addEventListener('resize', updateWidth);
 
-  // Cleanup event listener
-  return () => window.removeEventListener('resize', updateWidth);
-}, []); // Empty dependency array means this runs once on mount
+    // Cleanup event listener
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []); // Empty dependency array means this runs once on mount
 
   const margin = 32;
   const width = projects.length * (projectWidth + margin);
@@ -55,9 +55,6 @@ useEffect(() => {
 
   const animateX = direction === 'left' ? [-width, -2 * width] : [-width, 0];
 
-  const projectRef = useRef<HTMLDivElement>(null);
-
-  
   return (
     <motion.div
       className="overflow-hidden h-full"
@@ -73,13 +70,12 @@ useEffect(() => {
         className="flex flex-row items-center h-full space-x-8"
         style={{ width: `${totalWidth}px` }}
       >
-        {Array.from({ length: 6 }).map((_, i) =>
+        {Array.from({ length: 6 }).map(() =>
           projects.map((project) => (
             <motion.div
               key={uuidv4()}
-              className="flex-shrink-0  bg-white rounded-2xl relative overflow-hidden"
+              className="flex-shrink-0 bg-white rounded-2xl relative overflow-hidden"
               style={{ width: `${projectWidth}px`, height: '300px' }}
-              ref={projectRef}
             >
               <Image
                 src={`${project.fullImagePath[0]}`}

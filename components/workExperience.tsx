@@ -7,7 +7,6 @@ import { useWorkExperience } from '@/store/workExperience';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useState, useRef } from 'react';
 import Image from 'next/image';
-import { cubicBezier } from "framer-motion"
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -122,6 +121,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                             </div>
                                         </div>
                                     </div>
+                                    <div className='w-0 h-0 z-50 absolute left-1/2 top-full transform -translate-x-1/2 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[12px] border-t-zinc-500'></div>
                                 </motion.div>
                             </div>
                         )}
@@ -170,7 +170,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                         setHoveredIndex(null);
                                     }}
 
-                                    className="relative h-12 rounded-full flex flex-row items-center ps-1 bg-gradient-to-r from-teal-400 to-cyan-400 border-2 border-zinc-400 overflow-hidden"
+                                    className="relative h-12 rounded-full flex flex-row items-center ps-1 bg-gradient-to-r shadow-lg from-teal-400 to-cyan-400 border-2 border-zinc-400 overflow-hidden"
                                 >
 
                                     <div className='bg-white w-16 h-10 rounded-full overflow-hidden flex-shrink-0 flex justify-center items-center'>
@@ -190,16 +190,13 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                     </motion.div>
 
                     
-
-                    
-
                     <motion.div className="absolute bottom-0 top-14 w-1"
                         initial={{ left: "0px", transform: "translateX(-50%)" }}
                         animate={(isInView && animate) ? { left: "100%" } : {}}
                         transition={{ duration: totalDuration, ease: "linear" }}>
                         <motion.div className="w-full h-full bg-black"
-                            initial={{ opacity: 100 }}
-                            animate={{ opacity: 0 }}
+                            initial={{ opacity: 1 }}
+                            animate={ (isInView && animate) ? { opacity: 0.1 }: {}}
                             transition={{ duration: 1, delay: totalDuration, ease: "linear" }} />
                     </motion.div>
 
