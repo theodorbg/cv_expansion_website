@@ -228,6 +228,8 @@ export default function Home() {
         </div>
 
         
+        {/*<STLViewer  url="/projectPictures/dart/dart.STL"/>*/}
+        
 
         {/* --------------------- Globe -------------------- */}
         <div id="contact"></div>

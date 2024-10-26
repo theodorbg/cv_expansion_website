@@ -18,7 +18,7 @@
         "id": 2,
         "name": "Heptagon ApS",
         "position": "IT Assistant",
-        "location": "Osted, Denmark",
+        "location": "Roskilde, Denmark",
         "time": [
             "2018-05-01",
             "present"
@@ -34,7 +34,7 @@
         "id": 3,
         "name": "Technical University of Denmark",
         "position": "Teachers Assistant",
-        "location": "Osted, Denmark",
+        "location": "Kongens Lyngby, Denmark",
         "time": [
             "2020-09-01",
             "present"
@@ -49,7 +49,7 @@
         "id": 4,
         "name": "Novo Nordisk A/S",
         "position": "Student Data Engineer",
-        "location": "Osted, Denmark",
+        "location": "Hillerød, Denmark",
         "time": [
             "2024-04-01",
             "present"

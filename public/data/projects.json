@@ -5,12 +5,12 @@
       "monthYear": "January 2021",
       "imagePath": "/projectPictures/dart/",
       "image": [
-        { "path": "onWall.jpg", "args": "col-span-4 row-span-2" },
-        { "path": "dart_4.png", "args": "col-span-2 row-span-2" },
-        { "path": "dart_1.1.jpg", "args": "col-span-2 row-span-2" },
-        { "path": "dart_2_1.png", "args": "col-span-4 row-span-1" },
-        { "path": "dart_2.jpg", "args": "col-span-2 row-span-1" },
-        { "path": "screen_picture.jpg", "args": "col-span-2 row-span-1" }
+        { "path": "onWall.jpg" },
+        { "path": "dart_4.png" },
+        { "path": "dart_1.1.jpg" },
+        { "path": "dart_2_1.png" },
+        { "path": "dart_2.jpg" },
+        { "path": "screen_picture.jpg" }
       ],
       "modelUrl": "dart.stl",
       "description": [
@@ -34,9 +34,10 @@
       "monthYear": "March 2021",
       "imagePath": "/projectPictures/skateboard/",
       "image": [
-        { "path": "front.png", "args": "col-span-4 row-span-2" },
-        { "path": "back.png", "args": "col-span-2 row-span-2" },
-        { "path": "exploded.png", "args": "col-span-2 row-span-2" }
+        { "path": "front.png" },
+        { "path": "back.png" },
+        { "path": "exploded.png" },
+        { "path": "skateboard_real.jpg" }
       ],
       "description": [
         "Designed the basic layout of the components.",
@@ -57,10 +58,10 @@
       "monthYear": "June 2021",
       "imagePath": "/projectPictures/cardGame/",
       "image": [
-        { "path": "real.jpg", "args": "col-span-4 row-span-2" },
-        { "path": "Thorne.png", "args": "col-span-2 row-span-2" },
-        { "path": "Flamebound Scriptures.png", "args": "col-span-2 row-span-2" },
-        { "path": "Forest Rhino.png", "args": "col-span-4 row-span-2" }
+        { "path": "real.jpg" },
+        { "path": "Thorne.png" },
+        { "path": "Flamebound Scriptures.png" },
+        { "path": "Forest Rhino.png" }
       ],
       "description": [
         "The initial concept was described.",
@@ -81,7 +82,7 @@
       "monthYear": "September 2021",
       "imagePath": "/projectPictures/catan/",
       "image": [
-        { "path": "onTable.jpg", "args": "col-span-1 row-span-1" }
+        { "path": "onTable.jpg" }
       ],
       "description": [
         "Downloaded files from online community",
@@ -98,7 +99,7 @@
       "monthYear": "December 2021",
       "imagePath": "/projectPictures/chessboard/",
       "image": [
-        { "path": "onTable.jpg", "args": "col-span-1 row-span-1" }
+        { "path": "onTable.jpg" }
       ],
       "description": [
         "Cut woods into strips and glue in an alternating pattern.",
@@ -115,9 +116,11 @@
       "key": 6,
       "title": "Home Server",
       "monthYear": "December 2021",
-      "imagePath": "/projectPictures/dart/",
+      "imagePath": "/projectPictures/homeserver/",
       "image": [
-        { "path": "onWall.jpg", "args": "col-span-1 row-span-1" }
+        { "path": "server_front.jpg" },
+        { "path": "server_inside.jpg" },
+        { "path": "server_drive.jpg" }
       ],
       "description": [
         "Research hardware requirements",

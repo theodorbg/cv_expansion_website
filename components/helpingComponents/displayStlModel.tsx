@@ -11,7 +11,7 @@ const Model = ({ url }: { url: string }) => {
 
   useFrame(() => {
     if (meshRef.current) {
-      meshRef.current.rotation.y += 0.000; // Slow rotation speed
+      meshRef.current.rotation.y += 0.005; // Slow rotation speed
     }
   });
 
