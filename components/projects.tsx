@@ -6,7 +6,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useProjects } from "@/store/projects";
 import { ArrowLeft, ArrowRight } from 'tabler-icons-react';
 import { v4 as uuidv4 } from 'uuid';
-
+import STLViewer from "@/components/helpingComponents/displayStlModel";
 
 import Image from 'next/image';
 
@@ -16,7 +16,7 @@ interface project {
   title: string,
   monthYear: string,
   imagePath: string,
-  image: { path: string, args: string }[],
+  image: { path: string }[],
   description: string[],
   fullImagePath: string[],
 }
@@ -31,7 +31,7 @@ const cardVariants = {
     rotateX: 60,
     translateY: 50,
     zIndex: 100,
-    transition: { 
+    transition: {
       duration: 0.3,
       ease: "easeOut"
     }
@@ -46,6 +46,23 @@ const overlayVariants = {
     opacity: 1,
     transition: {
       duration: 0.2
+    }
+  }
+};
+
+const modelVariants = {
+  normal: {
+    opacity: 0,
+    scale: 0.8,
+    transition: {
+      duration: 0.3
+    }
+  },
+  hover: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.3
     }
   }
 };
@@ -77,7 +94,7 @@ const RenderProjects = (projects: project[], direction: 'left' | 'right' = 'left
 
     // Cleanup event listener
     return () => window.removeEventListener('resize', updateWidth);
-  }, []); 
+  }, []);
 
   const margin = 32;
   const width = projects.length * (projectWidth + margin);
@@ -103,54 +120,64 @@ const RenderProjects = (projects: project[], direction: 'left' | 'right' = 'left
       >
         {Array.from({ length: 6 }).map(() =>
           projects.map((project) => (
-            <motion.div 
-                key={project.key}
-                className="h-full w-full cursor-pointer"
-                initial="normal"
-                whileHover="hover"
-                animate="normal"
-                onClick={() => setChosenProject(project)}
-              >
-                <motion.div
-                  key={uuidv4()}
-                  className="flex-shrink-0 rounded-2xl relative"
-                  style={{
-                    width: `${projectWidth}px`,
-                    height: '300px',
-                    perspective: '1000px'
-                  }}
-                >
-                  <motion.div
-                    className="w-full h-full relative"
-                    style={{
-                      transformStyle: 'preserve-3d',
-                    }}
-                    variants={cardVariants}
-                  >
-                    <div className="absolute inset-0">
-                      <Image
-                        src={project.fullImagePath[0]}
-                        alt={`Skill ${project.key}`}
-                        fill 
-                        style={{ objectFit: 'cover' }}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
-                        className="rounded-2xl h-full w-full"
-                      />
-                    </div>
-                    <motion.div 
-                      className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg"
-                      variants={overlayVariants}
-                      >
-                      <motion.span 
-                        className="text-white text-lg font-bold"
-                        variants={overlayVariants}
-                      >
-                        {project.title}
-                      </motion.span>
-                    </motion.div>
-                  </motion.div>
-                </motion.div>
-              </motion.div>
+            <motion.div
+      key={project.key}
+      className="h-full w-full cursor-pointer relative"
+      initial="normal"
+      whileHover="hover"
+      animate="normal"
+      onClick={() => setChosenProject(project)}
+    >
+      <motion.div 
+        className="absolute inset-0 z-[100] "
+        variants={modelVariants}
+      >
+        <div className="w-4/5 h-full absolute top-[-70px] flex justify-center items-center"
+        style={{left:"50%", right:"50%", transform:"translateX(-50%)"}}>
+          <STLViewer url="/projectPictures/dart/dart2.STL"/> 
+        </div>
+      </motion.div>
+
+      <motion.div
+        key={uuidv4()}
+        className="flex-shrink-0 rounded-2xl relative"
+        style={{
+          width: `${projectWidth}px`,
+          height: '300px',
+          perspective: '1000px'
+        }}
+      >
+        <motion.div
+          className="w-full h-full relative"
+          style={{
+            transformStyle: 'preserve-3d',
+          }}
+          variants={cardVariants}
+        >
+          <div className="absolute inset-0">
+            <Image
+              src={project.fullImagePath[0]}
+              alt={`Skill ${project.key}`}
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="rounded-2xl h-full w-full"
+            />
+          </div>
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg"
+            variants={overlayVariants}
+          >
+            <motion.span
+              className="text-white text-lg font-bold"
+              variants={overlayVariants}
+            >
+              {project.title}
+            </motion.span>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
           ))
         )}
       </div>

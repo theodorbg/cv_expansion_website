@@ -7,7 +7,7 @@ interface project {
   title: string,
   monthYear: string,
   imagePath: string,
-  image: {path:string, args:string}[],
+  image: {path:string}[],
   description: string[],
   fullImagePath: string[], 
 }
@@ -18,12 +18,8 @@ export const useProjects = create<{
 }>((set, get) => ({
   projects: [],
   setProjects: (loadedData) => {
-    const updatedData = loadedData.map(proj => ({
-      ...proj,
-      fullImagePath: proj.image.map(img => `${proj.imagePath}${img["path"]}`), // Concatenate imagePath and image
-    }));
     set({ 
-      projects: updatedData,
+      projects: loadedData,
     });
   },
 }));

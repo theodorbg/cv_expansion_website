@@ -6,40 +6,82 @@ import * as THREE from 'three';
 
 const Model = ({ url }: { url: string }) => {
   const geometry = useLoader(STLLoader, url) as THREE.BufferGeometry;
-  const meshRef = useRef<THREE.Mesh>(null);
+  const groupRef = useRef<THREE.Group>(null);
   const { camera } = useThree();
 
   useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.005; // Slow rotation speed
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.005;
     }
   });
 
   useEffect(() => {
-    if (meshRef.current) {
-      const boundingBox = new THREE.Box3().setFromObject(meshRef.current);
+    if (groupRef.current) {
+      // Get the bounding box of the model
+      const boundingBox = new THREE.Box3().setFromObject(groupRef.current);
       const center = boundingBox.getCenter(new THREE.Vector3());
+      const size = boundingBox.getSize(new THREE.Vector3());
       
-      camera.position.set(0, 0, 1400);
-      camera.near = 0.1;
-      camera.far = 50000;
+      // Calculate the radius of the bounding sphere
+      const radius = Math.max(size.x, size.y, size.z) * 0.5;
+      
+      // Calculate camera position based on model size
+      const fov = (camera as THREE.PerspectiveCamera).fov * (Math.PI / 180);
+      const distance = radius / Math.sin(fov / 2);
+      
+      camera.position.set(0, 0, distance);
+      camera.near = distance / 100;
+      camera.far = distance * 100;
       camera.lookAt(center);
       camera.updateProjectionMatrix();
+
+      // Center the model
+      groupRef.current.position.set(-center.x, -center.y, -center.z);
     }
   }, [geometry, camera]);
 
   return (
-    <mesh 
-      ref={meshRef} 
-      geometry={geometry}
-      rotation={[Math.PI / 2, Math.PI / 2, 0]}
-    >
-      <meshPhongMaterial 
-        color="#e0e0e0"  // Light grey color
-        specular="#ffffff"
-        shininess={100}
-      />
-    </mesh>
+    <Center>
+      <group ref={groupRef}>
+        {/* Main mesh */}
+        <mesh 
+          geometry={geometry}
+          rotation={[Math.PI / 2, Math.PI / 2, 0]}
+        >
+          <meshPhongMaterial 
+            color="#e0e0e0"
+            specular="#ffffff"
+            shininess={100}
+          />
+        </mesh>
+        
+        {/* Edge wireframe */}
+        <mesh 
+          geometry={geometry}
+          rotation={[Math.PI / 2, Math.PI / 2, 0]}
+        >
+          <meshBasicMaterial
+            color="#000000"
+            wireframe={true}
+            wireframeLinewidth={1}
+            transparent={true}
+            opacity={0.15}
+          />
+        </mesh>
+        
+        {/* Edge highlighting */}
+        <lineSegments
+          rotation={[Math.PI / 2, Math.PI / 2, 0]}
+        >
+          <edgesGeometry args={[geometry]} />
+          <lineBasicMaterial 
+            color="#000000" 
+            opacity={0.3}
+            transparent={true}
+          />
+        </lineSegments>
+      </group>
+    </Center>
   );
 };
 
@@ -51,34 +93,34 @@ const LoadingIndicator = () => {
   );
 };
 
-const STLViewer = ({ url = '/sample.stl', width = 400, height = 400 }) => {
+const STLViewer = ({ url = '/sample.stl' }) => {
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      <div 
-        style={{ 
-          width: width, 
-          height: height 
-        }} 
-        className="border border-gray-200 rounded-lg overflow-hidden bg-gray-50"
+    <div className="w-full h-full">
+      <Canvas
+        gl={{
+          alpha: true,
+          antialias: true,
+          preserveDrawingBuffer: true
+        }}
+        camera={{ 
+          fov: 45,
+          near: 0.1,
+          far: 50000,
+          position: [0, 0, 1400]
+        }}
+        style={{ width: '100%', height: '100%' }}
       >
-        <Canvas camera={{ near: 0.1, far: 50000 }}>
-          <Suspense fallback={<LoadingIndicator />}>
-            <PerspectiveCamera 
-              makeDefault 
-              position={[0, 0, 1400]}
-              fov={45}
-              near={0.1}
-              far={50000}
-            />
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} intensity={1} />
-            <pointLight position={[-10, -10, -10]} intensity={0.5} />
-            <Center>
-              <Model url={url} />
-            </Center>
-          </Suspense>
-        </Canvas>
-      </div>
+        <Suspense fallback={<LoadingIndicator />}>
+          <PerspectiveCamera 
+            makeDefault 
+            fov={45}
+          />
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} />
+          <Model url={url} />
+        </Suspense>
+      </Canvas>
     </div>
   );
 };
