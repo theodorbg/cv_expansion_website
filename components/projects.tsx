@@ -128,15 +128,22 @@ const RenderProjects = (projects: project[], direction: 'left' | 'right' = 'left
               >
                 <AnimatePresence>
                   {showModel && project === showModel && index === modelIndex && (
-                    <motion.div 
-                      className="w-[80%] h-[100%] absolute -top-12 left-1/2  z-[60]"
-                      initial={{ opacity: 0, left: '50%', transform: 'translateX(-50%)', height:"30%", top: '50%' }}
-                      animate={{ opacity: 1, height:"100%", top: '-80px'}}
-                      exit={{opacity: 0, height:"30%", top: '50%' }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <STLViewer url={project.model ? project.fullModelPath : "/projectPictures/dart/dart.STL"} modelScale={project.modelScale ? project.modelScale : 1.5} />
-                    </motion.div>
+                    <>
+                      <motion.div 
+                        className="w-[80%] h-[100%] absolute -top-12 left-1/2  z-[60]"
+                        initial={{ opacity: 0, left: '50%', transform: 'translateX(-50%)', height:"30%", top: '50%' }}
+                        animate={{ opacity: 1, height:"100%", top: '-80px'}}
+                        exit={{opacity: 0, height:"30%", top: '50%' }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <STLViewer url={project.model ? project.fullModelPath : "/projectPictures/dart/dart.STL"} modelScale={project.modelScale ? project.modelScale : 1.5} />
+                      </motion.div>
+                      <motion.span
+                        className="w-full text-center text-white text-lg font-bold absolute bottom-16 left-1/2 transform -translate-x-1/2 z-[80]"
+                      >
+                        {project.title}
+                      </motion.span>
+                    </>
                   )}
                 </AnimatePresence>
 
@@ -167,16 +174,12 @@ const RenderProjects = (projects: project[], direction: 'left' | 'right' = 'left
                       />
                     </div>
                     <motion.div
-                      className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg"
+                      className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 rounded-lg"
                       variants={overlayVariants}
                     >
-                      <motion.span
-                        className="text-white text-lg font-bold"
-                        variants={overlayVariants}
-                      >
-                        {project.title}
-                      </motion.span>
+                      
                     </motion.div>
+                    
                   </motion.div>
                 </motion.div>
               </motion.div>

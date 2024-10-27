@@ -113,8 +113,8 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                     </div>
 
                                     <div className='flex flex-col items-end w-1/3'>
-                                        <h1 className="text-teal-800 font-bold text-[15px] opacity-80">{DateTime.fromISO(experienceData[hoveredIndex - 1].time[0]).toFormat('dd/MM/yyyy')}  {"->"}  {experienceData[hoveredIndex - 1].time[1] === "present" ? "Present" : DateTime.fromISO(experienceData[hoveredIndex - 1].time[1]).toFormat('dd/MM/yyyy')}</h1>
-                                        <h1 className="text-teal-800 text-m opacity-80">{experienceData[hoveredIndex - 1].location}</h1>
+                                        <h1 className="text-teal-800 font-bold text-[16px] opacity-80">{DateTime.fromISO(experienceData[hoveredIndex - 1].time[0]).toFormat('dd/MM/yyyy')}  {"->"}  {experienceData[hoveredIndex - 1].time[1] === "present" ? "Present" : DateTime.fromISO(experienceData[hoveredIndex - 1].time[1]).toFormat('dd/MM/yyyy')}</h1>
+                                        <h1 className="text-teal-800  font-bold text-m opacity-80">{experienceData[hoveredIndex - 1].location}</h1>
                                         <div className='flex justify-end h-[75%] w-full my-4 bg-white p-4 rounded-lg border-2 border-zinc-200'>
                                             <div className='relative w-full h-full'>
                                                 <Image 
