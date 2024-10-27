@@ -10,6 +10,9 @@ interface project {
   image: {path:string}[],
   description: string[],
   fullImagePath: string[], 
+  model?: string,
+  fullModelPath: string,
+  modelScale?: number,
 }
 
 export const useProjects = create<{
@@ -27,6 +30,7 @@ export const useProjects = create<{
 const transformedProjectsData = projectsData.map(proj => ({
   ...proj,
   fullImagePath: proj.image.map(img => `${proj.imagePath}${img.path}`),
+  fullModelPath: proj.model ? `${proj.imagePath}${proj.model}` : "null",
 }));
 
 useProjects.getState().setProjects(transformedProjectsData);

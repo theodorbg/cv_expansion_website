@@ -49,13 +49,13 @@ export default function Home() {
       frontPagelagRef.current = frontPagelag;
       setTotalHeight(frontPagelag + mainPageHeight);
     };
-  
+
     // Initial update
     updateHeights();
-  
+
     // Add event listener for resize
     window.addEventListener('resize', updateHeights);
-  
+
     // Clean up event listener on component unmount
     return () => window.removeEventListener('resize', updateHeights);
   }, [frontPagelag, mainPageHeight, lag, lastPageHeight]);
@@ -178,13 +178,11 @@ export default function Home() {
           className="snap-start flex flex-col items-center w-full h-full mt-24"
         >
           <Headline title="Projects" />
-          <motion.div className=" flex justify-center">
+          <motion.div className=" flex justify-center -mb-12">
             <h4 className={smallHeadLineClassName}> I do personal projects all the time, here is a few notable ones, as long with some from my studies</h4>
           </motion.div>
 
-          <div className="w-full h-full mt-12">
-            <AnimatedProjects />
-          </div>
+          <AnimatedProjects />
 
         </div>
 
@@ -208,7 +206,7 @@ export default function Home() {
 
         </div>
 
-        
+
         {/* --------------------- Hobbies -------------------- */}
 
         <div id="hobbies"></div>
@@ -227,7 +225,7 @@ export default function Home() {
 
         </div>
 
-        
+
 
         {/* --------------------- Globe -------------------- */}
         <div id="contact"></div>
@@ -242,10 +240,10 @@ export default function Home() {
 
           <GlobeDemo />
 
-          <div className=" mb-[200px]"/>
+          <div className=" mb-[200px]" />
         </div>
 
-        
+
 
 
       </div>

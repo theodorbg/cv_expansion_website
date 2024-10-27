@@ -26,7 +26,9 @@
         "Created final model with 3 elevated cameras.",
         "Printed and assembled final construction.",
         "Programmed the GUI and game mechanics."
-      ]
+      ],
+      "model": "dart3.stl",
+      "modelScale": 1.5
     },
     {
       "key": 2,
@@ -50,7 +52,9 @@
         "Assembled all the parts.",
         "Programed the speed controller for the given motors and remote.",
         "Tested the final construction."
-      ]
+      ],
+      "model": "skateboard_low.stl",
+      "modelScale": 1.3
     },
     {
       "key": 3,
@@ -74,7 +78,9 @@
         "Wrote a python script to automatically overlay stats on cards and create double sided print sheets.",
         "Tested the game and iterated the stats.",
         "Printed the game on heavy cardstock."
-      ]
+      ],
+      "model": "dragon_low.stl",
+      "modelScale": 1.2
     },
     {
       "key": 4,
@@ -91,7 +97,9 @@
         "Fine tune slicer settings for individual parts",
         "Paint the models",
         "Print the models"
-      ]
+      ],
+      "model": "sandstorm.stl",
+      "modelScale": 2.2
     },
     {
       "key": 5,
@@ -110,7 +118,9 @@
         "Milled both sites to achieve smooth finish.",
         "Cut remaining wood into lathe-able pieces.",
         "Turned the pieces."
-      ]
+      ],
+      "model": "knight_low.stl",
+      "modelScale": 1.8
     },
     {
       "key": 6,
@@ -133,6 +143,8 @@
         "Configure VPN tunnel for secure worldwide access",
         "Configure virtual machines",
         "Setup Cloudflare tunnel for secure access through custom domain"
-      ]
+      ],
+      "model": "docker_low.stl",
+      "modelScale": 1.5
     }
   ]

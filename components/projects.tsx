@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 import STLViewer from "@/components/helpingComponents/displayStlModel";
 
 import Image from 'next/image';
+import { modelScale } from 'three/webgpu';
 
 // <STLViewer url="/projectPictures/dart/dart.STL" width={400} height={400} />
 interface project {
@@ -16,9 +17,12 @@ interface project {
   title: string,
   monthYear: string,
   imagePath: string,
-  image: { path: string }[],
+  image: {path:string}[],
   description: string[],
-  fullImagePath: string[],
+  fullImagePath: string[], 
+  model?: string,
+  fullModelPath: string ,
+  modelScale?: number,
 }
 
 const cardVariants = {
@@ -131,7 +135,7 @@ const RenderProjects = (projects: project[], direction: 'left' | 'right' = 'left
                       exit={{opacity: 0, height:"30%", top: '50%' }}
                       transition={{ duration: 0.3 }}
                     >
-                      <STLViewer url="/projectPictures/dart/dart2.STL"/>
+                      <STLViewer url={project.model ? project.fullModelPath : "/projectPictures/dart/dart.STL"} modelScale={project.modelScale ? project.modelScale : 1.5} />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -211,8 +215,8 @@ export default function AnimatedProjects() {
 
   return (
     <div className='w-full h-auto relative '>
-      <div className='w-full h-full justify-center overflow-hidden'>
-        <div className=' my-12 w-[8000px] flex flex-col space-y-8'>
+      <div className='w-full h-full justify-center overflow-x-hidden'>
+        <div className=' mt-24 w-[8000px] flex flex-col space-y-8'>
           {RenderProjects(firstHalf, "right", setChosenProject)}
           {RenderProjects(secondHalf, "left", setChosenProject)}
         </div>
