@@ -12,7 +12,7 @@ import HobbyFrames from "@/components/hobbies";
 import AnimatedProjects from "@/components/projects";
 import FlippingCard from "@/components/education";
 import GlobeDemo from "@/components/globe";
-import STLViewer from "@/components/helpingComponents/displayStlModel";
+import ResponsivePage from '@/components/helpingComponents/ResponsivePage';  // Add this with your other imports
 
 import { motion } from 'framer-motion';
 
@@ -90,6 +90,7 @@ export default function Home() {
 
 
   return (
+    <ResponsivePage>
     <main className="flex flex-col items-center overflow-hidden scroll-smooth bg-white" style={{ background: '#FBFBFB' }}>
       <style jsx global>{`
         html, body {
@@ -249,5 +250,6 @@ export default function Home() {
       </div>
 
     </main>
+    </ResponsivePage>
   );
 }
