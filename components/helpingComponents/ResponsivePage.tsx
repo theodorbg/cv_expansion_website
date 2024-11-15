@@ -11,7 +11,7 @@ const ResponsivePage = ({ children }: ResponsivePageProps) => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1600);
+      setIsMobile(window.innerWidth < 1400);
     };
 
     // Initial check
