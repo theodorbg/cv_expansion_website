@@ -213,6 +213,6 @@ const education_data = [
     year: "2022-2025",
     location: "Kongens Lyngby, Denmark",
     description: "For my masters degree I continued my studies at the Technical University of Denmark. Here i began to specialize in programming, computational fluid dynamics and robotics. I also decided to prolong my studies by half a year, as this allowed me to get experience in the industy.",
-    GPA: "10.0",
+    GPA: "10.7",
   },
 ];

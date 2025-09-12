@@ -5,7 +5,7 @@
         "position": "IT Assistant",
         "location": "Osted, Denmark",
         "time": [
-            "2013-07-01",
+            "2015-07-01",
             "2018-03-01"
         ],
         "image": "optihorse.png",
@@ -37,7 +37,7 @@
         "location": "Kongens Lyngby, Denmark",
         "time": [
             "2020-09-01",
-            "present"
+            "2024-12-01"
         ],
         "image": "dtu.png",
         "description": [
@@ -52,13 +52,30 @@
         "location": "Hillerød, Denmark",
         "time": [
             "2024-04-01",
-            "present"
+            "2025-07-01"
         ],
         "image": "novo.jpg",
         "description": [
             "Built 10+ data pipelines and 4 dashboards through Palantir Foundry.",
             "Maintained a PostgreSQL database by updating decrepitated views.",
-            "Built Databricks pipeline using Apache Spark."
+            "Supported compliance processes for digital solutions within a GxP environment."
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Novo Nordisk A/S",
+        "position": "Associate Data Engineer",
+        "location": "Hillerød, Denmark",
+        "time": [
+            "2025-07-01",
+            "present"
+        ],
+        "image": "novo.jpg",
+        "description": [
+            "Migrated the facility's main PostgreSQL database to Databricks to create a unified data platform.",
+            "Lead full stack developer on two internal applications, automating manual metrology processes.",
+            "Conducted mob-programming sessions to upskill colleagues on software development.",
+            "Simplified highly complex CAD-models to reduce computational load in digital twin simulations."
         ]
     }
 ]

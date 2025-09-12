@@ -31,6 +31,22 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
 
     const experienceData = useWorkExperience((state) => state.experience);
 
+    // Group experiences by company name
+    const groupedExperiences = experienceData.reduce((acc, exp) => {
+        const existingGroup = acc.find(group => group.company === exp.name);
+        if (existingGroup) {
+            existingGroup.positions.push(exp);
+        } else {
+            acc.push({
+                company: exp.name,
+                positions: [exp],
+                image: exp.image,
+                location: exp.location
+            });
+        }
+        return acc;
+    }, [] as { company: string; positions: typeof experienceData; image: string; location: string }[]);
+
     function calculateMonthDifference(startDate: string, endDate: string): number {
         const start = DateTime.fromISO(startDate);
         const end = DateTime.fromISO(endDate);
@@ -47,11 +63,16 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
     const verticalYearLines = [];
 
     for (let i = 0; i < Math.ceil(timeSinceEarliest / 12 / yearSpacing); i++) {
-        verticalYearLines.push({
-            position: monthsToYearEnd / timeSinceEarliest * 100 + i * (12 * yearSpacing) / timeSinceEarliest * 100,
-            year: DateTime.fromISO(earliestDate).year + i * yearSpacing + 1
+        const position = monthsToYearEnd / timeSinceEarliest * 100 + i * (12 * yearSpacing) / timeSinceEarliest * 100;
+        const year = DateTime.fromISO(earliestDate).year + i * yearSpacing + 1;
+        
+        // Only add year lines that are within the visible timeline (position <= 100%)
+        if (position <= 100) {
+            verticalYearLines.push({
+                position: position,
+                year: year
+            });
         }
-        );
     }
 
     const verticalMonthLines = [];
@@ -134,18 +155,29 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                     </AnimatePresence>
 
                     <div className='absolute top-14 w-full flex flex-col space-y-6 mt-3 overflow-visible'>
-                        {experienceData.map((exp, index) => (
-                            <div className='relative' style={{ left: `${dateToPosition(exp.time[0])}%`, width: `${dateToPosition(exp.time[1]) - dateToPosition(exp.time[0])}%` }}
-                                key={uuidv4()}>
-                                <div
-                                    key={uuidv4()}
-                                    ref={(el) => { (experienceRefs.current[index] = el) }}
-                                    className="relative h-12 rounded-full bg-zinc-400 border-2 border-zinc-400 overflow-hidden"
-                                >
-
-                                </div>
+                        {groupedExperiences.map((group, groupIndex) => (
+                            <div key={uuidv4()} className='relative w-full h-12'>
+                                {group.positions.map((exp, posIndex) => (
+                                    <div 
+                                        key={uuidv4()}
+                                        className='absolute' 
+                                        style={{ 
+                                            left: `${dateToPosition(exp.time[0])}%`, 
+                                            width: `${dateToPosition(exp.time[1]) - dateToPosition(exp.time[0])}%`,
+                                            top: '0px'
+                                        }}
+                                    >
+                                        <div
+                                            ref={(el) => { 
+                                                const refIndex = groupIndex * 100 + posIndex;
+                                                experienceRefs.current[refIndex] = el;
+                                            }}
+                                            className="relative h-12 rounded-full bg-zinc-400 border-2 border-zinc-400 overflow-hidden"
+                                        >
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-
                         ))}
                     </div>
                     
@@ -156,43 +188,65 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                         transition={{ duration: totalDuration, ease: "linear" }}
                         ref={ref}
                     >
-                        {experienceData.map((exp, index) => (
+                        {groupedExperiences.map((group, groupIndex) => {
+                            const gradientColors = [
+                                'from-teal-400 to-cyan-400',
+                                'from-emerald-400 to-teal-400',
+                                'from-blue-400 to-indigo-400',
+                                'from-purple-400 to-pink-400',
+                                'from-orange-400 to-red-400'
+                            ];
+                            
+                            return (
+                                <div key={uuidv4()} className='relative w-full h-12'>
+                                    {group.positions.map((exp, posIndex) => {
+                                        const colorIndex = posIndex % gradientColors.length;
+                                        const refIndex = groupIndex * 100 + posIndex;
+                                        
+                                        return (
+                                            <div 
+                                                key={uuidv4()}
+                                                className='absolute' 
+                                                style={{ 
+                                                    left: `${dateToPosition(exp.time[0])}%`, 
+                                                    width: `${dateToPosition(exp.time[1]) - dateToPosition(exp.time[0])}%`,
+                                                    top: '0px',
+                                                    zIndex: group.positions.length - posIndex // Later positions on top
+                                                }}
+                                            >
+                                                <div
+                                                    ref={(el) => { experienceRefs.current[refIndex] = el; }}
+                                                    onMouseEnter={() => {
+                                                        if (hoveredIndex !== exp.id) {
+                                                            setHoveredIndex(exp.id);
+                                                        }
+                                                        if (experienceRefs.current[refIndex] && hoveredIndex !== exp.id) {
+                                                            const position = experienceRefs.current[refIndex]!.getBoundingClientRect();
+                                                            setHoveredPosition(position);
+                                                        }
+                                                    }}
+                                                    onMouseLeave={() => {
+                                                        setHoveredIndex(null);
+                                                    }}
+                                                    className={`relative h-12 rounded-full flex flex-row items-center ps-1 bg-gradient-to-r shadow-lg border-2 border-zinc-400 overflow-hidden ${gradientColors[colorIndex]}`}
+                                                >
+                                                    <div className='bg-white w-16 h-10 rounded-full overflow-hidden flex-shrink-0 flex justify-center items-center'>
+                                                        <div className='relative w-full h-full'>
+                                                            <Image src={`/experienceLogos/${exp.image}`} alt="company logo" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: "contain" }} />
+                                                        </div>
+                                                    </div>
 
-                            <div className='relative' style={{ left: `${dateToPosition(exp.time[0])}%`, width: `${dateToPosition(exp.time[1]) - dateToPosition(exp.time[0])}%` }}
-                                key={uuidv4()}>
-                                <div
-                                    key={uuidv4()}
-                                    ref={(el) => { (experienceRefs.current[index] = el) }}
-                                    onMouseEnter={() => {
-                                        if (hoveredIndex !== exp.id) {
-                                            setHoveredIndex(exp.id);
-                                        }
-                                        if (experienceRefs.current[index] && hoveredIndex !== exp.id) {
-                                            const position = experienceRefs.current[index].getBoundingClientRect();
-                                            setHoveredPosition(position);
-                                        }
-                                    }}
-                                    onMouseLeave={() => {
-                                        setHoveredIndex(null);
-                                    }}
-
-                                    className="relative h-12 rounded-full flex flex-row items-center ps-1 bg-gradient-to-r shadow-lg from-teal-400 to-cyan-400 border-2 border-zinc-400 overflow-hidden"
-                                >
-
-                                    <div className='bg-white w-16 h-10 rounded-full overflow-hidden flex-shrink-0 flex justify-center items-center'>
-                                        <div className='relative w-full h-full'>
-                                            <Image src={`/experienceLogos/${exp.image}`} alt="big logo" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"  style={{ objectFit: "contain" }} />
-                                        </div>
-                                    </div>
-
-                                    <div className="overflow-hidden text-ellipsis whitespace-nowrap w-full">
-                                        <h1 className="text-zinc-100 font-bold ps-2">{exp.name}</h1>
-                                    </div>
+                                                    <div className="overflow-hidden text-ellipsis whitespace-nowrap w-full">
+                                                        <h1 className="text-zinc-100 font-bold ps-2">{exp.position}</h1>
+                                                        <h2 className="text-zinc-200 text-xs ps-2 opacity-80">{exp.name}</h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
-                            </div>
-
-                        ))}
-
+                            );
+                        })}
                     </motion.div>
 
                     

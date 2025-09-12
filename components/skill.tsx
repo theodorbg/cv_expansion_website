@@ -126,13 +126,13 @@ const programming = [
     {
         id: 4,
         name: "JavaScript",
-        level: 5,
+        level: 7,
         image: "javascript.png",
     },
     {
         id: 5,
         name: "TypeScript",
-        level: 5,
+        level: 7,
         image: "Typescript.svg.png",
     },
     {
@@ -150,19 +150,19 @@ const programming = [
     {
         id: 8,
         name: "SQL",
-        level: 6,
+        level: 7,
         image: "sql.jpg",
     },
     {
         id: 9,
         name: "postgresql",
-        level: 7,
+        level: 8,
         image: "postgres.png",
     },
     {
         id: 10,
         name: "Git",
-        level: 4,
+        level: 6,
         image: "git.webp",
     },
 ];
@@ -208,7 +208,7 @@ const development = [
     {
         id: 7,
         name: "Databricks",
-        level: 3,
+        level: 6,
         image: "databricks.png",
     },
     {
@@ -216,6 +216,12 @@ const development = [
         name: "Palantir",
         level: 7,
         image: "palantir.png",
+    },
+        {
+        id: 9,
+        name: "Retool",
+        level: 9,
+        image: "retool.svg",
     },
 ];
 
@@ -262,56 +268,56 @@ const CAD = [
     {
         id: 2,
         name: "Autodesk Inventor",
-        level: 5,
+        level: 6,
         image: "inventor.png",
     },
     {
         id: 3,
+        name: "FreeCAD",
+        level: 5,
+        image: "freecad.svg",
+    },
+    {
+        id: 4,
         name: "Creo",
         level: 2,
         image: "creo.svg",
     },
     {
-        id: 4,
+        id: 5,
         name: "OpenSCAD",
         level: 5,
         image: "openscad.png",
     },
     {
-        id: 5,
+        id: 6,
         name: "StarCCM+",
-        level: 7,
+        level: 4,
         image: "starccm.png",
     },
     {
-        id: 6,
+        id: 7,
         name: "Ansys",
-        level: 5,
+        level: 4,
         image: "ansys.png",
     },
     {
-        id: 7,
+        id: 8,
         name: "Cura",
         level: 8,
         image: "cura.png",
     },
     {
-        id: 8,
+        id: 9,
         name: "Bambu lab",
         level: 8,
         image: "bambulab.webp",
     },
     {
-        id: 9,
+        id: 10,
         name: "Prusa slicer",
         level: 5,
         image: "prusa.png",
-    },
-    {
-        id: 10,
-        name: "Orca slicer",
-        level: 4,
-        image: "orca.png",
     },
     {
         id: 11,
