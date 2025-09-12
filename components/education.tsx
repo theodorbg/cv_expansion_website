@@ -148,16 +148,10 @@ export default function FlippingCard() {
                 <div className='w-full h-full relative'>
                   <p className='text-zinc-800 font-bold text-lg'>{chosenEducation.description}</p>
 
-                  <div className='absolute bottom-0 left-0 flex flex-row space-x-4'>
-                    <button className='w-36 h-12 bg-red-600 flex justify-center items-center rounded-lg shadow-md hover:bg-red-700 active:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-150 ease-in-out'>
-                      <p className='text-white font-bold text-lg'>Diploma</p>
-                    </button>
-                    {/* <button className='w-36 h-12 bg-red-600 flex justify-center items-center rounded-lg shadow-md hover:bg-red-700 active:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-150 ease-in-out'>
-                    <p className='text-white font-bold text-lg'>Grades</p>
-                    </button> */}
+                  <div className='absolute bottom-0 left-0 flex flex-col'>
+                    <h3 className='text-zinc-600 font-semibold text-sm mb-1'>Academic Performance</h3>
+                    <p className='text-zinc-800 font-bold text-2xl'>GPA: {chosenEducation.GPA}</p>
                   </div>
-
-                  <p className='text-zinc-800 font-bold text-lg absolute bottom-0 right-0'>GPA: {chosenEducation.GPA}</p>
                 </div>
 
                 <div className='w-[350px] h-full rounded-xl flex justify-center items-center p-6 ms-8 bg-white border-4 border-zinc-300'>
@@ -212,7 +206,7 @@ const education_data = [
     subtitle: "M.Sc. Mechanical Engineering",
     year: "2022-2025",
     location: "Kongens Lyngby, Denmark",
-    description: "For my masters degree I continued my studies at the Technical University of Denmark. Here i began to specialize in programming, computational fluid dynamics and robotics. I also decided to prolong my studies by half a year, as this allowed me to get experience in the industy.",
+    description: "For my masters degree I continued my studies at the Technical University of Denmark. Here i began to specialize in programming, computational fluid dynamics and robotics. I also decided to prolong my studies by half a year, as this allowed me to get experience in the industy. For my thesis I developed an robotics add-on to an open-source CAD software which allows users to compute advanced trajectory planning based on regular CAD assemblies.",
     GPA: "10.7",
   },
 ];
