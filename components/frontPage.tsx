@@ -68,7 +68,7 @@ export default function FrontPage() {
           <div className="bottom-0 left-0 absolute p-12 flex flex-col">
             <h1 className="text-white font-bold -my-4 -ms-2 text-[120px] 2xl:text-[180px]">
               <TypewriterText 
-                text="Marc Clausen"
+                text="Theodor B. Gilhøj"
                 delay={100}
                 onComplete={() => setNameComplete(true)}
               />
