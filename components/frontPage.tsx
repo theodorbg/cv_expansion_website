@@ -61,7 +61,7 @@ export default function FrontPage() {
             bottom: `${scrollY}px`,
             left: "0px",
             // backgroundImage: `url("/mechanical_engineering.jpeg")`,
-            backgroundImage: `url("/wind-energy.webp.jpeg")`,
+            backgroundImage: `url("/wtf_pv.jpg")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -76,7 +76,7 @@ export default function FrontPage() {
             </h1>
             <h1 className="text-white font-bold -my-4 text-[50px] 2xl:text-[70px]">
               <TypewriterText 
-                text="Wind Energy Master Student"
+                text="Wind Energy and Mechatronics Master Student"
                 delay={50}
                 startTyping={nameComplete}
               />
