@@ -113,10 +113,10 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                         {hoveredIndex !== null && hoveredIndex !== undefined && (
                             <div className='w-full h-full absolute' key={hoveredIndex}>
                                 <motion.div
-                                    className='w-[650px] h-[300px] z-[9999] fixed flex justify-between p-4 rounded-2xl border-2 border-zinc-500 bg-zinc-50'
+                                    className='w-[1200px] h-[300px] z-[9999] fixed flex justify-between p-4 rounded-2xl border-2 border-zinc-500 bg-zinc-50'
                                     style={{
                                         left: `${hoveredPosition ? hoveredPosition.left + hoveredPosition.width / 2 : 0}px`,
-                                        top: `${hoveredPosition ? hoveredPosition.top - 332 : 0}px`
+                                        top: `${hoveredPosition ? hoveredPosition.top - 350 : 0}px`
                                     }}
                                     initial={{ opacity: 0, scale: 0, x: '-50%', y: "160px" }}
                                     animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -136,7 +136,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                     <div className='flex flex-col items-end w-[35%]'>
                                         <h1 className="text-teal-800 font-bold text-[16px] opacity-80">{DateTime.fromISO(experienceData[hoveredIndex - 1].time[0]).toFormat('dd/MM/yyyy')}  {"->"}  {experienceData[hoveredIndex - 1].time[1] === "present" ? "Present" : DateTime.fromISO(experienceData[hoveredIndex - 1].time[1]).toFormat('dd/MM/yyyy')}</h1>
                                         <h1 className="text-teal-800  font-bold text-m opacity-80">{experienceData[hoveredIndex - 1].location}</h1>
-                                        <div className='flex justify-end h-[75%] w-full my-4 bg-white p-4 rounded-lg border-2 border-zinc-200'>
+                                        <div className='flex justify-end h-[85%] w-full my-2 bg-white p-2 rounded-lg border-2 border-zinc-200 overflow-hidden'>
                                             <div className='relative w-full h-full'>
                                                 <Image 
                                                 src={`/experienceLogos/${experienceData[hoveredIndex - 1].image}`} 
@@ -144,7 +144,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                                 fill 
                                                 priority
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
-                                                style={{ objectFit: "contain" }} />
+                                                style={{ objectFit: "cover" }} />
                                             </div>
                                         </div>
                                     </div>
@@ -230,9 +230,9 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                                     }}
                                                     className={`relative h-12 rounded-full flex flex-row items-center ps-1 bg-gradient-to-r shadow-lg border-2 border-zinc-400 overflow-hidden ${gradientColors[colorIndex]}`}
                                                 >
-                                                    <div className='bg-white w-16 h-10 rounded-full overflow-hidden flex-shrink-0 flex justify-center items-center'>
+                                                    <div className='bg-white w-14 h-9 rounded-full overflow-hidden flex-shrink-0 flex justify-center items-center'>
                                                         <div className='relative w-full h-full'>
-                                                            <Image src={`/experienceLogos/${exp.image}`} alt="company logo" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: "contain" }} />
+                                                            <Image src={`/experienceLogos/${exp.image}`} alt="company logo" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: "cover" }} />
                                                         </div>
                                                     </div>
 

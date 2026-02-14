@@ -18,7 +18,10 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
 
-  const smallHeadLineClassName = "text-black opacity-80 text-lg font-bold -mt-6 w-[80%] text-center";
+  // const smallHeadLineClassName = "text-black opacity-80 text-lg font-bold -mt-6 w-[80%] text-center";
+  const smallHeadLineClassName = "text-black opacity-80 text-lg font-bold -mt-6 text-center whitespace-nowrap mx-auto";
+
+
 
   const lag = 400;
   const lastPageHeight = 250;
@@ -142,7 +145,7 @@ export default function Home() {
           <Headline title="Work Experience" />
 
           <motion.div className="mb-12 flex justify-center">
-            <h4 className={smallHeadLineClassName}> I have been working since my early teens, here is a quick overview of the companies i have contribuated to</h4>
+            <h4 className={smallHeadLineClassName + " mx-auto"}> Hover the mouse over the experience cards for more details</h4>
           </motion.div>
 
           <WorkExperience animate={animateWorkExperience} />
@@ -160,7 +163,7 @@ export default function Home() {
           <Headline title="Education" />
 
           <motion.div className="mb-12 flex justify-center">
-            <h4 className={smallHeadLineClassName}> I have a masters degree in mechanical engineering, here is an overview of my education earning that title</h4>
+            <h4 className={smallHeadLineClassName}> I am pursuing a MSc in Wind Energy, with a focus on the mechanics, aerodynamics and electrical aspects. <br /> Click the cards to read details about my STX, BSc and MSc</h4>
           </motion.div>
 
           <FlippingCard />

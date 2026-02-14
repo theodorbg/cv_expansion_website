@@ -60,8 +60,8 @@ export default function FrontPage() {
           style={{
             bottom: `${scrollY}px`,
             left: "0px",
-            // backgroundImage: `url("/mechanical_engineering.jpeg")`,
-            backgroundImage: `url("/wtf_pv.jpg")`,
+            // backgroundImage: `url("/shutterstock-368354981-banner1600.jpg")`,
+            backgroundImage: `url("/osw_strategy.png")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

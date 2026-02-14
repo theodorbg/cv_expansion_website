@@ -1,81 +1,114 @@
 [
     {
         "id": 1,
-        "name": "Optihorse",
-        "position": "IT Assistant",
-        "location": "Osted, Denmark",
+        "name": "Ballerup Baseball Softball Club",
+        "position": "Youth Coach",
+        "location": "Ballerup, Denmark",
         "time": [
-            "2015-07-01",
-            "2018-03-01"
+            "2015-01-01",
+            "2018-02-01"
         ],
-        "image": "optihorse.png",
+        "image": "vandals_new.png",
         "description": [
-            "Installed more than 50 computers for pop-up events.",
-            "Assisted in cataloging an inventory exceeding 2000 products."
+            "Organized and led training sessions twice a week",
+            "Took responsibility for 20+ teenagers",
+            "Ensured safety and fairplay during games",
+            "Developed leadership and coordination skills"
         ]
     },
     {
         "id": 2,
-        "name": "Heptagon ApS",
-        "position": "IT Assistant",
-        "location": "Roskilde, Denmark",
+        "name": "DinTutor",
+        "position": "Tutor       -- Math and Physics",
+        "location": "Lyngby, Denmark",
         "time": [
-            "2018-05-01",
-            "present"
+            "2018-01-01",
+            "2019-07-01"
         ],
-        "image": "heptagon.webp",
+        "image": "howtochooseanlsattutor.jpg",
         "description": [
-            "Participated in 3-day industrial SCADA course.",
-            "Resolved over 60 technical issues on company phones and computers.",
-            "Provided consultation on two distinct projects involving mechatronics and IoT integration."
+            "Raised Mathematics and Physics performance for 20+ gymnasium students ",
+            "Assessed knowledge gaps and delivered targeted exam preparation",
+            "Improved grades from failing (00) to the very top of the grade scale",
+            "Prepared students for oral and written exams on A-level material in Math and Physics"
         ]
     },
     {
         "id": 3,
-        "name": "Technical University of Denmark",
-        "position": "Teachers Assistant",
-        "location": "Kongens Lyngby, Denmark",
+        "name": "Freelance",
+        "position": "Labor Worker",
+        "location": "Brisbane, Australia",
         "time": [
-            "2020-09-01",
-            "2024-12-01"
+            "2019-07-01",
+            "2020-01-30"
         ],
-        "image": "dtu.png",
+        "image": "aus.jpg",
         "description": [
-            "Assisted in over 100 group work sessions for math and physics courses.",
-            "Privately tutored over 10 students, successfully elevating their grades from 00 to 7+ after initial exam failures."
+            "Performed physically demanding hands-on work across multiple trades",
+            "Adapted quickly to new tasks, processes, tools",
+            "Ensured quality under tight deadlines",
+            "Worked 50+ private jobs",
+            "Cooperated with 50+ teams across 10+ trades"            
         ]
     },
     {
         "id": 4,
-        "name": "Novo Nordisk A/S",
-        "position": "Student Data Engineer",
-        "location": "Hillerød, Denmark",
+        "name": "Danish Defence",
+        "position": "Professional Soldier, Infantry",
+        "location": "Slagelse, Denmark",
         "time": [
-            "2024-04-01",
-            "2025-07-01"
+            "2020-01-02",
+            "2021-01-08"
         ],
-        "image": "novo.jpg",
+        "image": "defence4.png",
         "description": [
-            "Built 10+ data pipelines and 4 dashboards through Palantir Foundry.",
-            "Maintained a PostgreSQL database by updating decrepitated views.",
-            "Supported compliance processes for digital solutions within a GxP environment."
+            "Executed tasks under strict procedural and quality requirements",
+            "Worked closely in a team, with responsibility at both individual and unit-level",
+            "Delivered accurate results under time pressure and rough conditions",
+            "Applied leadership, communication, and teamwork skills in high-stress environments",
+            "Gained logistics, operations, and strategic planning experience in various exercises",
+            "Applied dedication and discipline during service"
         ]
     },
     {
         "id": 5,
-        "name": "Novo Nordisk A/S",
-        "position": "Associate Data Engineer",
-        "location": "Hillerød, Denmark",
+        "name": "DinTutor",
+        "position": "Math and Physics Tutor",
+        "location": "Lyngby, Denmark",
         "time": [
-            "2025-07-01",
-            "present"
+            "2021-01-08",
+            "2023-05-01"
         ],
-        "image": "novo.jpg",
+        "image": "howtochooseanlsattutor.jpg",
         "description": [
-            "Migrated the facility's main PostgreSQL database to Databricks to create a unified data platform.",
-            "Lead full stack developer on two internal applications, automating manual metrology processes.",
-            "Conducted mob-programming sessions to upskill colleagues on software development.",
-            "Simplified highly complex CAD-models to reduce computational load in digital twin simulations."
+            "Raised Mathematics and Physics performance for 20+ gymnasium students ",
+            "Assessed knowledge gaps and delivered targeted exam preparation",
+            "Improved grades from failing (00) to the very top of the grade scale",
+            "Prepared students for oral and written exams on A-level material in Math and Physics"
+        ]
+    },
+    
+    {
+        "id": 6,
+        "name": "Systra",
+        "position": "Student Worker",
+        "location": "Copenhagen, Denmark",
+        "time": [
+            "2023-01-05",
+            "2024-01-04"
+        ],
+        "image": "systra.jpg",
+        "description": [
+            "Produced and updated as-built railway circuit diagrams in AutoCAD, NX, and SolidWorks",
+            "Documented as-built cable routings, security systems, and relay configurations in PC SCHEMATIC",
+            "Developed Python scripts to automate repetitive version control and documentation tasks",
+            "Cut processing time by orders of magnitude and significantly reduced human errors",
+            "Automated Word document data extraction and updates, reducing documentation time by >80%",
+            "Identified inefficiencies in manual version control processes and automation opportunities",
+            "Delivered accurate system documentation for handover, maintenance, and future modifications",
+            "Supported safety, compliance, troubleshooting, and long-term system reliability"
+            
         ]
     }
 ]
+
