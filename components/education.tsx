@@ -196,7 +196,7 @@ const education_data = [
     subtitle: "B.Sc. Design of Sustainable Energy Systems",
     year: "2021-2025",
     location: "Kongens Lyngby, Denmark",
-    description: "Following my graduation project (SRP) in Gymnasium, where I collaborated with DTU on a PV Solar project, I was hooked on studying Energy technologies at DTU. The BSc program consists of many mandatory courses to get a broad multidisciplinary foundation. Therefore, and because I like to get a deep understanding of things, I chose to prioritize courses related to wind energy. I also prioritized my elite sport career and made time for a student job to invest in future job opportunities, by prolonging my studies by half a year.",
+    description: "Following my graduation project (SRP) in Gymnasium, where I collaborated with DTU on a PV Solar project, I was hooked on studying Energy technologies at DTU. The BSc program consists of many mandatory courses from various fields to get a broad multidisciplinary foundation. Therefore, and because I like to get a deep understanding of things, I chose to prioritize courses related to wind energy. I also prioritized my elite sport career and made time for a student job to invest in future job opportunities, by prolonging my studies by half a year.",
     GPA: "10.3",
   },
   {
