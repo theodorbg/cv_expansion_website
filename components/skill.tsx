@@ -106,130 +106,81 @@ export default function SkillCategory() {
 
 const programming = [
     {
-        id: 1,
-        name: "Python",
-        level: 9,
-        image: "python.png",
-    },
-    {
-        id: 2,
-        name: "Java",
-        level: 5,
-        image: "java.png",
-    },
-    {
-        id: 3,
-        name: "C++",
-        level: 3,
-        image: "cpp.svg",
-    },
-    {
-        id: 4,
-        name: "JavaScript",
-        level: 7,
-        image: "javascript.png",
-    },
-    {
-        id: 5,
-        name: "TypeScript",
-        level: 7,
-        image: "Typescript.svg.png",
-    },
-    {
-        id: 6,
-        name: "Matlab",
-        level: 5,
-        image: "matlab.png",
-    },
-    {
-        id: 7,
-        name: "Maple",
-        level: 7,
-        image: "maple.png",
-    },
-    {
-        id: 8,
-        name: "SQL",
-        level: 7,
-        image: "sql.jpg",
-    },
-    {
-        id: 9,
-        name: "postgresql",
-        level: 8,
-        image: "postgres.png",
-    },
-    {
-        id: 10,
-        name: "Git",
-        level: 6,
-        image: "git.webp",
-    },
+    id: 1,
+    name: "Python",
+    level: 9,
+    image: "python.png",
+  },
+  {
+    id: 6,
+    name: "Matlab",
+    level: 8,
+    image: "matlab.png",
+  },
+  {
+    id: 7,
+    name: "Maple",
+    level: 8,
+    image: "maple.png",
+  },
+  {
+    id: 9,
+    name: "Gurobi",
+    level: 8,
+    image: "gurobi.png",
+  },
+  {
+    id: 10,
+    name: "Git",
+    level: 8,
+    image: "git.webp",
+  },
+  {
+    id: 5,
+    name: "RStudio",
+    level: 8,
+    image: "rstudio-2048x2048.png",
+  },
+
+  {
+    id: 11,
+    name: "HTML",
+    level: 5,
+    image: "html.svg",
+  },
+
+  {
+    id: 2,
+    name: "Java",
+    level: 4,
+    image: "java.png",
+  },
+  {
+    id: 8,
+    name: "SQL",
+    level: 4,
+    image: "sql.jpg",
+  },
+  {
+    id: 3,
+    name: "C++",
+    level: 3,
+    image: "cpp.svg",
+  },
+  {
+    id: 4,
+    name: "JavaScript",
+    level: 3,
+    image: "javascript.png",
+  },
 ];
 
-
-const development = [
-    {
-        id: 1,
-        name: "HTML",
-        level: 6,
-        image: "html.svg",
-    },
-    {
-        id: 2,
-        name: "CSS",
-        level: 6,
-        image: "css.svg",
-    },
-    {
-        id: 3,
-        name: "Tailwind",
-        level: 7,
-        image: "tailwind.png",
-    },
-    {
-        id: 4,
-        name: "Next.js",
-        level: 4,
-        image: "nextjs.webp",
-    },
-    {
-        id: 5,
-        name: "React.js",
-        level: 7,
-        image: "react.png",
-    },
-    {
-        id: 6,
-        name: "Power BI",
-        level: 3,
-        image: "powerbi.jpg",
-    },
-    {
-        id: 7,
-        name: "Databricks",
-        level: 6,
-        image: "databricks.png",
-    },
-    {
-        id: 8,
-        name: "Palantir",
-        level: 7,
-        image: "palantir.png",
-    },
-        {
-        id: 9,
-        name: "Retool",
-        level: 9,
-        image: "retool.svg",
-    },
-];
 
 const general = [
     {
         id: 1,
         name: "Word",
-        level: 8,
+        level: 10,
         image: "word.svg",
     },
     {
@@ -241,20 +192,14 @@ const general = [
     {
         id: 3,
         name: "PowerPoint",
-        level: 6,
+        level: 8,
         image: "powerpoint.svg",
     },
     {
         id: 4,
-        name: "Photoshop",
-        level: 6,
-        image: "photoshop.png",
-    },
-    {
-        id: 5,
-        name: "Premiere Pro",
-        level: 2,
-        image: "premier.png",
+        name: "Latex",
+        level: 9,
+        image: "latex.jpg",
     },
 ];
 
@@ -262,70 +207,109 @@ const CAD = [
     {
         id: 1,
         name: "Solidworks",
-        level: 9,
+        level: 5,
         image: "solidworks.png",
     },
-    {
+
+      {
         id: 2,
-        name: "Autodesk Inventor",
-        level: 6,
-        image: "inventor.png",
+        name: "AutoCAD",
+        level: 5,
+        image: "autocad.png",
     },
-    {
+    
+      {
         id: 3,
-        name: "FreeCAD",
+        name: "NX",
         level: 5,
-        image: "freecad.svg",
+        image: "nx.png",
     },
-    {
+
+      {
         id: 4,
-        name: "Creo",
-        level: 2,
-        image: "creo.svg",
+        name: "ParaView",
+        level: 5,
+        image: "paraview.jpg",
     },
-    {
+
+      {
         id: 5,
-        name: "OpenSCAD",
+        name: "PC SCHEMATIC",
         level: 5,
-        image: "openscad.png",
+        image: "pcschematic.png",
     },
-    {
-        id: 6,
-        name: "StarCCM+",
-        level: 4,
-        image: "starccm.png",
-    },
-    {
-        id: 7,
-        name: "Ansys",
-        level: 4,
-        image: "ansys.png",
-    },
-    {
-        id: 8,
-        name: "Cura",
-        level: 8,
-        image: "cura.png",
-    },
-    {
-        id: 9,
-        name: "Bambu lab",
-        level: 8,
-        image: "bambulab.webp",
-    },
-    {
-        id: 10,
-        name: "Prusa slicer",
-        level: 5,
-        image: "prusa.png",
-    },
-    {
-        id: 11,
-        name: "Autodesk Netfabb",
-        level: 7,
-        image: "netfabb.jpg",
-    },
+    
+   
 ];
 
-const skillArray = [programming, development, general, CAD];
-const skillNames = ["Programming", "Development", "General", "CAD / FEA / CFD"];
+const Software = [
+    {
+        id: 1,
+        name: "Simulink",
+        level: 8,
+        image: "Simulink.png",
+    },
+
+      {
+        id: 2,
+        name: "dSpace",
+        level: 6,
+        image: "dSpace.png",
+    },
+    
+      {
+        id: 3,
+        name: "ASHES",
+        level: 8,
+        image: "ASHES.jpg",
+    },
+
+      {
+        id: 4,
+        name: "HAWC2",
+        level: 5,
+        image: "HAWC2.png",
+    },  
+
+    {
+    id: 5,
+    name: "Power BI",
+    level: 2,
+    image: "powerbi.jpg",
+  },
+   
+];
+
+const Hardware = [
+    {
+        id: 1,
+        name: "MicroLabBox",
+        level: 8,
+        image: "MicroLabBox.png",
+    },
+
+      {
+        id: 2,
+        name: "Arduino",
+        level: 6,
+        image: "Arduino.png",
+    },
+    
+      {
+        id: 3,
+        name: "Power Electronics",
+        level: 5,
+        image: "Power Electronics.png",
+    },
+
+      {
+        id: 4,
+        name: "DAQ",
+        level: 5,
+        image: "daq.jpg",
+    },  
+   
+];
+
+const skillArray = [programming, general, CAD, Software, Hardware];
+const skillNames = ["Programming", "General", "CAD", "Software", "Hardware"];

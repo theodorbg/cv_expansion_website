@@ -183,7 +183,7 @@ export default function Home() {
         >
           <Headline title="Projects" />
           <motion.div className=" flex justify-center -mb-12">
-            <h4 className={smallHeadLineClassName}> I enjoy tying all my skills and expertise together through project work. <br /> Here are my favourite ones. </h4>
+            <h4 className={smallHeadLineClassName}> I enjoy tying all my skills and expertise together through project work. <br /> Here are some honorable mentions <br />  Click to view details and scroll through the pictures. </h4>
           </motion.div>
 
           <AnimatedProjects />

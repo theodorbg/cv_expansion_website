@@ -136,7 +136,7 @@ const RenderProjects = (projects: project[], direction: 'left' | 'right' = 'left
                         exit={{opacity: 0, height:"30%", top: '50%' }}
                         transition={{ duration: 0.3 }}
                       >
-                        <STLViewer url={project.model ? project.fullModelPath : "/projectPictures/dart/dart.STL"} modelScale={project.modelScale ? project.modelScale : 1.5} />
+                        <STLViewer url={project.model ? project.fullModelPath : "/projectPictures/rotor/rotor.STL"} modelScale={project.modelScale ? project.modelScale : 1.5} />
                       </motion.div>
                       <motion.span
                         className="w-full text-center text-white text-lg font-bold absolute bottom-16 left-1/2 transform -translate-x-1/2 z-[80]"
@@ -231,7 +231,7 @@ export default function AnimatedProjects() {
       <AnimatePresence>
         {chosenProject !== null && (
           <motion.div
-            className="w-[900px] 2k:w-[1200px] min-h-[200px] max-h-[900px] bg-zinc-100 rounded-2xl border-zinc-500 border-4 z-[60] absolute"
+            className="w-[1300px] 2k:w-[800px] min-h-[200px] max-h-[900px] bg-zinc-100 rounded-2xl border-zinc-500 border-4 z-[60] absolute"
             initial={{ left: "50%", top: "50%", transform: "translate(-50%, -50%) scale(0)" }}
             animate={{ left: "50%", top: "50%", transform: "translate(-50%, -50%) scale(1)" }}
             exit={{ left: "50%", top: "50%", transform: "translate(-50%, -50%) scale(0)" }}

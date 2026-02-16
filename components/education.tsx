@@ -120,7 +120,7 @@ export default function FlippingCard() {
           <motion.div
             className="bg-zinc-50 rounded-2xl border-zinc-500 border-4 overflow-hidden absolute"
             initial={{ left: popupPosition.x, top: popupPosition.y, width: popupPosition.width, height: popupPosition.height }}
-            animate={{ width: '900px', height: '500px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}
+            animate={{ width: '1200px', height: '400px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}
             exit={{ left: popupPosition.x, top: popupPosition.y, width: popupPosition.width, height: popupPosition.height, transform: 'translate(0%, 0%)' }}
             transition={{ duration: 0.3 }}
           >

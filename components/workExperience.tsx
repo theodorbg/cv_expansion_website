@@ -1,35 +1,46 @@
 "use client";
 import React from 'react';
 
+
 import { DateTime } from 'luxon';
+
 
 import { useWorkExperience } from '@/store/workExperience';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useState, useRef } from 'react';
 import Image from 'next/image';
 
+
 import { v4 as uuidv4 } from 'uuid';
 
+
 const now = DateTime.now();
+
 
 const yearSpacing = 2;
 const monthSpacing = 2;
 const totalDuration = 4;
 
+
 interface WorkExperienceProps {
     animate: boolean;
 }
 
+
 export default function WorkExperience({ animate }: WorkExperienceProps) {
+
 
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
+
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [hoveredPosition, setHoveredPosition] = useState<DOMRect | null>(null);
     const experienceRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+
     const experienceData = useWorkExperience((state) => state.experience);
+
 
     // Group experiences by company name
     const groupedExperiences = experienceData.reduce((acc, exp) => {
@@ -47,25 +58,30 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
         return acc;
     }, [] as { company: string; positions: typeof experienceData; image: string; location: string }[]);
 
+
     function calculateMonthDifference(startDate: string, endDate: string): number {
         const start = DateTime.fromISO(startDate);
         const end = DateTime.fromISO(endDate);
 
+
         const diffInMonths = end.diff(start, 'months').months;
         const roundedMonths = Math.round(diffInMonths);
 
+
         return roundedMonths;
     }
+
 
     const earliestDate = useWorkExperience((state) => state.earliestDate);
     const timeSinceEarliest = useWorkExperience((state) => state.timeSinceEarliest);
     const monthsToYearEnd = useWorkExperience((state) => state.monthsToYearEnd);
     const verticalYearLines = [];
 
+
     for (let i = 0; i < Math.ceil(timeSinceEarliest / 12 / yearSpacing); i++) {
         const position = monthsToYearEnd / timeSinceEarliest * 100 + i * (12 * yearSpacing) / timeSinceEarliest * 100;
         const year = DateTime.fromISO(earliestDate).year + i * yearSpacing + 1;
-        
+       
         // Only add year lines that are within the visible timeline (position <= 100%)
         if (position <= 100) {
             verticalYearLines.push({
@@ -75,6 +91,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
         }
     }
 
+
     const verticalMonthLines = [];
     for (let i = 0; i < timeSinceEarliest / monthSpacing; i++) {
         verticalMonthLines.push(
@@ -83,6 +100,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
     }
     verticalMonthLines.push(100);
 
+
     const dateToPosition = (date: any): number => {
         if (date === 'present') {
             date = now
@@ -90,6 +108,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
         const diff = calculateMonthDifference(earliestDate, date);
         return diff / timeSinceEarliest * 100;
     }
+
 
     return (
         <div
@@ -108,6 +127,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                     {verticalMonthLines.map((line) => (
                         <div key={uuidv4()} className="absolute bottom-0 top-14 w-[1px] bg-black opacity-40" style={{ left: `${line}%` }}></div>
                     ))}
+
 
                     <AnimatePresence mode="popLayout">
                         {hoveredIndex !== null && hoveredIndex !== undefined && (
@@ -133,17 +153,18 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                         </ul>
                                     </div>
 
+
                                     <div className='flex flex-col items-end w-[35%]'>
                                         <h1 className="text-teal-800 font-bold text-[16px] opacity-80">{DateTime.fromISO(experienceData[hoveredIndex - 1].time[0]).toFormat('dd/MM/yyyy')}  {"->"}  {experienceData[hoveredIndex - 1].time[1] === "present" ? "Present" : DateTime.fromISO(experienceData[hoveredIndex - 1].time[1]).toFormat('dd/MM/yyyy')}</h1>
                                         <h1 className="text-teal-800  font-bold text-m opacity-80">{experienceData[hoveredIndex - 1].location}</h1>
                                         <div className='flex justify-end h-[85%] w-full my-2 bg-white p-2 rounded-lg border-2 border-zinc-200 overflow-hidden'>
                                             <div className='relative w-full h-full'>
-                                                <Image 
-                                                src={`/experienceLogos/${experienceData[hoveredIndex - 1].image}`} 
-                                                alt="big logo" 
-                                                fill 
+                                                <Image
+                                                src={`/experienceLogos/${experienceData[hoveredIndex - 1].image}`}
+                                                alt="big logo"
+                                                fill
                                                 priority
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                 style={{ objectFit: "cover" }} />
                                             </div>
                                         </div>
@@ -154,21 +175,22 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                         )}
                     </AnimatePresence>
 
+
                     <div className='absolute top-14 w-full flex flex-col space-y-6 mt-3 overflow-visible'>
                         {groupedExperiences.map((group, groupIndex) => (
                             <div key={uuidv4()} className='relative w-full h-12'>
                                 {group.positions.map((exp, posIndex) => (
-                                    <div 
+                                    <div
                                         key={uuidv4()}
-                                        className='absolute' 
-                                        style={{ 
-                                            left: `${dateToPosition(exp.time[0])}%`, 
+                                        className='absolute'
+                                        style={{
+                                            left: `${dateToPosition(exp.time[0])}%`,
                                             width: `${dateToPosition(exp.time[1]) - dateToPosition(exp.time[0])}%`,
                                             top: '0px'
                                         }}
                                     >
                                         <div
-                                            ref={(el) => { 
+                                            ref={(el) => {
                                                 const refIndex = groupIndex * 100 + posIndex;
                                                 experienceRefs.current[refIndex] = el;
                                             }}
@@ -180,7 +202,8 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                             </div>
                         ))}
                     </div>
-                    
+                   
+
 
                     <motion.div className="relative top-14 w-full h-auto flex flex-col space-y-6 mt-3 overflow-visible"
                         initial={{ clipPath: 'inset(0 100% 0 0)' }}
@@ -196,19 +219,19 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                 'from-purple-400 to-pink-400',
                                 'from-orange-400 to-red-400'
                             ];
-                            
+                           
                             return (
                                 <div key={uuidv4()} className='relative w-full h-12'>
                                     {group.positions.map((exp, posIndex) => {
                                         const colorIndex = posIndex % gradientColors.length;
                                         const refIndex = groupIndex * 100 + posIndex;
-                                        
+                                       
                                         return (
-                                            <div 
+                                            <div
                                                 key={uuidv4()}
-                                                className='absolute' 
-                                                style={{ 
-                                                    left: `${dateToPosition(exp.time[0])}%`, 
+                                                className='absolute'
+                                                style={{
+                                                    left: `${dateToPosition(exp.time[0])}%`,
                                                     width: `${dateToPosition(exp.time[1]) - dateToPosition(exp.time[0])}%`,
                                                     top: '0px',
                                                     zIndex: group.positions.length - posIndex // Later positions on top
@@ -236,6 +259,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                                         </div>
                                                     </div>
 
+
                                                     <div className="overflow-hidden text-ellipsis whitespace-nowrap w-full">
                                                         <h1 className="text-zinc-100 font-bold ps-2">{exp.position}</h1>
                                                         <h2 className="text-zinc-200 text-xs ps-2 opacity-80">{exp.name}</h2>
@@ -249,7 +273,8 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                         })}
                     </motion.div>
 
-                    
+
+                   
                     <motion.div className="absolute bottom-0 top-14 w-1"
                         initial={{ left: "0px", transform: "translateX(-50%)" }}
                         animate={(isInView && animate) ? { left: "100%" } : {}}
@@ -261,12 +286,9 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                     </motion.div>
 
 
+
                 </div>
             </div>
         </div>
     );
 }
-
-
-
-
