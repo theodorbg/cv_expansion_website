@@ -140,11 +140,15 @@ export default function Home() {
         <div id="experience"></div>
 
         <motion.div
-          className="snap-start flex flex-col items-center w-full h-full overflow-visible mt-24"
+          className="snap-start flex flex-col items-center w-full h-full overflow-visible mt-15"
         >
+          
+       
           <Headline title="Work Experience" />
+       
 
-          <motion.div className="mb-12 flex justify-center">
+
+          <motion.div className="-mt-8 mb-36 flex justify-center">
             <h4 className={smallHeadLineClassName + " mx-auto"}> Hover the mouse over the experience cards for more details</h4>
           </motion.div>
 
@@ -183,7 +187,7 @@ export default function Home() {
         >
           <Headline title="Projects" />
           <motion.div className=" flex justify-center -mb-12">
-            <h4 className={smallHeadLineClassName}> I enjoy tying all my skills and expertise together through project work. <br /> Here are some honorable mentions <br />  Click to view details and scroll through the pictures. </h4>
+            <h4 className={smallHeadLineClassName}> I enjoy tying all my skills and expertise together through project work <br /> Here are some honorable mentions <br />  Click to view details and scroll through the pictures </h4>
           </motion.div>
 
           <AnimatedProjects />

@@ -98,7 +98,7 @@ export default function FlippingCard() {
   };
 
   return (
-    <div className='w-full h-full grid grid-cols-3 gap-8 relative'>
+    <div className='w-full h-full grid grid-cols-3 gap-2 relative'>
       <Card
         education={education_data[0]}
         delay={isFlipped ? delay_time : delay_time * 3}
@@ -143,10 +143,10 @@ export default function FlippingCard() {
                 </div>
               </div>
 
-              <div className='w-full h-full flex flex-row px-8 pb-8'>
-
-                <div className='w-full h-full relative'>
-                  <p className='text-zinc-800 font-bold text-lg'>{chosenEducation.description}</p>
+              <div className='w-full h-full flex flex-row gap-4 px-8 pb-8'>
+  
+                <div className='flex-1 h-full relative pr-4'>
+                  <p className='text-zinc-800 font-bold text-lg break-words'>{chosenEducation.description}</p>
 
                   <div className='absolute bottom-0 left-0 flex flex-col'>
                     <h3 className='text-zinc-600 font-semibold text-sm mb-1'>Academic Performance</h3>
@@ -154,7 +154,7 @@ export default function FlippingCard() {
                   </div>
                 </div>
 
-                <div className='w-[350px] h-full rounded-xl flex justify-center items-center p-6 ms-8 bg-white border-4 border-zinc-300'>
+                <div className='w-[30px] flex-shrink-0 h-full rounded-xl flex justify-center items-center p-6 bg-white border-4 border-zinc-300'>
                   <div className='relative w-full h-full'>
                     <Image src={`/experienceLogos/${chosenEducation.img}`} alt="education" fill style={{ objectFit: "contain" }} />
                   </div>

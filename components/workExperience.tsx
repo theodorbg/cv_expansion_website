@@ -81,7 +81,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
     for (let i = 0; i < Math.ceil(timeSinceEarliest / 12 / yearSpacing); i++) {
         const position = monthsToYearEnd / timeSinceEarliest * 100 + i * (12 * yearSpacing) / timeSinceEarliest * 100;
         const year = DateTime.fromISO(earliestDate).year + i * yearSpacing + 1;
-       
+        
         // Only add year lines that are within the visible timeline (position <= 100%)
         if (position <= 100) {
             verticalYearLines.push({
@@ -133,14 +133,14 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                         {hoveredIndex !== null && hoveredIndex !== undefined && (
                             <div className='w-full h-full absolute' key={hoveredIndex}>
                                 <motion.div
-                                    className='w-[1200px] h-[300px] z-[9999] fixed flex justify-between p-4 rounded-2xl border-2 border-zinc-500 bg-zinc-50'
+                                    className='w-[1200px] h-[300px] z-[9999] fixed flex justify-between p-4 rounded-2xl border-2 border-zinc-500 bg-zinc-50 pointer-events-none'
                                     style={{
-                                        left: `${hoveredPosition ? hoveredPosition.left + hoveredPosition.width / 2 : 0}px`,
-                                        top: `${hoveredPosition ? hoveredPosition.top - 350 : 0}px`
+                                        left: '50%',
+                                        top: '38%'
                                     }}
-                                    initial={{ opacity: 0, scale: 0, x: '-50%', y: "160px" }}
-                                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                                    exit={{ opacity: 0, scale: 0, x: '-50%', y: "160px" }}
+                                    initial={{ opacity: 0, scale: 0, x: '-50%', y: '-50%' }}
+                                    animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
+                                    exit={{ opacity: 0, scale: 0, x: '-50%', y: '-50%' }}
                                     transition={{ duration: 0.3 }}
                                 >
                                     <div className='w-[65%] pe-8'>
@@ -159,17 +159,16 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                         <h1 className="text-teal-800  font-bold text-m opacity-80">{experienceData[hoveredIndex - 1].location}</h1>
                                         <div className='flex justify-end h-[85%] w-full my-2 bg-white p-2 rounded-lg border-2 border-zinc-200 overflow-hidden'>
                                             <div className='relative w-full h-full'>
-                                                <Image
-                                                src={`/experienceLogos/${experienceData[hoveredIndex - 1].image}`}
-                                                alt="big logo"
-                                                fill
+                                                <Image 
+                                                src={`/experienceLogos/${experienceData[hoveredIndex - 1].image}`} 
+                                                alt="big logo" 
+                                                fill 
                                                 priority
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
                                                 style={{ objectFit: "cover" }} />
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='w-0 h-0 z-50 absolute left-1/2 top-full transform -translate-x-1/2 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[12px] border-t-zinc-500'></div>
                                 </motion.div>
                             </div>
                         )}
@@ -180,17 +179,17 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                         {groupedExperiences.map((group, groupIndex) => (
                             <div key={uuidv4()} className='relative w-full h-12'>
                                 {group.positions.map((exp, posIndex) => (
-                                    <div
+                                    <div 
                                         key={uuidv4()}
-                                        className='absolute'
-                                        style={{
-                                            left: `${dateToPosition(exp.time[0])}%`,
+                                        className='absolute' 
+                                        style={{ 
+                                            left: `${dateToPosition(exp.time[0])}%`, 
                                             width: `${dateToPosition(exp.time[1]) - dateToPosition(exp.time[0])}%`,
                                             top: '0px'
                                         }}
                                     >
                                         <div
-                                            ref={(el) => {
+                                            ref={(el) => { 
                                                 const refIndex = groupIndex * 100 + posIndex;
                                                 experienceRefs.current[refIndex] = el;
                                             }}
@@ -202,7 +201,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                             </div>
                         ))}
                     </div>
-                   
+                    
 
 
                     <motion.div className="relative top-14 w-full h-auto flex flex-col space-y-6 mt-3 overflow-visible"
@@ -219,19 +218,19 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                                 'from-purple-400 to-pink-400',
                                 'from-orange-400 to-red-400'
                             ];
-                           
+                            
                             return (
                                 <div key={uuidv4()} className='relative w-full h-12'>
                                     {group.positions.map((exp, posIndex) => {
                                         const colorIndex = posIndex % gradientColors.length;
                                         const refIndex = groupIndex * 100 + posIndex;
-                                       
+                                        
                                         return (
-                                            <div
+                                            <div 
                                                 key={uuidv4()}
-                                                className='absolute'
-                                                style={{
-                                                    left: `${dateToPosition(exp.time[0])}%`,
+                                                className='absolute' 
+                                                style={{ 
+                                                    left: `${dateToPosition(exp.time[0])}%`, 
                                                     width: `${dateToPosition(exp.time[1]) - dateToPosition(exp.time[0])}%`,
                                                     top: '0px',
                                                     zIndex: group.positions.length - posIndex // Later positions on top
@@ -274,7 +273,7 @@ export default function WorkExperience({ animate }: WorkExperienceProps) {
                     </motion.div>
 
 
-                   
+                    
                     <motion.div className="absolute bottom-0 top-14 w-1"
                         initial={{ left: "0px", transform: "translateX(-50%)" }}
                         animate={(isInView && animate) ? { left: "100%" } : {}}
