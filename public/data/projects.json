@@ -22,16 +22,17 @@
       "modelUrl": "rotor.stl",
       "description": [
         "Selected airfoil profile for efficient blade design",
-        "Calculated velocity triangles and aerodynamic forces for incoming wind and rotational speeds",
-        "Built Python script implementing BEM theory to compute induction factors and blade twist angles",
-        "Designed 2-bladed rotor template with optimal twist angles and chord distribution constrained by wood size",
-        "Drew chord curve directly on balsa wood and cut out blade shape with saw",
-        "Carved airfoil profile using cardboard templates at maximum chord location",
-        "Sanded blades to final thickness (3mm tip) to achieve target thickness-to-chord ratio",
-        "Assembled 2-bladed rotor on test tower with force transducer and laser RPM sensor (tachometer) and torque measurement scale",
-        "Tested at 3 m/s wind speed, and measured thrust, torque, RPM, and calculated power coefficient",
-        "link to wind tunnel test video: photos.app.goo.gl/p62GzXgRhEEvHPM18",
-        "link to design phase videos: photos.app.goo.gl/bjFV5xykD9vxkUrd8 , photos.app.goo.gl/afT7F7tZ6pR9ViV58 "
+        "Calculated velocity triangles and aerodynamic forces for incoming wind",
+        "Built Python script implementing BEM theory",
+        "Designed 2-bladed rotor with optimal twist angles and chord distribution",
+        "Cut the chord curve and twist angle with a precision saw",
+        "Carved airfoil profile with precision saw and sandpaper",
+        "Sanded blades to achieve target thickness-to-chord ratio",
+        "Built test setup with force & torque transducer and laser RPM sensor",
+        "Measured thrust, torque, RPM, and calculated power coefficient at 3 m/s",
+        "Link to wind tunnel test video: photos.app.goo.gl/p62GzXgRhEEvHPM18",
+        "Link to compressor test video: photos.app.goo.gl/bjFV5xykD9vxkUrd8",
+        "Link to design phase video  photos.app.goo.gl/afT7F7tZ6pR9ViV58"
       ],
       "model": "rotor.stl",
       "modelScale": 1.5
@@ -54,17 +55,16 @@
         { "path": "comparison.png" }
       ],
       "description": [
-        "Designed thermal energy storage system using phase-change paraffin wax (melting at 58°C)",
+        "Designed thermal energy storage with phase-change paraffin wax",
         "Optimized energy density per volume and weight within constraints",
         "Calculated heat transfer through conduction, convection, and radiation",
-        "Built cylindrical storage: inner aluminum can with water/resistors, outer can with paraffin wax",
-        "Insulated with 10cm Rockwool (low thermal conductivity) and reflective aluminum foil",
-        "Designed electrical heating system: two 10Ω resistors in series, powered at 137A to reach 63°C",
-        "Instrumented with temperature sensors inside water, wax, exterior, and ambient",
+        "Built cylindrical storage: with water, resistors and paraffin wax",
+        "Insulated with 10cm Rockwool and reflective aluminum foil",
+        "Assembled electrical heating: 2x10Ω at 137A to reach 63°C",
+        "Instrumented system with temperature sensors in water, wax, exterior",
         "Built a python simulation with Euler's method to model cooldown process",
-        "Tested in lab: measured 48-hour heat retention, isothermal phase-change plateau at 57°C",
-        "Compared experimental data to theoretical model, achieving good correlation with adjusted convection coefficients",
-        "Identified optimal usage: heat to just above melting point, extract energy within 10 hours"
+        "Test: measured heat retention, isothermal phase-change plateau at 57°C",
+        "Compared experimental data to theoretical model"        
       ],
       "model": "heat_storage.stl",
       "modelScale": 1.3
@@ -97,17 +97,16 @@
         { "path": "frm_hole.png" }
       ],
       "description": [
-        "Implemented ITS Infrared Image Analyzer to project 2D images onto 3D blades",
+        "Used ITS Infrared Image Analyzer to project 2D images onto 3D blades",
         "Applied pinhole camera model for Focal Plane Array infrared cameras",
         "Calibrated matrix with Direct Linear Transform and Singular Value Decomposition methods",
         "Used Genetic Algorithm with elitism/mutation and lambda strategies to minimize reprojection error",
-        "Selected intelligent points: cooling channel edges despite manufacturing tolerances",
-        "Processed thermal images with temperature adjustment and FFT filters for visibility",
+        "Processed thermal images with temperature adjustment and FFT filters",
         "Generated 3D points in Siemens NX CAD software",
         "ParaView Validation: <4mm camera position error",
-        "Successfully projected 5/8 angles (top, leading edge, mid, tip, trailing): 20-50 points per image",        
-        "Analyzed challenges on suction side/trailing edge, cooling effectiveness and thermal hotspots",
-        "Proposed heating thermocouples for better visibility and improved projection accuracy"
+        "Analyzed challenges on suction side/trailing edge",
+        "Analyzed cooling effectiveness and thermal hotspots",
+        "Proposed heating thermocouples for improved projection accuracy"
         
       ],
       "model": "projection_3ds.stl",

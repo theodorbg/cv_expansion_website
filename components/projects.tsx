@@ -231,7 +231,7 @@ export default function AnimatedProjects() {
       <AnimatePresence>
         {chosenProject !== null && (
           <motion.div
-            className="w-[1300px] 2k:w-[800px] min-h-[200px] max-h-[900px] bg-zinc-100 rounded-2xl border-zinc-500 border-4 z-[60] absolute"
+            className="w-[100vw] h-[90vh] max-w-[1080px] min-h-[180px] max-h-[540px] bg-zinc-100 rounded-2xl border-zinc-500 border-4 z-[60] absolute"
             initial={{ left: "50%", top: "50%", transform: "translate(-50%, -50%) scale(0)" }}
             animate={{ left: "50%", top: "50%", transform: "translate(-50%, -50%) scale(1)" }}
             exit={{ left: "50%", top: "50%", transform: "translate(-50%, -50%) scale(0)" }}
@@ -239,14 +239,14 @@ export default function AnimatedProjects() {
           >
             <div className="flex flex-row w-full h-full relative">
               <div className="w-1/2 h-full flex flex-col justify-start">
-                <h1 className="text-zinc-800 text-4xl font-bold ps-8 pt-8">{chosenProject.title}</h1>
-                <h1 className="text-teal-600 text-2xl font-bold ps-8">{chosenProject.monthYear}</h1>
+                <h1 className="text-zinc-800 text-3xl font-bold ps-8 pt-8">{chosenProject.title}</h1>
+                <h1 className="text-teal-600 text-xl font-bold ps-8">{chosenProject.monthYear}</h1>
                 <div className="w-full h-full p-8 flex flex-col justify-between relative">
                   <div className="w-1 bg-teal-400 absolute" style={{ top: "52px", left: "40px", bottom: "52px", transform: "translateX(-50%)" }} />
                   {chosenProject.description.map((desc, i) => (
-                    <div className="flex flex-row items-center h-14" key={i}>
+                    <div className="flex flex-row items-center h-5" key={i}>
                       <div className="w-4 h-4 rounded-full bg-teal-400 me-6 flex-shrink-0" />
-                      <div className="text-slate-800 text-sm 2k:text-md font-bold">{desc}</div>
+                      <div className="text-slate-800 text-xs 2k:text-md font-bold">{desc}</div>
                     </div>
                   ))}
                 </div>
