@@ -1,62 +1,67 @@
 [
+   
     {
       "id": 1,
-      "headline": "Disc golf",
-      "content": "Some friends recently introduced me to disc golf, and although I still find the sport a bit unconventional, I’ve been playing it more and more. I’ve started building a small collection of discs and usually make it out to the course at least once a week.",
-      "thumbnail": "discgolf.jpg"
+      "headline": "Classical Piano",
+      "content": "I started playing piano during the rona times, and it has taken over almost all of my musical activities. I am currently taking classical piano lessons and I love playing Debussy, Lizst, Rachmaninov, Chopin, Bach, and Schumann. I still consider myself a beginner compared to my guitar level, but i have been playing for 6 years now and I am playing very advanced pieces, so I think it would be more accurate to classify myself as at least intermediate.",
+      "thumbnail": "piano.jpg"
     },
-    {
-      "id": 2,
-      "headline": "3D-Printing",
-      "content": "I was introduced to 3D modeling and printing in high school and have been creating everything from small trinkets to large-scale projects ever since. I currently use a Bambu Lab P1S printer and primarily design my own models in SolidWorks.",
-      "thumbnail": "3dprint.webp"
+
+     {
+      "id": 10,
+      "headline": "Cooking",
+      "content": "I barely consider this an actual hooby, but I really enjoy cooking, especially with and for people I care about. But I also like to spend time and make an effort to cook something delicious for dinner, even if it´s just me eating it on a normal wednesday.",
+      "thumbnail": "cooking.jpg"
     },
+    
     {
       "id": 3,
-      "headline": "Board games",
-      "content": "With people spending so much time on their phones these days, I find it refreshing to occasionally put them aside and sit down with friends to play a board game. I only have a small collection so far, but I'm always looking to add more to it. Some of my favorites include Settlers of Catan, Risk, Hint and Wingspan.",
-      "thumbnail": "explodingkittens.jpg"
+      "headline": "Military Pentathlon",
+      "content": "I have been training for and competing in Military Pentathlon since my time in the army, a sport consisting of: 200m/300m rifle shooting, 500m obstacle course run, 50m obstacle swim, precision and distance throwing, and 8km cross country run. I am competing for the national team of Denmark, and have competed at the World, European, and Nordic Championships as well as many European cups and national championships. The biggest achievement thus far is our European Championship title, that we won as a team of 4 men in 2025, in Wiener Neustadt, Austria.",
+      "thumbnail": "5kamp.jpg"
     },
     {
       "id": 4,
-      "headline": "Video games",
-      "content": "I've been playing video games as long as i remember, spanning every platform from the original Game Boy to the high-end PC I built myself. Though I don't have as much time for gaming as I used to, I still try to play whenever I can. Some of my all-time favorite titles include Sly Cooper, Minecraft, Team Fortress 2, The Witcher 3, and CSGO.",
-      "thumbnail": "witcher.jpg"
+      "headline": "Distance Running",
+      "content": "Since I started doing military pentathlon I have been training my running capabilities, and tried to raise them by an enormous amount. When I started, I was racing 8km in about 34-35 minutes, equal to a pace of around 4m20s/km. Now my best result is about 27 minutes, equal to around 3m23s/km. You can read more about my running achievements on the running page. Currently, a good week of running is 120km with 3-4x sessions and a long run, so I spend many hours a week running. ",
+      "thumbnail": "track.webp"
     },
     {
       "id": 5,
-      "headline": "Music",
-      "content": "I started playing guitar in my last years of primary school and have been playing ever since. Over time, I also picked up the piano and ukulele. While I wouldn't call myself highly skilled, I enjoy playing and singing just for my own entertainment",
-      "thumbnail": "guitar.jpeg"
+      "headline": "Strength Training",
+      "content": "Since I was 16 years old I have been strength training, with various goals. At first, the goal was to put on size, as I was really scrawny and weak. Later I started to focus on just becoming strong in the big 3 (Squat, Bench, Deadlift), which shifted into a short weightlifting career where I competed in Snatch and Clean & Jerk. I still use those lifts (and many others) to train for military pentathlon and running, but it has taken a backseat since I began training for military pentathlon. ",
+      "thumbnail": "snatch.jpg"
     },
     {
       "id": 6,
-      "headline": "Food",
-      "content": "I've always had a passion for food and love exploring local cuisines when I travel. Though I rarely find the time to cook properly, I like to think that when I do put in the effort, I can make decent meal.",
-      "thumbnail": "tacos.jpg"
+      "headline": "Swimming",
+      "content": "Since swimming is a part of military pentathlon, I swim around 3x per week. I enjoy finding a flow state in the pool where it´s just you and the water. During that state, you can really concentrate on all the sensations between your body and the water and how your body feels.  ",
+      "thumbnail": "pool.webp"
     },
     {
       "id": 7,
-      "headline": "Exercise",
-      "content": "While I don't love working out, I know it's important for my health. I usually try to hit the gym at least once a week, and I also like to go on daily walks or runs to stay active.",
-      "thumbnail": "deadlift.jpg"
+      "headline": "Reading",
+      "content":"When I was a child, before the age of smartphones, tablets and social media, I used to read all the time.  I learned to read at a very young age when I was still in kindergarden, and I read the whole Harry Potter series when I was 8-9 years old. I remember my parents would yell at me for spending hours on the bathroom reading in peace. Suddenly I got a smartphone like everyone else, and before I knew it I was never reading. During my adulthood I have started to read again to calm myself before going to sleep, and find that very helpful. I really enjoy Haruki Murakami, and I am still trying to figure out what I enjoy to read the most.",
+      "thumbnail": "book.png"
     },
     {
       "id": 8,
       "headline": "Chess",
-      "content": "My grandpa taught me the basics of chess, but I didn't really pick it up until high school when my friends got me hooked. I still love chess, but mostly do puzzles nowdays, where i reached a respectable puzzle rating on chess.com of around 3000.",
-      "thumbnail": "chess.jpg"
+      "content": "I got hooked on the chess.com wave when I was in the army, probably because my brain was a little bit bored. I played a lot for a few years, and I really enjoyed speed chess. Eventually it started to impact my life negatively because I would play in the evening before sleep, and get hyped up, making it difficult to sleep. I still play ocasionally, but mostly with friends on a real chessboard, and teach them standards and techniques.",
+      "thumbnail": "chess.webp"
     },
     {
       "id": 9,
-      "headline": "Poker",
-      "content": "As a kid, I was obsessed with magic, especially card tricks. I spent hours practicing sleight of hand and became quite skilled at various techniques. I don't do magic anymore, but I still love anything to do with cards, with Texas Hold'em Poker being one of my favorite games.",
-      "thumbnail": "casino.webp"
+      "headline": "Languages",
+      "content": "During my time in Australia, I made friends with many Germans. It was the first time in my life out of school, and I think my brain missed learning new stuff, so I developed a strong intrinsic motivation to learn German. I had already studied it in school, but now I really wanted to actually learn and speak it fluently. I eventually went to Germany for an exchange semester, where I learned to speak it fluently. Now I have jumped into Spanish lessons on Duolingo, currently nearing 800 days in a row.",
+      "thumbnail": "language.jpg"
     },
+    
     {
-      "id": 10,
-      "headline": "Reading",
-      "content": "I've always been a fan of fantasy, but traditional reading has never quite clicked for me. I do, however, greatly enjoy audiobooks as they allow me to listen while doing tasks or going on walks. Though there are many good books, The Mistborn and Stormlight Archive series by Brandon Sanderson are my favorites.",
-      "thumbnail": "dragon.jpg"
+      "id": 2,
+      "headline": "Guitar",
+      "content": "I have been playing the guitar since I was about 10 years old. Since I have played for so long, I have explored many genres, but I favor blues rock and rock legends like Stevie Ray Vaughan, Eric Clapton, Jimi Hendrix, Derek Trucks, and John Mayer. I also like to play acoustic masterworks for more quiet and mellow moods. I own a Gibson SG, a Fender Stratocaster and an acoustic guitar. I can learn to play practically anything I want and I am always taking requests ;) ",
+      "thumbnail": "jimi.jpg"
     }
+    
   ]

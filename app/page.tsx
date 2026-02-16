@@ -204,7 +204,8 @@ export default function Home() {
           <Headline title="Skills" />
 
           <motion.div className="flex justify-center">
-            <h4 className={smallHeadLineClassName}> Through Work, School and spare time projects, i have gained experience in a veriety of applications and programming languages. Here is a quick categorized overview of my skill level</h4>
+            <h4 className={smallHeadLineClassName}> Categorized overview of my skill levels in programming languages, CAD tools, <br></br> engineering software, hardware platforms, and web development frameworks <br></br> <br></br> I have developed these skills in previous jobs, during my studies and through personal projects.
+  </h4>
           </motion.div>
 
           <div className="w-full h-full mt-12">

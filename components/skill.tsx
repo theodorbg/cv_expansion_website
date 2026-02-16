@@ -142,12 +142,6 @@ const programming = [
     image: "rstudio-2048x2048.png",
   },
 
-  {
-    id: 11,
-    name: "HTML",
-    level: 5,
-    image: "html.svg",
-  },
 
   {
     id: 2,
@@ -173,34 +167,6 @@ const programming = [
     level: 3,
     image: "javascript.png",
   },
-];
-
-
-const general = [
-    {
-        id: 1,
-        name: "Word",
-        level: 10,
-        image: "word.svg",
-    },
-    {
-        id: 2,
-        name: "Excel",
-        level: 8,
-        image: "excel.svg",
-    },
-    {
-        id: 3,
-        name: "PowerPoint",
-        level: 8,
-        image: "powerpoint.svg",
-    },
-    {
-        id: 4,
-        name: "Latex",
-        level: 9,
-        image: "latex.jpg",
-    },
 ];
 
 const CAD = [
@@ -250,6 +216,20 @@ const Software = [
         image: "Simulink.png",
     },
 
+    {
+        id: 6,
+        name: "Excel",
+        level: 8,
+        image: "excel.svg",
+    },
+
+    {
+        id: 7,
+        name: "PowerPoint",
+        level: 8,
+        image: "powerpoint.svg",
+    },
+
       {
         id: 2,
         name: "dSpace",
@@ -263,20 +243,6 @@ const Software = [
         level: 8,
         image: "ASHES.jpg",
     },
-
-      {
-        id: 4,
-        name: "HAWC2",
-        level: 5,
-        image: "HAWC2.png",
-    },  
-
-    {
-    id: 5,
-    name: "Power BI",
-    level: 2,
-    image: "powerbi.jpg",
-  },
    
 ];
 
@@ -311,5 +277,46 @@ const Hardware = [
    
 ];
 
-const skillArray = [programming, general, CAD, Software, Hardware];
-const skillNames = ["Programming", "General", "CAD", "Software", "Hardware"];
+const development = [
+    {
+        id: 1,
+        name: "HTML",
+        level: 6,
+        image: "html.svg",
+    },
+    {
+        id: 2,
+        name: "CSS",
+        level: 6,
+        image: "css.svg",
+    },
+    {
+        id: 3,
+        name: "Tailwind",
+        level: 7,
+        image: "tailwind.png",
+    },
+    {
+        id: 4,
+        name: "Next.js",
+        level: 4,
+        image: "nextjs.webp",
+    },
+    {
+        id: 5,
+        name: "React.js",
+        level: 7,
+        image: "react.png",
+    },
+
+     {
+    id: 5,
+    name: "Power BI",
+    level: 2,
+    image: "powerbi.jpg",
+  },
+   
+];
+
+const skillArray = [programming, CAD, Software, Hardware, development];
+const skillNames = ["Programming", "CAD",  "Software", "Hardware",  "Development"];
