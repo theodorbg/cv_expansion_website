@@ -2,70 +2,6 @@ import React from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useHobbies } from "@/store/hobbies";
-import { stat } from "fs";
-
-const FramePositions = [
-    {
-        top: "60%",
-        left: "0%",
-        width: "30%",
-        height: "40%"
-    },
-    {
-        top: "66%",
-        left: "80%",
-        width: "18%",
-        height: "26%"
-    },
-    {
-        top: "64%",
-        left: "28%",
-        width: "26%",
-        height: "28%"
-    },
-    {
-        top: "10%",
-        left: "72%",
-        width: "28%",
-        height: "60%"
-    },
-    {
-        top: "60%",
-        left: "52%",
-        width: "30%",
-        height: "36%"
-    },
-    {
-        top: "2%",
-        left: "53%",
-        width: "26%",
-        height: "36%"
-    },
-    {
-        top: "0%",
-        left: "6%",
-        width: "30%",
-        height: "30%"
-    },
-    {
-        top: "26%",
-        left: "8%",
-        width: "26%",
-        height: "44%"
-    },
-    {
-        top: "6%",
-        left: "34%",
-        width: "22%",
-        height: "20%"
-    },
-    {
-        top: "22%",
-        left: "32%",
-        width: "44%",
-        height: "44%"
-    }
-];
 
 export default function HobbyFrames() {
     const [selectedHobby, setSelectedHobby] = React.useState<{
@@ -74,102 +10,86 @@ export default function HobbyFrames() {
         content: string;
         thumbnail: string;
     } | null>(null);
-    const [selectedHobbyPosition, setSelectedHobbyPosition] = React.useState<{ x: number; y: number, width: number, height: number } | null>(null);
 
     const hobbyInformation = useHobbies((state) => state.hobbies);
 
     return (
         <div className="w-full h-full relative">
-            <AnimatePresence>
+            {/* Clean Grid Layout */}
+            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
                 {hobbyInformation.map((hobby, index) => (
                     <motion.div
                         key={index}
-                        className="absolute border-4 border-zinc-300 rounded-xl overflow-hidden cursor-pointer transform transition-transform duration-300  flex justify-center items-center group"
-                        style={FramePositions[index]}
-                        onClick={() => {
-                            setSelectedHobby(hobby)
-                            setSelectedHobbyPosition({
-                                x: parseFloat(FramePositions[index].left),
-                                y: parseFloat(FramePositions[index].top),
-                                width: parseFloat(FramePositions[index].width),
-                                height: parseFloat(FramePositions[index].height)
-                            })
-                        }}
+                        className="aspect-square border-4 border-zinc-300 rounded-xl overflow-hidden cursor-pointer relative group"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.2 }}
+                        onClick={() => setSelectedHobby(hobby)}
                     >
                         <Image 
-                        src={`/hobbies/${hobby.thumbnail}`} 
-                        alt="hobby" 
-                        fill 
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
-                        style={{ objectFit: "cover" }} />
-                        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-                            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-0 group-hover:opacity-40 transition-opacity duration-300"></div>
-                            <h1 className="relative text-2xl font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                            src={`/hobbies/${hobby.thumbnail}`} 
+                            alt={hobby.headline}
+                            fill 
+                            sizes="(max-width: 768px) 33vw, (max-width: 1200px) 25vw, 20vw" 
+                            style={{ objectFit: "cover" }} 
+                        />
+                        {/* Hover overlay */}
+                        <div className="absolute inset-0 flex justify-center items-center">
+                            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
+                            <h1 className="relative text-lg md:text-xl font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 px-2 text-center">
                                 {hobby.headline}
                             </h1>
                         </div>
-                        <AnimatePresence>
-                            {selectedHobby && (
-                                <motion.div
-                                    className="w-full h-full bg-black absolute"
-                                    initial={{ opacity: "0%" }}
-                                    animate={{ opacity: "35%" }}
-                                    exit={{ opacity: "0%" }}
-                                    transition={{ duration: 0.3 }}>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-
                     </motion.div>
                 ))}
+            </div>
 
-                {selectedHobby && selectedHobbyPosition && (
-                    <div>
+            {/* Expanded Modal */}
+            <AnimatePresence>
+                {selectedHobby && (
+                    <>
+                        {/* Modal */}
                         <motion.div
-                            className="rounded-2xl overflow-hidden border-4 border-zinc-300 z-[70] absolute"
-                            initial={{
-                                top: `${selectedHobbyPosition.y}%`,
-                                left: `${selectedHobbyPosition.x}%`,
-                                width: `${selectedHobbyPosition.width}%`,
-                                height: `${selectedHobbyPosition.height}%`
-                            }}
-                            animate={{
-                                top: "50%",
-                                left: "50%",
+                            className="fixed top-1/2 left-1/2 rounded-2xl overflow-hidden border-4 border-zinc-300 z-[70]"
+                            style={{
                                 width: window.innerWidth > 2400 ? "850px" : "600px",
                                 height: window.innerHeight > 1300 ? "450px" : "300px",
-                                transform: "translate(-50%, -50%)",
                             }}
-                            exit={{
-                                top: `${selectedHobbyPosition.y}%`,
-                                left: `${selectedHobbyPosition.x}%`,
-                                width: `${selectedHobbyPosition.width}%`,
-                                height: `${selectedHobbyPosition.height}%`,
-                                transform: "translate(0, 0)",
-                            }}
+                            initial={{ opacity: 0, scale: 0.8, x: "-50%", y: "-50%" }}
+                            animate={{ opacity: 1, scale: 1, x: "-50%", y: "-50%" }}
+                            exit={{ opacity: 0, scale: 0.8, x: "-50%", y: "-50%" }}
                             transition={{ duration: 0.3 }}
                         >
-                            <Image src={`/hobbies/${selectedHobby.thumbnail}`} alt="hobby" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"  style={{ objectFit: "cover"}} />
+                            <Image 
+                                src={`/hobbies/${selectedHobby.thumbnail}`} 
+                                alt={selectedHobby.headline}
+                                fill 
+                                sizes="850px"
+                                style={{ objectFit: "cover" }} 
+                            />
+                            {/* Info panel */}
                             <motion.div
                                 className="absolute bottom-0 left-0 p-4 bg-black bg-opacity-70 text-white w-full"
-                                initial={{ opacity:0, transform: "translateY(100%)" }}
-                                animate={{ opacity:1, transform: "translateY(0)" }}
-                                exit={{ opacity:0, transform: "translateY(100%)" }}
+                                initial={{ opacity: 0, y: "100%" }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: "100%" }}
                                 transition={{ duration: 0.3 }}
                             >
                                 <h2 className="text-2xl font-bold">{selectedHobby.headline}</h2>
                                 <p className="mt-2">{selectedHobby.content}</p>
                             </motion.div>
                         </motion.div>
-                        <div
-                            className="absolute w-screen h-screen bg-black opacity-0 z-[80]"
+
+                        {/* Background overlay to close */}
+                        <motion.div
+                            className="fixed inset-0 bg-black z-[60]"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 0.5 }}
+                            exit={{ opacity: 0 }}
                             onClick={() => setSelectedHobby(null)}
-                            style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
                         />
-                    </div>
+                    </>
                 )}
             </AnimatePresence>
-        </div >
+        </div>
     );
 }
-

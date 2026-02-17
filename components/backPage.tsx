@@ -13,8 +13,8 @@ const iconsize = 24;
 const iconContainerSize = 32;
 
 const iconItems: iconItem[] = [
-  { icon: <MapPin size={iconsize} />, text: 'Copenhagen, Denmark', href: 'https://maps.app.goo.gl/Sy4UewkYC8GePGfPA' },
-  { icon: <Mail size={iconsize} />, text: 'Marc.clausen00@gmail.com', href: 'mailto:Marc.clausen00@gmail.com' },
+  { icon: <MapPin size={iconsize} />, text: 'Frederiksberg, Denmark', href: 'https://maps.app.goo.gl/Sy4UewkYC8GePGfPA' },
+  { icon: <Mail size={iconsize} />, text: 'tgilhoj@gmail.com', href: 'mailto:Marc.clausen00@gmail.com' },
   { icon: <BrandGithub size={iconsize} />, text: 'Github.com/Marcowich0', href: 'https://github.com/Marcowich0' },
   { icon: <BrandLinkedin size={iconsize} />, text: 'Linkedin.com/in/marc-clausen/', href: 'https://www.linkedin.com/in/marc-clausen/' }
 ]
