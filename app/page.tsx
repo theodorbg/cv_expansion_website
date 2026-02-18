@@ -13,6 +13,8 @@ import AnimatedProjects from "@/components/projects";
 import FlippingCard from "@/components/education";
 import GlobeDemo from "@/components/globe";
 import ResponsivePage from '@/components/helpingComponents/ResponsivePage';  // Add this with your other imports
+// import BackPage from "@/components/backPage"; 
+
 
 import { motion } from 'framer-motion';
 
@@ -244,7 +246,7 @@ export default function Home() {
           <Headline title="Contact me" />
 
           <motion.div className=" flex justify-center">
-            <h4 className={smallHeadLineClassName}> Don&apos;t hesitate to reach out if you find my profile interesting!</h4>
+            <h4 className={smallHeadLineClassName}> Don&apos;t hesitate to reach out if you find my profile interesting test test test!</h4>
           </motion.div>
 
           <GlobeDemo />

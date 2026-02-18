@@ -417,15 +417,17 @@ export default function GlobeDemo() {
     const iconsize = 36;
 
     const iconItems: iconItem[] = [
-        { icon: <MapPin size={iconsize} />, text: 'Copenhagen, Denmark', href: 'https://maps.app.goo.gl/Sy4UewkYC8GePGfPA' },
-        { icon: <Mail size={iconsize} />, text: 'Marc.clausen00@gmail.com', href: 'mailto:Marc.clausen00@gmail.com' },
-        { icon: <BrandGithub size={iconsize} />, text: 'Github', href: 'https://github.com/Marcowich0' },
-        { icon: <BrandLinkedin size={iconsize} />, text: 'Linkedin', href: 'https://www.linkedin.com/in/marc-clausen/' },
+        { icon: <MapPin size={iconsize} />, text: 'Frederiksberg, Denmark', href: 'https://maps.app.goo.gl/VWjryun22Kt8sK2C9' },
+        { icon: <Mail size={iconsize} />, text: 'tgilhoj@gmail.com', href: 'mailto:tgilhoj@gmail.com' },
+        { icon: <BrandGithub size={iconsize} />, text: 'Github', href: 'https://github.com/theodorbg' },
+        { icon: <BrandLinkedin size={iconsize} />, text: 'LinkedIn/', href: 'https://www.linkedin.com/in/tgilhoj' },
         { icon: <Books size={iconsize} />, text: 'Goodreads', href: 'https://www.goodreads.com/user/show/156322902-marc' },
         { icon: <ChessKing size={iconsize} />, text: 'Chess.com', href: 'https://www.chess.com/member/marcowich' },
         { icon: <ChessQueen size={iconsize} />, text: 'Lichess', href: 'https://lichess.org/@/Marcowich' },
         { icon: <BrandSteam size={iconsize} />, text: 'Steam', href: 'https://steamcommunity.com/id/marcowich/' }
     ]
+
+    
 
 
 
