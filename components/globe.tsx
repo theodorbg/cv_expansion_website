@@ -414,7 +414,7 @@ export default function GlobeDemo() {
     ]
 
 
-    const iconsize = 36;
+    const iconsize = 30;
 
     const iconItems: iconItem[] = [
         { icon: <MapPin size={iconsize} />, text: 'Frederiksberg, Denmark', href: 'https://maps.app.goo.gl/VWjryun22Kt8sK2C9' },
@@ -435,7 +435,7 @@ export default function GlobeDemo() {
             {iconItems.map((item, index) => (
                 <a href={item.href} target="_blank" rel="noopener noreferrer" key={item.text}>
                     <motion.button
-                        className={`w-[280px] h-14 2k:w-[350px] 2k:h-20 rounded-xl shadow-md absolute flex flex-row items-center px-4 space-x-4 z-[80] focus:outline-none transition duration-150 ease-in-out ${index >= 0 && index <= 3
+                        className={`w-[220px] h-12 2k:w-[280] 2k:h-16 rounded-xl shadow-md absolute flex flex-row items-center px-3 space-x-3 z-[80] focus:outline-none transition duration-150 ease-in-out ${index >= 0 && index <= 3
                             ? 'bg-gradient-to-r from-teal-600 to-cyan-800 hover:from-teal-800 hover:to-cyan-800 active:from-teal-500 active:to-cyan-800'
                             : 'bg-gradient-to-r from-cyan-800 to-teal-600 hover:from-cyan-800 hover:to-teal-800 active:from-cyan-800 active:to-teal-500'
                         }`}
@@ -444,13 +444,13 @@ export default function GlobeDemo() {
                         whileTap={{ scale: 0.95 }}
                     >
                         {item.icon}
-                        <h1 className="text-white font-bold text-sm 2k:text-lg">{item.text}</h1>
+                        <h1 className="text-white font-bold text-xs 2k:text-base">{item.text}</h1>
                     </motion.button>
                 </a>
             ))}
 
 
-            <div className="flex items-center justify-center py-20 h-[500px] w-[500px] 2k:h-[800px] 2k:w-[800px] flex-shrink-0">
+            <div className="flex items-center justify-center py-20 h-[450px] w-[400px] 2k:h-[600px] 2k:w-[800px] flex-shrink-0">
                 <World data={sampleArcs} globeConfig={globeConfig} />
             </div>
 
@@ -459,7 +459,7 @@ export default function GlobeDemo() {
                 <img 
                     src="portrait_half.jpg" 
                     alt="Description" 
-                    className="w-[300px] h-[400px] 2k:w-[400px] 2k:h-[500px] rounded-lg shadow-lg object-cover"
+                    className="w-[230px] h-[330px] 2k:w-[400px] 2k:h-[500px] rounded-lg shadow-lg object-cover"
                 />
             </div>
 
