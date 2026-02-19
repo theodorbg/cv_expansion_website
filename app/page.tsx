@@ -206,7 +206,7 @@ export default function Home() {
           <Headline title="Skills" />
 
           <motion.div className="flex justify-center">
-            <h4 className={smallHeadLineClassName}> Categorized overview of my skill levels in programming languages, CAD tools, <br></br> engineering software, hardware platforms, and web development frameworks <br></br> <br></br> I have developed these skills in previous jobs, during my studies and through personal projects.
+            <h4 className={smallHeadLineClassName}> Categorized overview of my skill levels in programming languages, CAD tools, <br></br> engineering software, hardware platforms, and web development frameworks <br></br> <br></br> I have developed these skills in previous jobs, during my studies and through personal projects, like developing this website.
   </h4>
           </motion.div>
 
@@ -224,10 +224,10 @@ export default function Home() {
         <div
           className="snap-start flex flex-col items-center w-full h-full mt-24"
         >
-          <Headline title="Hobbies" />
+          <Headline title="Personal Life and Activities" />
 
           <motion.div className=" flex justify-center">
-            <h4 className={smallHeadLineClassName}> Here is a quick overview of what I like to do in my spare time</h4>
+            <h4 className={smallHeadLineClassName}> I love sports, music, and languages <br></br> Expore the activities and skills, that I enjoy perfecting and mastering in my free time</h4>
           </motion.div>
 
           <motion.div className="w-full h-[500px] 2k:h-[650px] mt-16">

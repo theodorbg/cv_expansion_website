@@ -2,41 +2,41 @@
   {
       "id": 2,
       "headline": "Guitar",
-      "content": "I have been playing the guitar since I was about 10 years old. Since I have played for so long, I have explored many genres, but I favor blues rock and rock legends like Stevie Ray Vaughan, Eric Clapton, Jimi Hendrix, Derek Trucks, and John Mayer. I also like to play acoustic masterworks for more quiet and mellow moods. I own a Gibson SG, a Fender Stratocaster and an acoustic guitar. I can learn to play practically anything I want and I am always taking requests ;) ",
-      "thumbnail": "jimi.jpg"
+      "content": "I have been playing the guitar since I was about 10 years old. Since I have played for so long, I have explored many genres, but I fvor blues rock legends like Stevie Ray Vaughan, Eric Clapton, Jimi Hendrix, Derek Trucks, and John Mayer. I also like to play acoustic masterworks for more quiet and mellow moods. I own a Gibson SG, a Fender Stratocaster and an acoustic guitar. I can learn to play practically anything I want and I am always taking requests and new projects on!  ",
+      "thumbnail": "guitar.jpg"
     },
    
     {
       "id": 1,
       "headline": "Piano",
       "content": "I started playing piano during the 'rona' times, and it has taken over almost all of my musical activities. I am currently taking classical piano lessons and I love playing Debussy, Lizst, Rachmaninov, Chopin, Bach, and Schumann. I still consider myself a beginner compared to my guitar level, but I have been playing for 6 years now and I am playing very advanced pieces, so I think it would be more accurate to classify myself as at least intermediate.",
-      "thumbnail": "piano.jpg"
+      "thumbnail": "klaver.jpg"
     },
 
          
     {
       "id": 3,
       "headline": "Military Pentathlon",
-      "content": "I have been training for and competing in Military Pentathlon since my time in the army, a sport consisting of: 200m/300m rifle shooting, 500m obstacle course run, 50m obstacle swim, precision and distance throwing, and 8km cross country run. I am competing for the national team of Denmark, and have competed at the World, European, and Nordic Championships as well as many European cups and national championships. The biggest achievement thus far is our European Championship title, that we won as a team of 4 men in 2025, in Wiener Neustadt, Austria.",
-      "thumbnail": "5kamp.jpg"
+      "content": "I have been training for and competing in Military Pentathlon since my time in the army. The sport consists of: 200m/300m rifle shooting, 500m obstacle course run, 50m obstacle swim, precision + distance throwing, and 8km cross country run. I am competing for the national team of Denmark, and have competed at the World, European, and Nordic Championships as well as many European cups and national championships. So far, my biggest achievement is the European Championship title, that we won as a team of 4 men in 2025, in Wiener Neustadt, Austria.",
+      "thumbnail": "fhb_vm.jpg"
     },
     {
       "id": 4,
       "headline": "Distance Running",
       "content": "Since I started doing military pentathlon I have been training my running capabilities, and tried to raise them by an enormous amount. When I started, I was racing 8km in about 34-35 minutes, equal to a pace of around 4m20s/km. Now my best result is about 27 minutes, equal to around 3m23s/km. You can read more about my running achievements on the running page. Currently, a good week of running is 120km with 3-4x sessions and a long run, so I spend many hours a week running. ",
-      "thumbnail": "track.webp"
+      "thumbnail": "em_oploeb.jpg"
     },
     {
       "id": 5,
       "headline": "Strength Training",
       "content": "Since I was 16 years old I have been strength training, with various goals. At first, the goal was to put on size, as I was really scrawny and weak. Later I started to focus on just becoming strong in the big 3 (Squat, Bench, Deadlift), which shifted into a short weightlifting career where I competed in Snatch and Clean & Jerk. I still use those lifts (and many others) to train for military pentathlon and running, but it has taken a backseat since I began training for military pentathlon. ",
-      "thumbnail": "snatch.jpg"
+      "thumbnail": "jerk.jpg"
     },
     {
       "id": 6,
       "headline": "Swimming",
       "content": "Since swimming is a part of military pentathlon, I swim around 3x per week. I enjoy finding a flow state in the pool where it´s just you and the water. During that state, you can really concentrate on all the sensations between your body and the water and how your body feels.  ",
-      "thumbnail": "pool.webp"
+      "thumbnail": "irsk_vm.jpg"
     },
     {
       "id": 7,
@@ -44,24 +44,12 @@
       "content":"When I was a child, before the age of smartphones, tablets and social media, I used to read all the time.  I learned to read at a very young age when I was still in kindergarden, and I read the whole Harry Potter series when I was 8-9 years old. I remember my parents would yell at me for spending hours on the bathroom reading in peace. Suddenly I got a smartphone like everyone else, and before I knew it I was never reading. During my adulthood I have started to read again to calm myself before going to sleep, and find that very helpful. I really enjoy Haruki Murakami, and I am still trying to figure out what I enjoy to read the most.",
       "thumbnail": "book.png"
     },
-    {
-      "id": 8,
-      "headline": "Chess",
-      "content": "I got hooked on the chess.com wave when I was in the army, probably because my brain was a little bit bored. I played a lot for a few years, and I really enjoyed speed chess. Eventually it started to impact my life negatively because I would play in the evening before sleep, and get hyped up, making it difficult to sleep. I still play ocasionally, but mostly with friends on a real chessboard, and teach them standards and techniques.",
-      "thumbnail": "chess.webp"
-    },
+    
     {
       "id": 9,
       "headline": "Languages",
       "content": "During my time in Australia, I made friends with many Germans. It was the first time in my life out of school, and I think my brain missed learning new stuff, so I developed a strong intrinsic motivation to learn German. I had already studied it in school, but now I really wanted to actually learn and speak it fluently. I eventually went to Germany for an exchange semester, where I learned to speak it fluently. Now I have jumped into Spanish lessons on Duolingo, currently nearing 800 days in a row.",
-      "thumbnail": "language.jpg"
-    },
-    
-    {
-      "id": 10,
-      "headline": "Cooking",
-      "content": "I barely consider this an actual hooby, but I really enjoy cooking, especially with and for people I care about. But I also like to spend time and make an effort to cook something delicious for dinner, even if it´s just me eating it on a normal wednesday.",
-      "thumbnail": "cooking.jpg"
+      "thumbnail": "2m_mur_tyskland.jpg"
     }
     
   ]

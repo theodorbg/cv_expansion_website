@@ -15,8 +15,8 @@ export default function HobbyFrames() {
 
     return (
         <div className="w-full h-full relative">
-            {/* Clean Grid Layout */}
-            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
+            {/* Grid Layout optimized for 8 items */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 max-w-6xl mx-auto">
                 {hobbyInformation.map((hobby, index) => (
                     <motion.div
                         key={index}
@@ -29,7 +29,7 @@ export default function HobbyFrames() {
                             src={`/hobbies/${hobby.thumbnail}`} 
                             alt={hobby.headline}
                             fill 
-                            sizes="(max-width: 768px) 33vw, (max-width: 1200px) 25vw, 20vw" 
+                            sizes="(max-width: 768px) 50vw, 25vw" 
                             style={{ objectFit: "cover" }} 
                         />
                         {/* Hover overlay */}

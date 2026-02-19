@@ -281,19 +281,19 @@ const development = [
     {
         id: 1,
         name: "HTML",
-        level: 6,
+        level: 5,
         image: "html.svg",
     },
     {
         id: 2,
         name: "CSS",
-        level: 6,
+        level: 4,
         image: "css.svg",
     },
     {
         id: 3,
         name: "Tailwind",
-        level: 7,
+        level: 4,
         image: "tailwind.png",
     },
     {
@@ -305,7 +305,7 @@ const development = [
     {
         id: 5,
         name: "React.js",
-        level: 7,
+        level: 4,
         image: "react.png",
     },
 

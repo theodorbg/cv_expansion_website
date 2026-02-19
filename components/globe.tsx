@@ -429,16 +429,16 @@ export default function GlobeDemo() {
 
 
     return (
-        <div className="w-full h-full relative flex flex-row justify-center">
+        <div className="w-full h-full relative flex flex-row justify-center items-center">
 
 
             {iconItems.map((item, index) => (
                 <a href={item.href} target="_blank" rel="noopener noreferrer" key={item.text}>
                     <motion.button
                         className={`w-[280px] h-14 2k:w-[350px] 2k:h-20 rounded-xl shadow-md absolute flex flex-row items-center px-4 space-x-4 z-[80] focus:outline-none transition duration-150 ease-in-out ${index >= 0 && index <= 3
-                                ? 'bg-gradient-to-r from-teal-600 to-cyan-800 hover:from-teal-800 hover:to-cyan-800 active:from-teal-500 active:to-cyan-800'
-                                : 'bg-gradient-to-r from-cyan-800 to-teal-600 hover:from-cyan-800 hover:to-teal-800 active:from-cyan-800 active:to-teal-500'
-                            }`}
+                            ? 'bg-gradient-to-r from-teal-600 to-cyan-800 hover:from-teal-800 hover:to-cyan-800 active:from-teal-500 active:to-cyan-800'
+                            : 'bg-gradient-to-r from-cyan-800 to-teal-600 hover:from-cyan-800 hover:to-teal-800 active:from-cyan-800 active:to-teal-500'
+                        }`}
                         style={linkPosition[index]}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -450,8 +450,17 @@ export default function GlobeDemo() {
             ))}
 
 
-            <div className="flex items-center justify-center py-20 h-[600px] w-[600px] 2k:h-[800px] 2k:w-[800px] flex-shrink-0">
+            <div className="flex items-center justify-center py-20 h-[500px] w-[500px] 2k:h-[800px] 2k:w-[800px] flex-shrink-0">
                 <World data={sampleArcs} globeConfig={globeConfig} />
+            </div>
+
+            {/* Image positioned absolutely to the right */}
+            <div className="absolute right-[5%] top-1/2 -translate-y-1/2 z-10">
+                <img 
+                    src="portrait_half.jpg" 
+                    alt="Description" 
+                    className="w-[300px] h-[400px] 2k:w-[400px] 2k:h-[500px] rounded-lg shadow-lg object-cover"
+                />
             </div>
 
 
