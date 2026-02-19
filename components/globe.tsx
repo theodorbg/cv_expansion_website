@@ -420,11 +420,8 @@ export default function GlobeDemo() {
         { icon: <MapPin size={iconsize} />, text: 'Frederiksberg, Denmark', href: 'https://maps.app.goo.gl/VWjryun22Kt8sK2C9' },
         { icon: <Mail size={iconsize} />, text: 'tgilhoj@gmail.com', href: 'mailto:tgilhoj@gmail.com' },
         { icon: <BrandGithub size={iconsize} />, text: 'Github', href: 'https://github.com/theodorbg' },
-        { icon: <BrandLinkedin size={iconsize} />, text: 'LinkedIn/', href: 'https://www.linkedin.com/in/tgilhoj' },
-        { icon: <Books size={iconsize} />, text: 'Goodreads', href: 'https://www.goodreads.com/user/show/156322902-marc' },
-        { icon: <ChessKing size={iconsize} />, text: 'Chess.com', href: 'https://www.chess.com/member/marcowich' },
-        { icon: <ChessQueen size={iconsize} />, text: 'Lichess', href: 'https://lichess.org/@/Marcowich' },
-        { icon: <BrandSteam size={iconsize} />, text: 'Steam', href: 'https://steamcommunity.com/id/marcowich/' }
+        { icon: <BrandLinkedin size={iconsize} />, text: 'LinkedIn', href: 'https://www.linkedin.com/in/tgilhoj' }
+    
     ]
 
     

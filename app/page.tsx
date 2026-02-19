@@ -246,7 +246,7 @@ export default function Home() {
           <Headline title="Contact me" />
 
           <motion.div className=" flex justify-center">
-            <h4 className={smallHeadLineClassName}> Don&apos;t hesitate to reach out if you find my profile interesting test test test!</h4>
+            <h4 className={smallHeadLineClassName}> Don&apos;t hesitate to reach out if you find my profile interesting!</h4>
           </motion.div>
 
           <GlobeDemo />
